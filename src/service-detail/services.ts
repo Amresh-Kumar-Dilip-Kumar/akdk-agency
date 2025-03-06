@@ -1,3 +1,11 @@
+export const allowedServices = {
+  webDevelopment: "web-development",
+  mobileApps: "mobile-apps",
+  digitalMarketing: "digital-marketing",
+  seo: "seo",
+  contentWriting: "content-writing",
+  graphicDesign: "graphic-design",
+} as const;
 export const serviceDetail = {
     webDevelopment: `
  # Custom Website Development
@@ -127,4 +135,4 @@ Ensure high availability with robust hosting infrastructure. Improve security an
 
  `
 
-}
+} as const 
