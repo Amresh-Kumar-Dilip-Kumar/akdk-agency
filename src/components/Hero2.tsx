@@ -15,6 +15,7 @@ function Hero2() {
                     size="lg"
                     className="text-orange-500 hover:bg-orange-600 hover:text-white text-sm font-medium shadow border border-orange-500 transition-all"
                     variant="outline"
+                    
                 >
                     View Portfolio
                 </Button>

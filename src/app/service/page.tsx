@@ -2,6 +2,7 @@
 import React from "react";
 import { allowedServices } from "../../service-detail/services";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 const service = [
   {
@@ -98,9 +99,11 @@ function ServiceCard({
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#000000]/20">
       <Link href={service.link}>
-        <img
+        <Image
           src={service.image}
           alt={service.title}
+          width={500}
+          height={500}
           className="w-full h-60 sm:h-72 lg:h-80 object-cover"
         />
         <div className="p-6 text-center">
@@ -112,7 +115,7 @@ function ServiceCard({
           </p>
         </div>
       </Link>
-      <div className=" pb-5 ">
+      <div className="pb-5">
         <Button
           variant="link"
           onClick={(e) => {

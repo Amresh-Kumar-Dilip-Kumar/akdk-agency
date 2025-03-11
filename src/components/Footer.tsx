@@ -49,7 +49,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-semibold text-[#000000]">Stay Updated</h3>
                         <p className="mt-4 text-gray-600">
-                            Subscribe to our newsletter for the latest updates and insights from <span className="text-white font-semibold">AKDK Digital.</span>
+                            Subscribe to our newsletter for the latest updates and insights from <span className="text-black font-semibold">AKDK Digital.</span>
                         </p>
                         <div className="mt-6 flex">
                             <input

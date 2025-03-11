@@ -27,6 +27,7 @@ export const Hero = () => (
                         size="lg"
                         className="text-orange-500 hover:bg-orange-600 hover:text-white text-sm font-medium shadow border border-orange-500 transition-all"
                         variant="outline"
+                        onClick={() => window.location.href = '/project'}
                     >
                         View Portfolio
                     </Button>
@@ -34,6 +35,7 @@ export const Hero = () => (
                         size="lg"
                         className="bg-orange-600 hover:bg-orange-500 text-white text-sm font-medium transition-all"
                         variant="default"
+                        onClick={() => window.location.href = '/service'}
                     >
                         Explore Services <MoveRight className="w-4 h-4 ml-2" />
                     </Button>
