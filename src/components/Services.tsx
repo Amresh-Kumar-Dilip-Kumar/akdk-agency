@@ -25,24 +25,34 @@ const Services = () => {
     ];
 
     return (
+        <div className=' relative z-0 pb-2'>
+
+       
         <section className="max-w-[1440px] mx-auto pt-8">
-            <h2 className="mb-8 font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black text-center">
+            <h2 className="mb-8 font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black text-center ">
                 Explore Our Comprehensive Web App Services
             </h2>
             <p className="max-w-4xl mx-auto mb-8 text-lg sm:text-lg md:text-xl leading-relaxed text-gray-600 ">
                 At AKDK Digital, we offer a range of web app services designed to meet your business needs. Our team of expert developers is dedicated to delivering custom solutions, seamless upgrades,
-                and ongoing support to ensure your web applications are always performing at their best. Discover how we can help you achieve your digital goals.
+                and ongoing support to ensure`` your web applications are always performing at their best. Discover how we can help you achieve your digital goals.
             </p>
 
-                <Image
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    src="/assets/gradient-background.png" // Replace with actual path
+                {/* <Image
+                    className="absolute top-0 left-0 w-full h-full object-cover "
+                    src="/service.webp" // Replace with actual path
+                    alt="Background Gradient"
+                    layout="fill"
+                    objectFit="cover"
+                /> */}
+                <div className="relative container mx-auto">
+                      <Image
+                    className="absolute top-0 left-0 w-full h-full object-cover opacity-30 -z-10"
+                    src="/service.webp" // Replace with actual path
                     alt="Background Gradient"
                     layout="fill"
                     objectFit="cover"
                 />
-                <div className="relative container mx-auto px-4">
-                    <div className="py-24 md:py-36 px-10 md:px-24 bg-black ">
+                    <div className="py-24 md:py-36 px-10 md:px-24 bg-black/80 ">
                         <div className="flex flex-wrap -m-8">
                             {/* Left Section - Text Content */}
                             <div className="w-full md:w-1/2 p-8">
@@ -112,6 +122,7 @@ const Services = () => {
                         </div>
                     </div>
         </section>
+        </div>
     );
 };
 
