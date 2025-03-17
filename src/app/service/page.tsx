@@ -6,9 +6,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 const service = [
   {
-    title: "Custom Website Development",
+    title: "Website Design and Development",
     description:
-      "Tailor-made websites to meet your business needs, optimized for performance and user experience.",
+      "We specialize in crafting bespoke digital experiences that captivate audiences and drive results....",
     image: "/serv-1.jpg",
     link: `/service/${allowedServices.webDevelopment}`,
   },
@@ -19,9 +19,9 @@ const service = [
   //     link: `/service/${allowedServices.graphicDesign}`
   // },
   {
-    title: "E-commerce Solutions",
+    title: "Mobile App Development",
     description:
-      "Develop robust online stores with secure payment gateways and customizable shopping experiences.",
+      "Reach a broader audience with cross-platform mobile app development. Our team leverages the latest technologies to build apps ....",
     image: "/serv-3.jpg",
     link: `/service/${allowedServices.digitalMarketing}`,
   },
@@ -32,23 +32,23 @@ const service = [
   //     link: `/service/${allowedServices.seo}`
   // },
   {
-    title: "Web Application Development",
+    title: "E-commerce & CMS",
     description:
-      "Build scalable and secure web applications tailored to your business needs.",
+      "Beyond the norm, IQSetters provides outstanding E-commerce and Content Management System (CMS) services that transform...",
     image: "/serv-5.jpg",
     link: `/service/${allowedServices.mobileApps}`,
   },
   {
-    title: "UI/UX Design",
+    title: "Package Starts at  On Request",
     description:
-      "Craft intuitive and visually appealing designs that enhance user experience and engagement.",
+      "Recognizing your online presence is essential for success in the digital age. Get unparalleled insight into the functionality...",
     image: "/serv-6.jpg",
     link: `/service/${allowedServices.contentWriting}`,
   },
   {
-    title: "Hosting",
+    title: "Search Engine Optimization (SEO)",
     description:
-      "Reliable and secure web hosting solutions to ensure fast performance, uptime, and scalability for your website.",
+      "Making an impression in the crowded online environment is crucial. Our Search Engine Optimization (SEO) services aim...",
     image: "/serv-7.jpg",
     link: `/service/${allowedServices.webDevelopment}`,
   },
