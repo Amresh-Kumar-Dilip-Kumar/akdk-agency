@@ -6,12 +6,12 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 // Import your local images
 const images = [
-  "/tech-1.png",
-  "/tech-2.png",
-  "/tech-3.png",
-  "/tech-4.png",
-  "/tech-5.png",
-  "/tech-3.png",
+  "/html.png",
+  "/css.svg",
+  "/astro.svg",
+  "/react.svg",
+  "/express.svg",
+  "/tailwindcss.png",
   "/tech-4.png",
   "/tech-5.png",
 ];
@@ -47,12 +47,12 @@ export default function Technologies() {
           {images.map((image, index) => (
             <SwiperSlide
               key={index}
-              className="flex justify-center items-center bg-white w-64 h-40 shadow-md rounded-lg overflow-hidden"
+              className="flex justify-center items-center bg-white  shadow-md rounded-lg overflow-hidden"
             >
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover w-4 h-10"
               />
             </SwiperSlide>
           ))}

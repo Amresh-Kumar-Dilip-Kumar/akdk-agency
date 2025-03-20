@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { allowedServices } from "../../service-detail/services";
+// import { allowedServices } from "../../service-detail/services";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -10,47 +10,37 @@ const service = [
     description:
       "We specialize in crafting bespoke digital experiences that captivate audiences and drive results....",
     image: "/serv-1.jpg",
-    link: `/service/${allowedServices.webDevelopment}`,
+    link: `/service/website-development`,
   },
-  // {
-  //     title: "Responsive Web Design",
-  //     description: "Create visually stunning, mobile-friendly designs that ensure seamless navigation on all devices.",
-  //     image: "/serv-2.jpg",
-  //     link: `/service/${allowedServices.graphicDesign}`
-  // },
+
   {
     title: "Mobile App Development",
     description:
       "Reach a broader audience with cross-platform mobile app development. Our team leverages the latest technologies to build apps ....",
     image: "/serv-3.jpg",
-    link: `/service/${allowedServices.digitalMarketing}`,
+    link: `/service/mobile-development`,
   },
-  // {
-  //     title: "SEO Optimization",
-  //     description: "Boost your website’s visibility with strategic SEO techniques for better search rankings.",
-  //     image: "/serv-4.jpg",
-  //     link: `/service/${allowedServices.seo}`
-  // },
+
   {
     title: "E-commerce & CMS",
     description:
       "Beyond the norm, IQSetters provides outstanding E-commerce and Content Management System (CMS) services that transform...",
     image: "/serv-5.jpg",
-    link: `/service/${allowedServices.mobileApps}`,
+    link: `/service/ecommerce`,
   },
   {
     title: "Package Starts at  On Request",
     description:
       "Recognizing your online presence is essential for success in the digital age. Get unparalleled insight into the functionality...",
     image: "/serv-6.jpg",
-    link: `/service/${allowedServices.contentWriting}`,
+    link: `/service/package`,
   },
   {
     title: "Search Engine Optimization (SEO)",
     description:
       "Making an impression in the crowded online environment is crucial. Our Search Engine Optimization (SEO) services aim...",
     image: "/serv-7.jpg",
-    link: `/service/${allowedServices.webDevelopment}`,
+    link: `/service/seoptimize`,
   },
 ];
 
