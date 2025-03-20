@@ -32,7 +32,7 @@ function SeoServicePage() {
       {/* Detail Section */}
       <section className="px-4 sm:px-6 lg:px-8 my-16">
         <h2 className="text-3xl text-center font-semibold mb-8">
-          We provides website design and development services
+          E-commerce & CMS Services
         </h2>
         <div className=" max-w-7xl text-center mx-auto">
           <p className="text-base text-[#4B4B4B]">

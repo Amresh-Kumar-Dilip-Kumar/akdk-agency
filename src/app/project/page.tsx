@@ -13,28 +13,18 @@ const projects = [
     title: "Our-Shop.site",
     description:
       "Our-Shop.site is a small-scale e-commerce platform that empowers individuals to launch and manage their online businesses with ease. With user-friendly tools and secure payment options, entrepreneurs can start selling in no time.",
-
     features: "User-friendly, Secure Payments",
     image: ["/shop-1.png", "/shop-2.png", "/shop-3.png"],
+    link: "https://our-shop.site/",
   },
   {
     title: "Green Corp Agriculture",
     description:
       "Green Corp Agriculture is dedicated to producing high-quality rice through sustainable and innovative farming practices. We focus on delivering premium grains while promoting eco-friendly agriculture to support healthier communities and a greener future.",
-
     features: "Sustainable Farming, Premium Quality",
     image: ["/green-1.png", "/green-2.png", "/green-3.png"],
+    link: "https://greenagricorp.netlify.app/",
   },
-  // {
-  //     title: "Blogging Platform",
-  //     description:
-  //         "A dynamic platform that empowers users to create and share content, focusing on community engagement.",
-  //     client: "N/A",
-  //     date: "August 2021",
-  //     features: "Content Creation, Community Focus",
-  //     image: ["port-1.webp", "project-management.jpg"],
-
-  // },
 ];
 
 const Project = () => {
@@ -84,7 +74,7 @@ const Project = () => {
                 href="#"
                 className="text-orange-500 mt-4 inline-block text-sm sm:text-base hover:text-orange-600 transition-colors duration-300"
               >
-                View Project →
+                View Project →{project.link}
               </a>
             </div>
             <div className="md:w-1/2 flex justify-center mt-6 md:mt-0 ">

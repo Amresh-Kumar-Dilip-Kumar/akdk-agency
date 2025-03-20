@@ -6,14 +6,15 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 // Import your local images
 const images = [
-  "/html.png",
-  "/css.svg",
-  "/astro.svg",
-  "/react.svg",
-  "/express.svg",
-  "/tailwindcss.png",
-  "/tech-4.png",
-  "/tech-5.png",
+  "/html5.png",
+  "/andriod.png",
+  "/react.png",
+  "/react-native.png",
+  "/ios.png",
+  "/html5.png",
+  "/andriod.png",
+  "/react.png",
+  "/ios.png",
 ];
 
 export default function Technologies() {
@@ -52,7 +53,7 @@ export default function Technologies() {
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover w-4 h-10"
+                className="w-full h-full object-cover"
               />
             </SwiperSlide>
           ))}

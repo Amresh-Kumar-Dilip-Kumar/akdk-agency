@@ -9,7 +9,7 @@ const service = [
     title: "Website Design and Development",
     description:
       "We specialize in crafting bespoke digital experiences that captivate audiences and drive results....",
-    image: "/serv-1.jpg",
+    image: "/web.jpg",
     link: `/service/website-development`,
   },
 
@@ -17,7 +17,7 @@ const service = [
     title: "Mobile App Development",
     description:
       "Reach a broader audience with cross-platform mobile app development. Our team leverages the latest technologies to build apps ....",
-    image: "/serv-3.jpg",
+    image: "/mobile.jpg",
     link: `/service/mobile-development`,
   },
 
@@ -25,21 +25,21 @@ const service = [
     title: "E-commerce & CMS",
     description:
       "Beyond the norm, IQSetters provides outstanding E-commerce and Content Management System (CMS) services that transform...",
-    image: "/serv-5.jpg",
+    image: "/cms.jpg",
     link: `/service/ecommerce`,
   },
   {
     title: "Package Starts at  On Request",
     description:
       "Recognizing your online presence is essential for success in the digital age. Get unparalleled insight into the functionality...",
-    image: "/serv-6.jpg",
+    image: "/package.jpg",
     link: `/service/package`,
   },
   {
     title: "Search Engine Optimization (SEO)",
     description:
       "Making an impression in the crowded online environment is crucial. Our Search Engine Optimization (SEO) services aim...",
-    image: "/serv-7.jpg",
+    image: "/seo.jpg",
     link: `/service/seoptimize`,
   },
 ];
