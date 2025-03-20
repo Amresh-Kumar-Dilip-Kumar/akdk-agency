@@ -12,6 +12,7 @@ export default function ContactForm() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Form Submitted", formData);
+        contactFormHandler 
     };
 
     return (
