@@ -1,12 +1,12 @@
 {
-   "name": "akdk-agency",
+  "name": "akdk-agency",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "build": "next build" 
+    "build": "next build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
@@ -16,7 +16,7 @@
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.4",
     "lucide-react": "^0.475.0",
-    "next": "^13.4.7",
+    "next": "^15.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.4.0",
