@@ -20,7 +20,16 @@ export default function Navbar() {
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block text-[#000000]" href="/">
               <span className="sr-only">Home</span>
-              <h1 className="text-4xl font-medium">AKDK Digital</h1>
+              <h1 className="flex flex-row">
+                <span className="text-2xl font-extrabold pr-2 text-slate-800">
+                  AKDK
+                </span>
+                <span className="text-2xl font-normal">
+                  Digi
+                  <span className="text-red-600 font-bold">t</span>
+                  al
+                </span>
+              </h1>
             </Link>
           </div>
 
@@ -41,7 +50,7 @@ export default function Navbar() {
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <Link
-                        className="text-gray-500 transition hover:text-orange-600"
+                        className="text-gray-500 transition hover:text-red-600"
                         href={`/${item.path}`} // Use the correct path
                       >
                         {item.name}
@@ -61,7 +70,7 @@ export default function Navbar() {
                   className="hidden sm:inline-flex"
                 >
                   <Link
-                    className="rounded-md bg-orange-600 px-5 py-2.5 text-sm font-normal hover:bg-orange-500 text-white"
+                    className="rounded-md bg-red-600 px-5 py-2.5 text-sm font-normal hover:bg-red-500 text-white"
                     href="/service"
                   >
                     Our Services

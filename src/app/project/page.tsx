@@ -72,7 +72,7 @@ const Project = () => {
               </p>
               <a
                 href="#"
-                className="text-orange-500 mt-4 inline-block text-sm sm:text-base hover:text-orange-600 transition-colors duration-300"
+                className="text-red-500 mt-4 inline-block text-sm sm:text-base hover:text-red-600 transition-colors duration-300"
               >
                 View Project →{project.link}
               </a>

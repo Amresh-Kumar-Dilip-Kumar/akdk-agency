@@ -71,7 +71,7 @@ export default function ContactForm() {
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <input
                 type="email"
@@ -79,14 +79,14 @@ export default function ContactForm() {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
               />
               <textarea
                 name="message"
                 placeholder="Type your message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm h-32 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm h-32 focus:outline-none focus:ring-2 focus:ring-red-500"
               ></textarea>
             </div>
 
@@ -96,14 +96,14 @@ export default function ContactForm() {
                 name="terms"
                 checked={formData.terms}
                 onChange={handleChange}
-                className="w-4 h-4 text-orange-600 border-gray-300 rounded"
+                className="w-4 h-4 text-red-600 border-gray-300 rounded"
               />
               <label className="text-gray-600">I accept the Terms</label>
             </div>
 
             <button
               type="submit"
-              className="rounded-md bg-orange-600 px-8 py-2.5 text-sm font-normal hover:bg-orange-500 text-white"
+              className="rounded-md bg-red-600 px-8 py-2.5 text-sm font-normal hover:bg-red-500 text-white"
             >
               Submit
             </button>

@@ -15,9 +15,8 @@ export const Hero = () => (
         className="flex flex-col gap-6 text-left"
         whileInView={{ opacity: 1, x: 0 }}
       >
-        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight max-w-lg leading-tight">
-          Transform Your{" "}
-          <span className="text-orange-600">Digital Presence</span>
+        <h1 className="text-6xl md:text-6xl font-extrabold tracking-tight max-w-lg leading-tight">
+          Transform Your <span className="text-red-600">Digital Presence</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700 max-w-md leading-relaxed">
           At <strong>AKDK Digital</strong>, we craft innovative web applications
@@ -27,7 +26,7 @@ export const Hero = () => (
         <div className="flex flex-wrap gap-4">
           <Button
             size="lg"
-            className="text-orange-500 hover:bg-orange-600 hover:text-white text-sm font-medium shadow border border-orange-500 transition-all"
+            className="text-red-500 hover:bg-red-600 hover:text-white text-sm font-medium shadow border border-red-500 transition-all"
             variant="outline"
             onClick={() => (window.location.href = "/project")}
           >
@@ -35,7 +34,7 @@ export const Hero = () => (
           </Button>
           <Button
             size="lg"
-            className="bg-orange-600 hover:bg-orange-500 text-white text-sm font-medium transition-all"
+            className="bg-red-600 hover:bg-red-500 text-white text-sm font-medium transition-all"
             variant="default"
             onClick={() => (window.location.href = "/service")}
           >
