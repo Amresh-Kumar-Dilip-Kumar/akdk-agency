@@ -22,9 +22,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  // const isHomePage;
   return (
     <html lang="en" className="darkmode">
       <body
@@ -32,7 +31,9 @@ export default function RootLayout({
       >
         {/* <div className="relative w-full flex items-center justify-center "> */}
         <Navbar />
+
         <div className="p-8"></div>
+
         {/* </div> */}
         {children}
         <Footer />
