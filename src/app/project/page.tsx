@@ -29,8 +29,20 @@ const projects = [
 
 const Project = () => {
   return (
-    <div className="max-w-[1440px] mx-auto px-6 py-16">
-      <div className="text-center mb-20 sm:mb-40">
+    <section className="text-gray-900">
+      <div className="lg:p-28 p-12  bg-gradient-to-br from-red-600 to-red-400 flex *:flex-1 xl:flex-row flex-col">
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 ">
+          <div className=" p-1" />
+          Explore Our Portfolio
+        </h1>
+        <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-extralight">
+          Discover our innovative projects that showcase our expertise in{" "}
+          <br className="hidden sm:block" />
+          creating dynamic web applications tailored to client needs.
+        </p>
+      </div>
+      <div className="max-w-[1440px] mx-auto px-6 py-40">
+        {/* <div className="text-center mb-20 sm:mb-40">
         <h1 className="text-3xl sm:text-5xl font-heading font-bold text-[#000000] mb-4 sm:mb-6">
           Explore Our Portfolio
         </h1>
@@ -39,67 +51,68 @@ const Project = () => {
           <br className="hidden sm:block" />
           creating dynamic web applications tailored to client needs.
         </p>
-      </div>
+      </div> */}
 
-      <div className="border-b mb-12">
-        <h3 className="text-3xl sm:text-5xl font-semibold text-gray-800">
-          Showcasing Our Projects
-        </h3>
-        <p className="text-lg sm:text-xl text-gray-500 leading-relaxed mt-4 mb-8">
-          Explore our diverse range of web applications that exemplify our
-          commitment to quality and innovation.
-        </p>
-      </div>
+        <div className="border-b mb-12">
+          <h3 className="text-3xl sm:text-5xl font-semibold text-gray-800">
+            Showcasing Our Projects
+          </h3>
+          <p className="text-lg sm:text-xl text-gray-500 leading-relaxed mt-4 mb-8">
+            Explore our diverse range of web applications that exemplify our
+            commitment to quality and innovation.
+          </p>
+        </div>
 
-      <div>
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className={`flex flex-col ${
-              index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-            } items-center mb-16 border-b pb-8 gap-16`}
-          >
-            <div className="md:w-1/2 text-center md:text-left">
-              <h4 className="text-xl sm:text-2xl font-semibold text-gray-800">
-                {project.title}
-              </h4>
-              <p className="text-gray-600 mt-3 text-sm sm:text-base">
-                {project.description}
-              </p>
+        <div>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className={`flex flex-col ${
+                index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+              } items-center mb-16 border-b pb-8 gap-16`}
+            >
+              <div className="md:w-1/2 text-center md:text-left">
+                <h4 className="text-xl sm:text-2xl font-semibold text-gray-800">
+                  {project.title}
+                </h4>
+                <p className="text-gray-600 mt-3 text-sm sm:text-base">
+                  {project.description}
+                </p>
 
-              <p className="text-sm text-gray-500 mt-2">
-                <strong>Features:</strong> {project.features}
-              </p>
-              <a
-                href="#"
-                className="text-red-500 mt-4 inline-block text-sm sm:text-base hover:text-red-600 transition-colors duration-300"
-              >
-                View Project →{project.link}
-              </a>
+                <p className="text-sm text-gray-500 mt-2">
+                  <strong>Features:</strong> {project.features}
+                </p>
+                <a
+                  href="#"
+                  className="text-red-500 mt-4 inline-block text-sm sm:text-base hover:text-red-600 transition-colors duration-300"
+                >
+                  View Project →{project.link}
+                </a>
+              </div>
+              <div className="md:w-1/2 flex justify-center mt-6 md:mt-0 ">
+                <Carousel>
+                  <CarouselContent>
+                    {project.image.map((url, imgIndex) => (
+                      <CarouselItem key={imgIndex}>
+                        <Image
+                          src={url}
+                          alt={project.title}
+                          className="rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-full transition-transform duration-300 transform hover:scale-105"
+                          width={500}
+                          height={300}
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
             </div>
-            <div className="md:w-1/2 flex justify-center mt-6 md:mt-0 ">
-              <Carousel>
-                <CarouselContent>
-                  {project.image.map((url, imgIndex) => (
-                    <CarouselItem key={imgIndex}>
-                      <Image
-                        src={url}
-                        alt={project.title}
-                        className="rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-full transition-transform duration-300 transform hover:scale-105"
-                        width={500}
-                        height={300}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
