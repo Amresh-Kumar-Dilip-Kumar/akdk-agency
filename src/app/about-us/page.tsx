@@ -19,11 +19,9 @@ function AboutUs() {
           and innovation.
         </p>
       </div>
-      {/* Section 1: Our Journey & Mission */}
-      <div className="max-w-4xl mx-auto text-center px-6 py-16"></div>
-
+      {/* Section 1: Our Journey & Mission */}\
       {/* Section 2: Our Talented Team */}
-      <div className="max-w-4xl mx-auto text-center px-6 py-16">
+      <div className="max-w-4xl mx-auto text-center px-6 py-40">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
           Our Talented Team
         </h1>
@@ -33,7 +31,6 @@ function AboutUs() {
           success.
         </p>
       </div>
-
       {/* Team Profiles */}
       <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-40 pb-16 items-center justify-center">
         {/* Profile 1 */}
@@ -104,7 +101,6 @@ function AboutUs() {
           </div>
         </div>
       </div>
-
       {/* Section 3: Get in Touch */}
       <div className="max-w-4xl mx-auto text-center px-6 py-16">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
