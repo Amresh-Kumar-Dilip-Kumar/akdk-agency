@@ -33,3 +33,16 @@
   ))}
 </Swiper>
 ```
+
+install experss cors dotenv prisma @prisma/client
+
+init prism
+npx prisma init --datasource-provider sqlite
+
+change database_url
+
+add model
+
+npx prisma db push
+
+npx prisma studio

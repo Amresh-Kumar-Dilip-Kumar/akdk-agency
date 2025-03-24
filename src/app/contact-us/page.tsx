@@ -19,12 +19,6 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-    // contactFormHandler
-  };
-
   return (
     <section className="py-12 ">
       {/* Section 1: Header */}
@@ -63,7 +57,24 @@ export default function ContactForm() {
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             We’d Love to Hear From You!
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log(formData);
+
+              fetch("http://localhost:4000/contact-form", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+              })
+                .then((res) => res.json())
+                .then((data) => console.log(data))
+                .catch((err) => console.error(err));
+            }}
+            className="space-y-6"
+          >
             <div className="space-y-4">
               <input
                 type="text"
