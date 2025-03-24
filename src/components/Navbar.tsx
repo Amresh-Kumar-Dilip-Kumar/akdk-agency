@@ -2,7 +2,7 @@
 // import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Navigation } from "lucide-react";
+
 import { useState } from "react";
 import { X, Menu } from "lucide-react";
 
@@ -85,7 +85,6 @@ export default function Navbar() {
 
               {/* Mobile Menu Button */}
               <div className="block md:hidden">
-                {/* Mobile Menu Button */}
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
@@ -111,11 +110,21 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={`/${item.path}`}
-                        className="text-lg px-4 py-2 hover:bg-gray-200"
+                        className="text-lg px-4 py-2 hover:text-red-600"
                       >
                         {item.name}
                       </Link>
                     ))}
+
+                    {/* Our Services Button - Styled for better alignment */}
+                    <div className="px-4">
+                      <Link
+                        className="block w-full text-center rounded-md bg-red-600 px-4 py-2.5 text-sm font-normal text-white hover:bg-red-500"
+                        href="/service"
+                      >
+                        Our Services
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </div>
