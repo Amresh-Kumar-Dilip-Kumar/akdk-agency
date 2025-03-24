@@ -122,6 +122,7 @@ export default function Navbar() {
                       <Link
                         className="block w-full text-center rounded-md bg-red-600 px-4 py-2.5 text-sm font-normal text-white hover:bg-red-500"
                         href="/service"
+                        onClick={() => setOpen(false)}
                       >
                         Our Services
                       </Link>
