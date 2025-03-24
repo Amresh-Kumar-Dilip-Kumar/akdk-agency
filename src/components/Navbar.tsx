@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 import { useState } from "react";
 import { X, Menu } from "lucide-react";
+const Navigation = [
+  { name: "Home", path: "/" },
+  { name: "About-us", path: "about-us" }, // Corrected path
+  { name: "Portfolio", path: "project" }, // Corrected path
+  { name: "Contact Us", path: "contact-us" },
+];
 
 export default function Navbar() {
-  const Navigation = [
-    { name: "Home", path: "/" },
-    { name: "About-us", path: "about-us" }, // Corrected path
-    { name: "Portfolio", path: "project" }, // Corrected path
-    { name: "Contact Us", path: "contact-us" },
-  ];
   const [isOpen, setOpen] = useState(false);
   return (
     <motion.header
@@ -111,6 +111,7 @@ export default function Navbar() {
                         key={item.name}
                         href={`/${item.path}`}
                         className="text-lg px-4 py-2 hover:text-red-600"
+                        onClick={() => setOpen(false)}
                       >
                         {item.name}
                       </Link>
