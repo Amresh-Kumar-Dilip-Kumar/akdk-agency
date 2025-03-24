@@ -2,24 +2,23 @@ import React from "react";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-
+import { PageHeader } from "@/components/page-header";
 function AboutUs() {
   return (
     <section className="text-gray-900">
-      <div className="lg:p-28 p-12  bg-gradient-to-br from-red-600 to-red-400 flex *:flex-1 xl:flex-row flex-col">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 ">
-          <div className="bg-green-200 w-1 p-1" />
-          Our Journey & Mission
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-extralight">
-          Founded in 2020,{" "}
-          <span className="font-semibold text-white">AKDK Digital</span>{" "}
-          empowers businesses with innovative web solutions that enhance
-          functionality and drive engagement. Our mission is to deliver quality
-          and innovation.
-        </p>
-      </div>
-      {/* Section 1: Our Journey & Mission */}\
+      {/* Section 1: Our Journey & Mission */}
+      <PageHeader
+        heading={<> Our Journey & Mission</>}
+        discription={
+          <>
+            Founded in 2020,{" "}
+            <span className="font-semibold text-white">AKDK Digital</span>{" "}
+            empowers businesses with innovative web solutions that enhance
+            functionality and drive engagement. Our mission is to deliver
+            quality and innovation.
+          </>
+        }
+      />
       {/* Section 2: Our Talented Team */}
       <div className="max-w-4xl mx-auto text-center px-6 py-40">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
@@ -110,7 +109,7 @@ function AboutUs() {
           Reach out to our team for any inquiries or project discussions.
         </p>
         <Link
-          href="/contact"
+          href="/contact-us"
           className="rounded-md px-5 py-2.5 text-red-500 hover:bg-red-600 hover:text-white text-sm font-normal shadow border border-red-500"
         >
           Contact US

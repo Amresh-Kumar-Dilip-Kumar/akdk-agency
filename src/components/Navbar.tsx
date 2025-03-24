@@ -2,8 +2,18 @@
 // import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Navigation } from "lucide-react";
+import { useState } from "react";
+import { X, Menu } from "lucide-react";
 
 export default function Navbar() {
+  const Navigation = [
+    { name: "Home", path: "/" },
+    { name: "About-us", path: "about-us" }, // Corrected path
+    { name: "Portfolio", path: "project" }, // Corrected path
+    { name: "Contact Us", path: "contact-us" },
+  ];
+  const [isOpen, setOpen] = useState(false);
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -37,12 +47,7 @@ export default function Navbar() {
           <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-8 text-base">
-                {[
-                  { name: "Home", path: "/" },
-                  { name: "About-us", path: "about-us" }, // Corrected path
-                  { name: "Portfolio", path: "project" }, // Corrected path
-                  { name: "Contact Us", path: "contact-us" },
-                ].map((item, index) => (
+                {Navigation.map((item, index) => (
                   <div key={index}>
                     <motion.li
                       key={index}
@@ -79,32 +84,41 @@ export default function Navbar() {
               </div>
 
               {/* Mobile Menu Button */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="block md:hidden"
-              >
+              <div className="block md:hidden">
+                {/* Mobile Menu Button */}
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                  onClick={() => setOpen(!isOpen)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  {isOpen ? (
+                    <X className="size-5" />
+                  ) : (
+                    <Menu className="size-5" />
+                  )}
                 </motion.button>
-              </motion.div>
+
+                {/* Mobile Menu Items */}
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-16 border-t flex flex-col w-full right-0 bg-background shadow-lg py-4 container gap-4"
+                  >
+                    {Navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={`/${item.path}`}
+                        className="text-lg px-4 py-2 hover:bg-gray-200"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
             </div>
           </div>
         </div>

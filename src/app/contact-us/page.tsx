@@ -1,4 +1,5 @@
 "use client";
+import { PageHeader } from "@/components/page-header";
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -22,26 +23,16 @@ export default function ContactForm() {
   return (
     <section className="text-gray-900">
       {/* Section 1: Header */}
-      <div className="lg:p-28 p-12  bg-gradient-to-br from-red-600 to-red-400 flex *:flex-1 xl:flex-row flex-col">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 ">
-          <div className=" p-1" />
-          Get in Touch
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-extralight">
-          Reach out to us for expert web development solutions. Our team is
-          ready to assist you with any inquiries or project discussions.
-        </p>
-      </div>
-      {/* <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 py-8 sm:py-12">
-        <h1 className="text-3xl sm:text-5xl font-heading font-bold text-gray-800 mb-4 sm:mb-6">
-          Get in Touch
-        </h1>
-        <p className="text-lg sm:text-lg md:text-xl text-gray-500 leading-relaxed">
-          Reach out to us for expert web development solutions. Our team is
-          ready to assist <br />
-          you with any inquiries or project discussions.
-        </p>
-      </div> */}
+
+      <PageHeader
+        heading={<>Get in Touch</>}
+        discription={
+          <>
+            Reach out to us for expert web development solutions. Our team is
+            ready to assist you with any inquiries or project discussions.
+          </>
+        }
+      />
 
       {/* Section 2: Form and Map */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-40">

@@ -1,14 +1,14 @@
 import React from "react";
 
 export default function PartialsEffect() {
-  return;
-  <>
-    <div className="p-28 bg-gradient-to-br from-red-600 to-red-400 -z-10">
-      <div id="particles-js"></div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-      {`
+  return (
+    <>
+      <div className="p-28 bg-gradient-to-br from-red-600 to-red-400 -z-10">
+        <div id="particles-js"></div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script>
+        {`
     particlesJS('particles-js', {
       particles: {
   number: {
@@ -115,6 +115,7 @@ export default function PartialsEffect() {
       retina_detect: true,
     });
   `}
-    </script>
-  </>;
+      </script>
+    </>
+  );
 }
