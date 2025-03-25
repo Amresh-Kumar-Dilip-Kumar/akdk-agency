@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { X, Menu } from "lucide-react";
 const Navigation = [
   { name: "Home", path: "/" },
@@ -16,7 +16,7 @@ export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
   return (
     <motion.header
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md p-2 font-baloo-bhai-2 w-full"
@@ -48,7 +48,7 @@ export default function Navbar() {
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-8 text-base">
                 {Navigation.map((item, index) => (
-                  <div key={index}>
+                  <React.Fragment key={index}>
                     <motion.li
                       key={index}
                       whileHover={{ scale: 1.1 }}
@@ -61,7 +61,7 @@ export default function Navbar() {
                         {item.name}
                       </Link>
                     </motion.li>
-                  </div>
+                  </React.Fragment>
                 ))}
               </ul>
             </nav>
@@ -104,7 +104,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute top-16 border-t flex flex-col w-full right-0 bg-background shadow-lg py-4 container gap-4"
+                    className="absolute top-20 border-t flex flex-col w-full right-0 bg-background shadow-lg py-4 container gap-4"
                   >
                     {Navigation.map((item) => (
                       <Link

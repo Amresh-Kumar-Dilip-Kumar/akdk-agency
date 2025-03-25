@@ -1,9 +1,9 @@
 export const PageHeader = ({
   heading,
-  discription,
+  description: description,
 }: {
   heading: React.ReactNode;
-  discription: React.ReactNode;
+  description: React.ReactNode;
 }) => {
   return (
     <div className="lg:p-28 p-12  bg-gradient-to-br from-red-600 to-red-400 ">
@@ -13,7 +13,7 @@ export const PageHeader = ({
           {heading}
         </h1>
         <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-extralight">
-          {discription}
+          {description}
         </p>
       </div>
     </div>

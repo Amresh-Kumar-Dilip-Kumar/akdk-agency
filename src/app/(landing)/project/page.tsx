@@ -33,7 +33,7 @@ const Project = () => {
     <section className="text-gray-900">
       <PageHeader
         heading={<>Explore Our Portfolio</>}
-        discription={
+        description={
           <>
             Discover our innovative projects that showcase our expertise in
             creating dynamic web applications tailored to client needs.

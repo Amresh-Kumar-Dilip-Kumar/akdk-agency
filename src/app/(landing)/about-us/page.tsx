@@ -2,17 +2,17 @@ import React from "react";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/page-header2";
 function AboutUs() {
   return (
     <section className="text-gray-900">
       {/* Section 1: Our Journey & Mission */}
       <PageHeader
         heading={<> Our Journey & Mission</>}
-        discription={
+        description={
           <>
             Founded in 2020,{" "}
-            <span className="font-semibold text-white">AKDK Digital</span>{" "}
+            <span className="font-semibold text-slate-800">AKDK Digital</span>{" "}
             empowers businesses with innovative web solutions that enhance
             functionality and drive engagement. Our mission is to deliver
             quality and innovation.

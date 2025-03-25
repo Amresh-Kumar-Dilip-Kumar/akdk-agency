@@ -26,7 +26,7 @@ export default function ContactForm() {
 
       <PageHeader
         heading={<>Get in Touch</>}
-        discription={
+        description={
           <>
             Reach out to us for expert web development solutions. Our team is
             ready to assist you with any inquiries or project discussions.
@@ -104,6 +104,7 @@ export default function ContactForm() {
 
             <div className="flex items-center space-x-2">
               <input
+                placeholder="true"
                 type="checkbox"
                 name="terms"
                 checked={formData.terms}

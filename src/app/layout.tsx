@@ -36,8 +36,6 @@ export default function RootLayout({
       >
         {/* <div className="relative w-full flex items-center justify-center "> */}
 
-        <div className="p-8"></div>
-
         {/* </div> */}
         {children}
       </body>

@@ -11,7 +11,7 @@ export default function RootLayout({
       {/* <div className="relative w-full flex items-center justify-center "> */}
       <Navbar />
 
-      <div className="p-8"></div>
+      <div className="p-10"></div>
 
       {/* </div> */}
       {children}
