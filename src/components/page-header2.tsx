@@ -7,7 +7,7 @@ export const PageHeader = ({
   description: React.ReactNode;
 }) => {
   return (
-    <div className="lg:py-16 lg:px-20 py-20 px-5 bg-gradient-to-br from-red-600 to-red-400 relative z-0 backdrop:blur-lg">
+    <div className="lg:py-16 lg:px-20 py-20 px-5 /bg-gradient-to-br from-red-600 to-red-400 relative z-0 backdrop:blur-lg">
       <div className="absolute inset-0 bg-red-100 opacity-50 -z-10"></div>
       <Image
         src="/hero.webp"
