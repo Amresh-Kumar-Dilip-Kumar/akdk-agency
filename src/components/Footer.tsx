@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className=" text-gray-900 py-14 px-6 border-t border-gray-300">
+    <footer className=" text-gray-900 py-14 px-6 border-t border-gray-300 ">
       <div className="w-full max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid  text-center grid-cols-1 md:grid-cols-4   gap-10">
           {/* Explore */}
           <div>
             <h3 className="text-xl font-semibold text-[#000000]">Explore</h3>

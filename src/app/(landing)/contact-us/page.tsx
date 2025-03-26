@@ -1,5 +1,5 @@
 "use client";
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/page-header2";
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -35,7 +35,7 @@ export default function ContactForm() {
       />
 
       {/* Section 2: Form and Map */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-40">
+      <div className="max-w-[1440px]  mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-40">
         {/* Google Map Section */}
         <div className="w-full">
           {/* <iframe

@@ -23,12 +23,12 @@ export const PageHeader = ({
         }}
       />
       <div className="max-w-7xl mx-auto flex *:flex-1 xl:flex-row flex-col">
-        <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-6  relative z-0">
-          <div className="bg-green-500 w-32 p-2 absolute -z-10 md:my-8 md:-mx-4 my-6 -mx-1" />
-          <div className="bg-slate-100/30 w-40 p-2 absolute -z-10 md:my-7 md:-mx-6 my-5 -mx-3" />
+        <h1 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6  relative z-0">
+          {/* <div className="bg-green-500 w-32 p-2 absolute -z-10 md:my-8 md:-mx-4 my-6 -mx-1" /> */}
+          {/* <div className="bg-slate-100/30 w-40 p-2 absolute -z-10 md:my-7 md:-mx-6 my-5 -mx-3" /> */}
           {heading}
         </h1>
-        <p className="text-lg sm:text-xl text-slate-900  tracking-wide font-extralight">
+        <p className="text-lg md:text-xl text-slate-900  tracking-wide font-extralight">
           {description}
         </p>
       </div>

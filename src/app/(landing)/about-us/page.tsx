@@ -31,7 +31,7 @@ function AboutUs() {
         </p>
       </div>
       {/* Team Profiles */}
-      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-40 pb-16 items-center justify-center">
+      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-6 sm:px-20 md:px-40 pb-16 items-center justify-center">
         {/* Profile 1 */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-x-0 sm:space-x-6 text-center sm:text-left">
           <Image
@@ -41,12 +41,12 @@ function AboutUs() {
             height={144}
             className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
           />
-          <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-gray-900">
+          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
               Alice Johnson
             </h2>
-            <p className="text-lg text-gray-600">UI/UX Designer</p>
-            <p className="text-gray-500 max-w-sm">
+            <p className="text-base sm:text-lg text-gray-600">UI/UX Designer</p>
+            <p className="text-gray-500">
               With over 10 years of experience in web development, Alice leads
               our team in creating innovative solutions.
             </p>
@@ -76,10 +76,10 @@ function AboutUs() {
             height={144}
             className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
           />
-          <div className="space-y-3">
+          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-900">John Doe</h2>
             <p className="text-lg text-gray-600">Lead Developer</p>
-            <p className="text-gray-500 max-w-sm">
+            <p className="text-gray-500">
               Passionate about building innovative web solutions that enhance
               functionality and user experience.
             </p>
@@ -100,6 +100,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
+
       {/* Section 3: Get in Touch */}
       <div className="max-w-4xl mx-auto text-center px-6 py-16">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">

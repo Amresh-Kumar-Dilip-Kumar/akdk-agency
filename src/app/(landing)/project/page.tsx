@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/page-header2";
 const projects = [
   {
     title: "Our-Shop.site",
@@ -41,8 +41,8 @@ const Project = () => {
         }
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-40">
-        <div className="border-b mb-12">
+      <div className="max-w-[1440px]  mx-auto px-6 py-40 text-center sm:text-left">
+        <div className="border-b mb-12 ">
           <h3 className="text-3xl sm:text-5xl font-semibold text-gray-800">
             Showcasing Our Projects
           </h3>
@@ -58,13 +58,13 @@ const Project = () => {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-              } items-center mb-16 border-b pb-8 gap-16`}
+              } items-center  pb-8 gap-16`}
             >
-              <div className="md:w-1/2 text-center md:text-left px-10">
+              <div className="text-center md:text-left px-10 max-w-2xl md:w-1/2">
                 <h4 className="text-xl sm:text-2xl font-semibold text-gray-800">
                   {project.title}
                 </h4>
-                <p className="text-gray-600 mt-3 text-sm sm:text-base">
+                <p className="text-gray-600 mt-3 text-sm sm:text-base ">
                   {project.description}
                 </p>
 

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { PageHeader } from "@/components/page-header2";
 const service = [
   {
     title: "Website Design and Development",
@@ -52,8 +53,20 @@ export default function Service2() {
       {showQuoteModal && (
         <GetAQuoteModel setShowQuoteModal={setShowQuoteModal} />
       )}
-      <section className="max-w-[1440px] mx-auto py-16 px-6">
-        <div className="text-center mb-16">
+      <PageHeader
+        heading={<>Our Comprehensive Web App Services</>}
+        description={
+          <>
+            At AKDK Digital, we offer a range of web app services designed to
+            meet your business needs. Our team of expert developers is dedicated
+            to delivering custom solutions, seamless upgrades, and ongoing
+            support to ensure your web applications are always performing at
+            their best. Discover how we can help you achieve your digital goals.
+          </>
+        }
+      />
+      <section className="max-w-[1440px] mx-auto py-40 px-6">
+        {/* <div className="text-center mb-16">
           <h2 className="mb-8 font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#000000]">
             Our Comprehensive Web App Services
           </h2>
@@ -64,7 +77,7 @@ export default function Service2() {
             support to ensure your web applications are always performing at
             their best. Discover how we can help you achieve your digital goals.
           </p>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 sm:gap-8">
           {service.map((service, index) => (
             <ServiceCard
