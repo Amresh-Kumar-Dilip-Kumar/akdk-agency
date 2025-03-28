@@ -56,11 +56,11 @@ const data = {
       url: "/admin/analytics",
       icon: BarChartIcon,
     },
-    // {
-    //   title: "Projects",
-    //   url: "#",
-    //   icon: FolderIcon,
-    // },
+    {
+      title: "NewsLetter List",
+      url: "/admin/news-letter-list",
+      icon: FolderIcon,
+    },
     // {
     //   title: "Team",
     //   url: "#",
