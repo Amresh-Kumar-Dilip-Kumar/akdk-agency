@@ -70,14 +70,14 @@ export async function login(username: string, password: string) {
   if (user) {
     (await cookies()).set("sessionId",await encrypt({userId: user.sessionId}), {
       maxAge: 24 * 60 * 60 * 1000,
-      ...(isProd
-        ? {
-            httpOnly: true,
-            sameSite: "lax",
-            secure: true,
-            path: "/",
-          }
-        : {}),
+      // ...(isProd
+      //   ? {
+      //       httpOnly: true,
+      //       sameSite: "lax",
+      //       secure: true,
+      //       path: "/",
+      //     }
+      //   : {}),
     });
     return redirect("/admin");
     return user;
