@@ -3,10 +3,20 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import React, { useState } from "react";
+import { X, Menu } from "lucide-react";
+const Navigation = [
+  { name: "Home", path: "/" },
+  { name: "About-us", path: "about-us" }, // Corrected path
+  { name: "Portfolio", path: "project" }, // Corrected path
+  { name: "Contact Us", path: "contact-us" },
+];
+
 export default function Navbar() {
+  const [isOpen, setOpen] = useState(false);
   return (
     <motion.header
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="bg-white fixed top-0 left-0 right-0 z-50 shadow-md p-2 font-baloo-bhai-2 w-full"
@@ -37,13 +47,8 @@ export default function Navbar() {
           <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-8 text-base">
-                {[
-                  { name: "Home", path: "/" },
-                  { name: "About-us", path: "about-us" }, // Corrected path
-                  { name: "Portfolio", path: "project" }, // Corrected path
-                  { name: "Contact Us", path: "contact-us" },
-                ].map((item, index) => (
-                  <div key={index}>
+                {Navigation.map((item, index) => (
+                  <React.Fragment key={index}>
                     <motion.li
                       key={index}
                       whileHover={{ scale: 1.1 }}
@@ -56,7 +61,7 @@ export default function Navbar() {
                         {item.name}
                       </Link>
                     </motion.li>
-                  </div>
+                  </React.Fragment>
                 ))}
               </ul>
             </nav>
@@ -79,32 +84,52 @@ export default function Navbar() {
               </div>
 
               {/* Mobile Menu Button */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="block md:hidden"
-              >
+              <div className="block md:hidden">
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                  onClick={() => setOpen(!isOpen)}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  {isOpen ? (
+                    <X className="size-5" />
+                  ) : (
+                    <Menu className="size-5" />
+                  )}
                 </motion.button>
-              </motion.div>
+
+                {/* Mobile Menu Items */}
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-20 border-t flex flex-col w-full right-0 bg-background shadow-lg py-4 container gap-4"
+                  >
+                    {Navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={`/${item.path}`}
+                        className="text-lg px-4 py-2 hover:text-red-600"
+                        onClick={() => setOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+
+                    {/* Our Services Button - Styled for better alignment */}
+                    <div className="px-4">
+                      <Link
+                        className="block w-full text-center rounded-md bg-red-600 px-4 py-2.5 text-sm font-normal text-white hover:bg-red-500"
+                        href="/service"
+                        onClick={() => setOpen(false)}
+                      >
+                        Our Services
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
             </div>
           </div>
         </div>

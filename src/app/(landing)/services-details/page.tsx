@@ -2,9 +2,9 @@ import React from "react";
 // import { useParams } from "react-router-dom";
 
 import Markdown from "react-markdown";
-import NotFoundPage from "../not-found-page";
-import { serviceDetail } from "../../service-detail/services";
-import { allowedServices } from "../../service-detail/services";
+import NotFoundPage from "../../not-found-page";
+import { serviceDetail } from "../../../service-detail/services";
+import { allowedServices } from "../../../service-detail/services";
 
 const allowedServicesArray = Object.values(allowedServices);
 

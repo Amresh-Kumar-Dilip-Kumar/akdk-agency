@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className=" text-gray-900 py-14 px-6 border-t border-gray-300">
+    <footer className=" text-gray-900 py-14 px-6 border-t border-gray-300 ">
       <div className="w-full max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid  text-center grid-cols-1 md:grid-cols-4   gap-10">
           {/* Explore */}
           <div>
             <h3 className="text-xl font-semibold text-[#000000]">Explore</h3>
@@ -13,7 +13,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about-us"
-                  className="hover:text-orange-400 transition-colors"
+                  className="hover:text-red-600 transition-colors"
                 >
                   About Us
                 </Link>
@@ -21,19 +21,19 @@ export default function Footer() {
               <li>
                 <Link
                   href="/service"
-                  className="hover:text-orange-400 transition-colors"
+                  className="hover:text-red-600 transition-colors"
                 >
                   Services
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/project"
                   className="hover:text-orange-400 transition-colors"
                 >
                   Portfolio
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact-us"
-                  className="hover:text-orange-400 transition-colors"
+                  className="hover:text-red-600 transition-colors"
                 >
                   Contact
                 </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <Link href="/" passHref>
-                  <span className="hover:text-orange-400 transition-colors">
+                  <span className="hover:text-red-600 transition-colors">
                     Portfolio
                   </span>
                 </Link>
@@ -97,15 +97,12 @@ export default function Footer() {
           <p>© 2025 AKDK Digital. All rights reserved.</p>
 
           <div className="flex space-x-6 mt-4 md:mt-0 justify-center">
-            <Link
-              href="/tmcd"
-              className="hover:text-orange-400 transition-colors"
-            >
+            <Link href="/tmcd" className="hover:text-red-600 transition-colors">
               Terms and Conditions
             </Link>
             <Link
               href="/privacy"
-              className="hover:text-orange-400 transition-colors"
+              className="hover:text-red-600 transition-colors"
             >
               Privacy Policy
             </Link>

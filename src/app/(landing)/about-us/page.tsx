@@ -2,24 +2,23 @@ import React from "react";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-
+import { PageHeader } from "@/components/page-header2";
 function AboutUs() {
   return (
     <section className="text-gray-900">
-      <div className="lg:p-28 p-12  bg-gradient-to-br from-red-600 to-red-400 flex *:flex-1 xl:flex-row flex-col">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 ">
-          <div className="bg-green-200 w-1 p-1" />
-          Our Journey & Mission
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-100 leading-relaxed font-extralight">
-          Founded in 2020,{" "}
-          <span className="font-semibold text-white">AKDK Digital</span>{" "}
-          empowers businesses with innovative web solutions that enhance
-          functionality and drive engagement. Our mission is to deliver quality
-          and innovation.
-        </p>
-      </div>
-      {/* Section 1: Our Journey & Mission */}\
+      {/* Section 1: Our Journey & Mission */}
+      <PageHeader
+        heading={<> Our Journey & Mission</>}
+        description={
+          <>
+            Founded in 2020,{" "}
+            <span className="font-semibold text-slate-800">AKDK Digital</span>{" "}
+            empowers businesses with innovative web solutions that enhance
+            functionality and drive engagement. Our mission is to deliver
+            quality and innovation.
+          </>
+        }
+      />
       {/* Section 2: Our Talented Team */}
       <div className="max-w-4xl mx-auto text-center px-6 py-40">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
@@ -32,7 +31,7 @@ function AboutUs() {
         </p>
       </div>
       {/* Team Profiles */}
-      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-40 pb-16 items-center justify-center">
+      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-6 sm:px-20 md:px-40 pb-16 items-center justify-center">
         {/* Profile 1 */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-x-0 sm:space-x-6 text-center sm:text-left">
           <Image
@@ -42,12 +41,12 @@ function AboutUs() {
             height={144}
             className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
           />
-          <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-gray-900">
+          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
               Alice Johnson
             </h2>
-            <p className="text-lg text-gray-600">UI/UX Designer</p>
-            <p className="text-gray-500 max-w-sm">
+            <p className="text-base sm:text-lg text-gray-600">UI/UX Designer</p>
+            <p className="text-gray-500">
               With over 10 years of experience in web development, Alice leads
               our team in creating innovative solutions.
             </p>
@@ -77,10 +76,10 @@ function AboutUs() {
             height={144}
             className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
           />
-          <div className="space-y-3">
+          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
             <h2 className="text-2xl font-semibold text-gray-900">John Doe</h2>
             <p className="text-lg text-gray-600">Lead Developer</p>
-            <p className="text-gray-500 max-w-sm">
+            <p className="text-gray-500">
               Passionate about building innovative web solutions that enhance
               functionality and user experience.
             </p>
@@ -101,6 +100,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
+
       {/* Section 3: Get in Touch */}
       <div className="max-w-4xl mx-auto text-center px-6 py-16">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
@@ -110,7 +110,7 @@ function AboutUs() {
           Reach out to our team for any inquiries or project discussions.
         </p>
         <Link
-          href="/contact"
+          href="/contact-us"
           className="rounded-md px-5 py-2.5 text-red-500 hover:bg-red-600 hover:text-white text-sm font-normal shadow border border-red-500"
         >
           Contact US
