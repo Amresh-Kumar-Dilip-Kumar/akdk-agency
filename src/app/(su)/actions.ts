@@ -54,7 +54,7 @@ export async function getUser() {
   }
     const sessionUser = await decrypt(encryptedSessionValue.value) as { userId: string; }
     console.log(sessionUser);
-  const user = users.find((user) => user.sessionId === sessionUser.userId);
+  const user = users.find((user) => user.sessionId === sessionUser?.userId);
   if (!user) {
     return null;
   }
