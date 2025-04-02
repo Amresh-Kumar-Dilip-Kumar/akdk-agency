@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { PageHeader } from "@/components/page-header2";
+import { PageHeader } from "@/components/landing/page-header2";
 const projects = [
   {
     title: "Our-Shop.site",

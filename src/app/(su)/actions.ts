@@ -45,7 +45,8 @@ async function decrypt(session: string) {
 
 //----------------------------------------------
 export async function getUser() {
-  const encryptedSessionValue = (await cookies()).get("sessionId") as
+  const cookieStore = await cookies() 
+  const encryptedSessionValue = cookieStore.get("sessionId") as
     | { name: string; value: string }
     | undefined;
   console.log(encryptedSessionValue);
@@ -68,8 +69,11 @@ export async function login(username: string, password: string) {
     (user) => user.username === username && user.password === password
   );
   if (user) {
-    (await cookies()).set("sessionId",await encrypt({userId: user.sessionId}), {
-      maxAge: 24 * 60 * 60 * 1000,
+    const sessionId = await encrypt({ userId: user.sessionId });
+    const cookieStore =await  cookies();
+    cookieStore.set("sessionId",sessionId);
+      // {
+      // maxAge: 24 * 60 * 60 * 1000,
       // ...(isProd
       //   ? {
       //       httpOnly: true,
@@ -78,16 +82,21 @@ export async function login(username: string, password: string) {
       //       path: "/",
       //     }
       //   : {}),
-    });
+    // }
     return redirect("/admin");
     return user;
   }
   return null;
 }
 
-export async function logout() {
-  (await cookies()).set("sessionId", "", {
+
+
+
+export async function logout(){
+  const cookieStore =await cookies();
+  cookieStore.set("sessionId", "", {
     maxAge: 0,
     httpOnly: true,
   });
+  redirect("/login");
 }

@@ -1,5 +1,5 @@
 "use client";
-import { PageHeader } from "@/components/page-header2";
+import { PageHeader } from "@/components/landing/page-header2";
 import { useState } from "react";
 
 export default function ContactForm() {
