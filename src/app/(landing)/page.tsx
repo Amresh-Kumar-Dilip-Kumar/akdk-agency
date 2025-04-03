@@ -1,7 +1,8 @@
 "use server";
 import { Hero } from "@/components/landing/Hero2";
-import Mission from "@/components/landing/Mission";
-import Services from "@/components/landing/Services";
+// import Mission from "@/components/landing/Mission";
+// import Services from "@/components/landing/Services";
+import Services2 from "@/components/landing/Services2";
 import Technology from "@/components/landing/Technology";
 import { WhyUs } from "@/components/landing/stats";
 
@@ -11,7 +12,8 @@ export default async function Home() {
       <Hero />
       <WhyUs />
       {/* <Mission /> */}
-      <Services />
+      {/* <Services /> */}
+      <Services2 />
       <Technology />
     </main>
   );
