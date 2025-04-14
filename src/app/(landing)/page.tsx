@@ -8,7 +8,7 @@ import { WhyUs } from "@/components/landing/stats";
 
 export default async function Home() {
   return (
-    <main className="min-h-screen antialiased bg-grid-white/[0.02]">
+    <main className="min-h-screen antialiased bg-grid-white/[0.02] w-screen overflow-hidden">
       <Hero />
       <WhyUs />
       {/* <Mission /> */}
