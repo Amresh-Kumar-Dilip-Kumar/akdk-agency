@@ -36,11 +36,11 @@ export default function Mission() {
           {data.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl border border-gray-200 transition-transform hover:scale-125 
+              className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl border border-gray-200 transition-transform hover:scale-105
               hover:z-30
               overflow-hidden
               relative z-0
-              transform duration-1000 ease-in-out 
+              transform duration-500 ease-in-out 
               group
             "
             >

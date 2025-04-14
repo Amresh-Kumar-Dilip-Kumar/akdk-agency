@@ -112,14 +112,14 @@ const Project = () => {
               </div>
 
               <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-                <Carousel>
+                <Carousel className="shadow-lg border rounded-lg w-full max-w-sm sm:max-w-md md:max-w-full">
                   <CarouselContent>
                     {project.image.map((url, imgIndex) => (
                       <CarouselItem key={imgIndex}>
                         <Image
                           src={url}
                           alt={project.title}
-                          className="rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-full transition-transform duration-300 transform hover:scale-105"
+                          className="rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-full transition-transform duration-300 transform hover:scale-105 object-cover object-left  h-full "
                           width={500}
                           height={300}
                         />
