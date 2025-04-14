@@ -24,7 +24,7 @@ export default function Navbar() {
     >
       <div
         className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8"
-        data-aos="fade-up"
+        // data-aos="fade-up"
       >
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
