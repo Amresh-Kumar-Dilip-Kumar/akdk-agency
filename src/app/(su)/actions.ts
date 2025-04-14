@@ -6,6 +6,11 @@ import { SignJWT, jwtVerify } from "jose";
 
 
 const users = [
+  {
+    username:'utsavsoni619@gmail.com',
+    password:'utsav99',
+    sessionId:'utsav'
+  },
     {
         username: "nknapster@gmail.com",
         password: "Nikhil1234",

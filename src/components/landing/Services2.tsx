@@ -34,29 +34,35 @@ export default function Services2() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specializes in crafting beautiful, high quality marketing
-              pages. The rest of the website will be a shell that uses lorem
-              ipsum everywhere.
+            <ListItem title="Website development">
+              We craft bespoke digital experiences that captivate audiences and
+              drive results through user-friendly websites and seamless web
+              solutions. Our expertise blends creativity, technology, and
+              strategy to elevate your brand online.
             </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+            <ListItem title="Mobile development">
+              We create captivating digital experiences with user-friendly
+              websites and seamless web solutions. Our blend of creativity,
+              technology, and strategy ensures a strong online presence for your
+              brand.
             </ListItem>
             <ListItem title="E-commerce & CMS">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+              At AKDK digital delivers exceptional E-commerce and CMS solutions,
+              making content management and online selling effortless. Our
+              secure, scalable platforms enhance performance, boost engagement,
+              and drive growth.
             </ListItem>
             <ListItem title="SEO">
-              At Studio we understand the importance of having a robust and
-              customized CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+              Our SEO services enhance visibility, attract more visitors, and
+              boost search rankings with proven strategies like keyword
+              optimization and technical SEO. We help businesses reach the right
+              audience and grow online effectively.
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customized CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="Package Resources">
+              We optimize your website or app with expert analysis, ensuring
+              seamless user experience, faster load times, and better
+              engagement. Our data-driven strategies boost visibility,
+              conversions, and keep you ahead of the competition.
             </ListItem>
           </List>
         </div>
