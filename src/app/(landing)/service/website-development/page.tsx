@@ -21,7 +21,7 @@ function WebsiteDevelopmentServicePage() {
             href="/service"
             className="text-white hover:text-red-500 font-semibold text-xl tracking-wider mb-2"
           >
-            Back to Services
+            ← Back to Services
           </a>
         </div>
       </section>
@@ -124,7 +124,7 @@ function WebsiteDevelopmentServicePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-gray-100 py-12">
+      {/* <section className="bg-gray-100 py-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">What Our Clients Say</h2>
           <blockquote className="text-xl italic text-gray-700">
@@ -133,7 +133,7 @@ function WebsiteDevelopmentServicePage() {
           </blockquote>
           <p className="mt-4 text-gray-600">— Jane Doe, CEO of Acme Corp</p>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="bg-red-600 py-12">

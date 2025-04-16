@@ -21,7 +21,7 @@ function MobileDevelopmentServicePage() {
             href="/service"
             className="text-white hover:text-red-500 font-semibold text-xl tracking-wider mt-4"
           >
-            Back to Services
+            ← Back to Services
           </a>
         </div>
       </section>

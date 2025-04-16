@@ -117,7 +117,7 @@ function PackageServicePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#f9f9f9] py-16 px-4 sm:px-6 lg:px-8">
+      {/* <section className="bg-[#f9f9f9] py-16 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold text-center mb-10">
           What Clients Say
         </h2>
@@ -147,7 +147,7 @@ function PackageServicePage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-20 px-4 text-center bg-red-600 text-white">

@@ -21,7 +21,7 @@ function EcommerceCmsServicePage() {
             href="/service"
             className="text-white hover:text-red-500 font-semibold text-xl tracking-wider mb-2"
           >
-            Back to Services
+            ← Back to Services
           </a>
         </div>
       </section>
@@ -33,10 +33,10 @@ function EcommerceCmsServicePage() {
         </h2>
         <div className="max-w-7xl text-center mx-auto">
           <p className="text-base text-[#4B4B4B]">
-            At IQSetters, we specialize in crafting robust E-commerce platforms
-            and dynamic Content Management Systems (CMS) that drive business
-            growth. Our solutions are tailored to meet your unique needs,
-            ensuring scalability, security, and a seamless user experience.
+            At AKDK, we specialize in crafting robust E-commerce platforms and
+            dynamic Content Management Systems (CMS) that drive business growth.
+            Our solutions are tailored to meet your unique needs, ensuring
+            scalability, security, and a seamless user experience.
           </p>
         </div>
       </section>
