@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHeader } from "@/components/landing/page-header2";
@@ -8,21 +8,19 @@ import Mission from "@/components/landing/Mission";
 const profiles = [
   {
     name: "Utsav Soni",
-    role: "UI/UX Designer",
+    role: "Frontend Developer",
     description:
-      "With over 3 years of experience in web development, Alice leads our team in creating innovative solutions.",
+      "As a Frontend Developer, I specialize in crafting responsive and user-friendly interfaces that enhance user experience.",
     linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
     github: "https://github.com",
     image: "/profile/utsav.enc",
   },
   {
     name: "Nikhil kumar",
-    role: "Lead Developer",
+    role: "Founder & CEO",
     description:
-      "Passionate about  building innovative web solutions that enhance functionality and user experience.",
+      "As the Founder & CEO, I am dedicated to driving innovation and delivering impactful web solutions for our clients.",
     linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
     github: "https://github.com",
     image: "/profile/nikhil.enc",
   },
@@ -103,10 +101,10 @@ function ProfileTemplate({ profile }: { profile: (typeof profiles)[number] }) {
             <FaLinkedin />
           </Link>
           <Link
-            href={profile.twitter}
+            href={profile.github}
             className="hover:text-red-500 transition-all"
           >
-            <FaTwitter />
+            <FaGithub />
           </Link>
         </div>
       </div>

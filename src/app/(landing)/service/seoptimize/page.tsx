@@ -21,7 +21,7 @@ function SeoServicePage() {
             href="/service"
             className=" text-white hover:text-red-500 font-semibold text-xl tracking-wider mb-2"
           >
-            Back to Services
+            ← Back to Services
           </a>
         </div>
       </section>
@@ -31,8 +31,8 @@ function SeoServicePage() {
         <h2 className="text-3xl text-center font-semibold mb-8">
           Drive Organic Traffic & Increase Visibility
         </h2>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-base text-[#4B4B4B] max-w-3xl mx-auto">
+        <div className="max-w-6xl text-center mx-auto">
+          <p className="text-base text-[#4B4B4B]">
             Our SEO services are designed to elevate your website’s position on
             search engines like Google. By leveraging data-driven insights,
             keyword strategies, and content refinement, we help your business
