@@ -1,6 +1,8 @@
 "use client";
-import { PageHeader } from "@/components/page-header2";
+import { PageHeader } from "@/components/landing/page-header2";
 import { useState } from "react";
+import { contactformdetail } from "./serveraction";
+import { redirect } from "next/navigation";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,7 +11,7 @@ export default function ContactForm() {
     message: "",
     terms: false,
   });
-
+  const [submitting, setSubmitting] = useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -61,23 +63,50 @@ export default function ContactForm() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              setSubmitting(true);
               console.log(formData);
+              // creat form data from formdata
 
-              fetch("http://localhost:4000/contact-form", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-              })
-                .then((res) => res.json())
-                .then((data) => console.log(data))
-                .catch((err) => console.error(err));
+              const Formdata = new FormData();
+              Formdata.append("name", formData.name);
+              Formdata.append("email", formData.email);
+              Formdata.append("message", formData.message);
+              Formdata.append("terms", formData.terms.toString());
+
+              contactformdetail(Formdata)
+                .then((data) => {
+                  // alert(
+                  //   "Thank you for contacting us! We will get back to you soon."
+                  // );
+                  redirect("/contact-us");
+                })
+                .catch((err) => console.error(err))
+                .finally(() => {
+                  setSubmitting(false);
+                  setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                    terms: false,
+                  });
+                });
+
+              // fetch("http://localhost:4000/contact-form", {
+              //   method: "POST",
+              //   headers: {
+              //     "Content-Type": "application/json",
+              //   },
+              //   body: JSON.stringify(formData),
+              // })
+              //   .then((res) => res.json())
+              //   .then((data) => console.log(data))
+              //   .catch((err) => console.error(err));
             }}
             className="space-y-6"
           >
             <div className="space-y-4">
               <input
+                disabled={submitting}
                 type="text"
                 name="name"
                 placeholder="Enter your name"
@@ -115,8 +144,9 @@ export default function ContactForm() {
             </div>
 
             <button
+              disabled={submitting}
               type="submit"
-              className="rounded-md bg-red-600 px-8 py-2.5 text-sm font-normal hover:bg-red-500 text-white"
+              className="rounded-md bg-red-600 px-8 py-2.5 text-sm font-normal hover:bg-red-500 text-white disabled:bg-slate-50"
             >
               Submit
             </button>

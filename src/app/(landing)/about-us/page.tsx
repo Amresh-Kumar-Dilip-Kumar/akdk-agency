@@ -2,8 +2,33 @@ import React from "react";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { PageHeader } from "@/components/page-header2";
-function AboutUs() {
+import { PageHeader } from "@/components/landing/page-header2";
+import Mission from "@/components/landing/Mission";
+
+const profiles = [
+  {
+    name: "Utsav Soni",
+    role: "UI/UX Designer",
+    description:
+      "With over 3 years of experience in web development, Alice leads our team in creating innovative solutions.",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
+    github: "https://github.com",
+    image: "/profile/utsav.enc",
+  },
+  {
+    name: "Nikhil kumar",
+    role: "Lead Developer",
+    description:
+      "Passionate about  building innovative web solutions that enhance functionality and user experience.",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
+    github: "https://github.com",
+    image: "/profile/nikhil.enc",
+  },
+];
+
+export default function AboutUs() {
   return (
     <section className="text-gray-900">
       {/* Section 1: Our Journey & Mission */}
@@ -19,6 +44,7 @@ function AboutUs() {
           </>
         }
       />
+      <Mission />
       {/* Section 2: Our Talented Team */}
       <div className="max-w-4xl mx-auto text-center px-6 py-40">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
@@ -30,77 +56,12 @@ function AboutUs() {
           success.
         </p>
       </div>
-      {/* Team Profiles */}
-      <div className="w-full max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-28 px-6 sm:px-20 md:px-40 pb-16 items-center justify-center">
-        {/* Profile 1 */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start space-x-0 sm:space-x-6 text-center sm:text-left">
-          <Image
-            src="/profile-1.webp"
-            alt="Alice Johnson"
-            width={144}
-            height={144}
-            className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
-          />
-          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
-            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
-              Alice Johnson
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600">UI/UX Designer</p>
-            <p className="text-gray-500">
-              With over 10 years of experience in web development, Alice leads
-              our team in creating innovative solutions.
-            </p>
-            <div className="flex justify-center sm:justify-start space-x-4 mt-2 text-xl text-gray-500">
-              <Link
-                href="https://linkedin.com"
-                className="hover:text-red-500 transition-all"
-              >
-                <FaLinkedin />
-              </Link>
-              <Link
-                href="https://twitter.com"
-                className="hover:text-red-500 transition-all"
-              >
-                <FaTwitter />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Profile 2 */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start space-x-0 sm:space-x-6 text-center sm:text-left">
-          <Image
-            src="/profile-2.webp"
-            alt="John Doe"
-            width={144}
-            height={144}
-            className="w-24 h-24 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-red-500"
-          />
-          <div className="space-y-3 max-w-3xl sm:max-w-xl md:max-w-2xl">
-            <h2 className="text-2xl font-semibold text-gray-900">John Doe</h2>
-            <p className="text-lg text-gray-600">Lead Developer</p>
-            <p className="text-gray-500">
-              Passionate about building innovative web solutions that enhance
-              functionality and user experience.
-            </p>
-            <div className="flex justify-center sm:justify-start space-x-4 mt-2 text-xl text-gray-500">
-              <Link
-                href="https://linkedin.com"
-                className="hover:text-red-500 transition-all"
-              >
-                <FaLinkedin />
-              </Link>
-              <Link
-                href="https://twitter.com"
-                className="hover:text-red-500 transition-all"
-              >
-                <FaTwitter />
-              </Link>
-            </div>
-          </div>
-        </div>
+      <div className="w-full max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-12 px-6 sm:px-20 md:px-40 pb-16 items-center justify-center">
+        <ProfileTemplate profile={profiles[0]} />
+        <ProfileTemplate profile={profiles[1]} />
       </div>
 
+      {/* <ProfileSection /> */}
       {/* Section 3: Get in Touch */}
       <div className="max-w-4xl mx-auto text-center px-6 py-16">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
@@ -120,4 +81,35 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+function ProfileTemplate({ profile }: { profile: (typeof profiles)[number] }) {
+  return (
+    <div className="flex flex-col lg:flex-row items-center lg:items-start space-x-0 lg:space-x-6 text-center lg:text-left">
+      <Image
+        src={profile.image}
+        alt={profile.name}
+        width={144}
+        height={144}
+        className="w-24 h-24 lg:w-36 lg:h-36 rounded-full object-cover border-4 border-red-500"
+      />
+      <div className="space-y-3 max-w-3xl lg:max-w-xl md:max-w-2xl">
+        <h2 className="text-2xl font-semibold text-gray-900">{profile.name}</h2>
+        <p className="text-lg text-gray-600">{profile.role}</p>
+        <p className="text-gray-500">{profile.description}</p>
+        <div className="flex justify-center lg:justify-start space-x-4 mt-2 text-xl text-gray-500">
+          <Link
+            href={profile.linkedin}
+            className="hover:text-red-500 transition-all"
+          >
+            <FaLinkedin />
+          </Link>
+          <Link
+            href={profile.twitter}
+            className="hover:text-red-500 transition-all"
+          >
+            <FaTwitter />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -14,7 +14,6 @@ import { login } from "../actions";
 import { LoginForm } from "@/components/login-form";
 export default function LoginPage() {
   return <LoginForm />;
-
   return (
     <div className="mx-12">
       <form

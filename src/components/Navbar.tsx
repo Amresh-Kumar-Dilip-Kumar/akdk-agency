@@ -8,6 +8,7 @@ import { X, Menu } from "lucide-react";
 const Navigation = [
   { name: "Home", path: "/" },
   { name: "About-us", path: "about-us" }, // Corrected path
+  { name: "Our-Services", path: "service" },
   { name: "Portfolio", path: "project" }, // Corrected path
   { name: "Contact Us", path: "contact-us" },
 ];
@@ -23,7 +24,7 @@ export default function Navbar() {
     >
       <div
         className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8"
-        data-aos="fade-up"
+        // data-aos="fade-up"
       >
         <div className="flex h-16 items-center justify-between">
           {/* Logo Section */}
@@ -68,7 +69,7 @@ export default function Navbar() {
 
             {/* Buttons */}
             <div className="flex items-center gap-4">
-              <div className="sm:flex sm:items-center sm:gap-4">
+              {/* <div className="sm:flex sm:items-center sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -81,7 +82,7 @@ export default function Navbar() {
                     Our Services
                   </Link>
                 </motion.div>
-              </div>
+              </div> */}
 
               {/* Mobile Menu Button */}
               <div className="block md:hidden">
@@ -116,17 +117,6 @@ export default function Navbar() {
                         {item.name}
                       </Link>
                     ))}
-
-                    {/* Our Services Button - Styled for better alignment */}
-                    <div className="px-4">
-                      <Link
-                        className="block w-full text-center rounded-md bg-red-600 px-4 py-2.5 text-sm font-normal text-white hover:bg-red-500"
-                        href="/service"
-                        onClick={() => setOpen(false)}
-                      >
-                        Our Services
-                      </Link>
-                    </div>
                   </motion.div>
                 )}
               </div>

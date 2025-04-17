@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { PageHeader } from "@/components/page-header2";
+import { PageHeader } from "@/components/landing/page-header2";
 const service = [
   {
     title: "Website Design and Development",
