@@ -46,31 +46,53 @@ function WebsiteDevelopmentServicePage() {
 
       {/* Features Section */}
       <section className="px-4 sm:px-6 lg:px-8 my-16">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-3xl font-semibold mb-6">Features We Offer</h2>
-            <ul className="space-y-4 text-base text-[#4B4B4B]">
-              <li>✔ Responsive Design</li>
-              <li>✔ SEO Optimization</li>
-              <li>✔ Custom Web Applications</li>
-              <li>✔ Fast Loading Speed</li>
-              <li>✔ 24/7 Support</li>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-center lg:text-left">
+              Why Choose Our Services?
+            </h2>
+            <ul className="space-y-4 text-base text-gray-700">
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Responsive Design
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> SEO Optimization
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Custom Web
+                Applications
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Fast Loading Speed
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> 24/7 Support
+              </li>
             </ul>
           </div>
-          <div className="lg:w-1/2 p-6 bg-white shadow-lg rounded-lg text-center">
-            <h3 className="text-xl font-semibold mb-4">Pro Plan</h3>
-            <p className="text-4xl font-bold mb-4">$99</p>
-            <p className="text-base text-[#4B4B4B] mb-6">
-              Ideal for businesses looking for a professional online presence.
+          <div className="bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+            <h3 className="text-2xl font-semibold mb-4">
+              Static Website Package
+            </h3>
+            <p className="text-5xl font-bold text-red-600 mb-4">INR 8000</p>
+            <p className="text-gray-600 mb-6">
+              Perfect for businesses seeking a professional and affordable
+              online presence.
             </p>
-            <ul className="text-left space-y-2 mb-6">
-              <li>✔ Custom Design</li>
-              <li>✔ Advanced Features</li>
-              <li>✔ Priority Support</li>
+            <ul className="text-left space-y-3 mb-6">
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Custom Design
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Advanced Features
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">✔</span> Priority Support
+              </li>
             </ul>
             <a
               href="#"
-              className="inline-block bg-red-500 text-white font-semibold text-lg px-6 py-3 rounded-lg hover:bg-red-600 transition"
+              className="inline-block bg-red-600 text-white font-semibold text-lg px-6 py-3 rounded-lg hover:bg-red-700 transition"
             >
               Get Started
             </a>
