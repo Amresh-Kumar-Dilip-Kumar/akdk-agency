@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function WebsiteDevelopmentServicePage() {
@@ -167,12 +168,12 @@ function WebsiteDevelopmentServicePage() {
             Contact us today to discuss your project and discover how we can
             help your business grow.
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/contact-us"
             className="bg-white text-red-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition"
           >
             Get a Free Consultation
-          </a>
+          </Link>
         </div>
       </section>
     </>

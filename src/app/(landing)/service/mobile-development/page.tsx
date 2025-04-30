@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function MobileDevelopmentServicePage() {
@@ -118,11 +119,13 @@ function MobileDevelopmentServicePage() {
       <section className="px-4 sm:px-6 lg:px-8 my-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-6">
-            Start With Our Pro Plan
+            Start With Our Plan at/-
           </h2>
           <div className="bg-white shadow-lg rounded-xl p-10">
-            <h3 className="text-xl font-bold mb-3">Pro Plan</h3>
-            <p className="text-4xl font-extrabold mb-4 text-red-600">$199</p>
+            <h3 className="text-xl font-bold mb-3">INR</h3>
+            <p className="text-4xl font-extrabold mb-4 text-red-600">
+              {new Intl.NumberFormat("en-IN").format(109999)}
+            </p>
             <p className="text-base mb-6 text-[#4B4B4B]">
               Perfect for startups and small businesses looking for a robust
               mobile presence.
@@ -154,12 +157,12 @@ function MobileDevelopmentServicePage() {
             Let’s bring your mobile app idea to life with a perfect blend of
             creativity and tech.
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/contact-us"
             className="bg-white text-red-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition"
           >
             Book a Free Consultation
-          </a>
+          </Link>
         </div>
       </section>
     </>

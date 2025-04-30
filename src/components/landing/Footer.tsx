@@ -1,4 +1,4 @@
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer() {
@@ -117,11 +117,11 @@ export default function Footer() {
               <FaLinkedin className="cursor-pointer text-gray-600 hover:text-orange-400 transition-all" />
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://www.instagram.com/akdk_agency?igsh=d3d0dGM5cDdlNXo3"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter className="cursor-pointer text-gray-600 hover:text-orange-400 transition-all" />
+              <FaInstagram className="cursor-pointer text-gray-600 hover:text-orange-400 transition-all" />
             </Link>
           </div>
         </div>

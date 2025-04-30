@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function EcommerceCmsServicePage() {
@@ -91,11 +92,11 @@ function EcommerceCmsServicePage() {
       <section className="px-4 sm:px-6 lg:px-8 my-20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-6">
-            Start With Our Pro Plan
+            Start With Our Plan At/-
           </h2>
           <div className="bg-white shadow-lg rounded-xl p-10">
-            <h3 className="text-xl font-bold mb-3">Pro Plan</h3>
-            <p className="text-4xl font-extrabold mb-4 text-red-600">$199</p>
+            <h3 className="text-xl font-bold mb-3">INR</h3>
+            <p className="text-4xl font-extrabold mb-4 text-red-600">16,499</p>
             <p className="text-base mb-6 text-[#4B4B4B]">
               Perfect for startups and small businesses looking for a robust
               mobile presence.
@@ -103,7 +104,7 @@ function EcommerceCmsServicePage() {
             <ul className="text-left mb-6 space-y-2 text-[#4B4B4B]">
               <li>✔ Advanced Analytics</li>
               <li>✔ Priority Email Support</li>
-              <li>✔ 24/7 Supportt</li>
+              <li>✔ 24/7 Support</li>
               <li>✔ 3 Months Free Support</li>
             </ul>
             <a
@@ -125,12 +126,12 @@ function EcommerceCmsServicePage() {
           <p className="text-base text-white mb-8">
             Contact us today to discuss your project and get a free quote!
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/contact-us"
             className="bg-white text-red-500 py-3 px-6 rounded-lg hover:bg-gray-100 transition"
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </section>
     </>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function PackageServicePage() {
@@ -157,12 +158,12 @@ function PackageServicePage() {
         <p className="mb-6 text-lg">
           Reach out to us now and get a personalized package — no obligations.
         </p>
-        <a
-          href="/contact"
+        <Link
+          href="/contact-us"
           className="inline-block bg-white text-red-600 font-semibold px-8 py-3 rounded-full shadow hover:shadow-md transition"
         >
           Contact Us
-        </a>
+        </Link>
       </section>
     </>
   );

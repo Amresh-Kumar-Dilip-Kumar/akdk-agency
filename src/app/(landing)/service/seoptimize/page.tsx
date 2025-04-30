@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function SeoServicePage() {
@@ -117,12 +118,12 @@ function SeoServicePage() {
             Let us help you reach your digital goals. Request a free
             consultation today.
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/contact-us"
             className="inline-block bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-colors"
           >
             Get in Touch
-          </a>
+          </Link>
         </div>
       </section>
     </>
