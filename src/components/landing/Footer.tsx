@@ -1,5 +1,8 @@
+"use client";
+
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
+import Newsletter from "./Newsletter"; // Adjust the path as needed
 
 export default function Footer() {
   return (
@@ -68,7 +71,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-xl font-semibold text-[#000000]">
+            {/* <h3 className="text-xl font-semibold text-[#000000]">
               Stay Updated
             </h3>
             <p className="mt-4 text-gray-600">
@@ -85,7 +88,9 @@ export default function Footer() {
               <button className="bg-red-600 px-5 py-3 rounded-r-md text-white text-sm font-semibold hover:bg-red-500 transition-all">
                 Subscribe
               </button>
-            </div>
+            </div> */}
+
+            <Newsletter />
           </div>
         </div>
 
