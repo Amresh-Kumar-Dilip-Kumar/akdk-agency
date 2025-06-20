@@ -1,4 +1,3 @@
-// CareerPage.jsx
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -31,7 +30,6 @@ export default function CareerPage() {
       </section>
 
       <div className="px-6 py-40 max-w-6xl mx-auto">
-        {/* Why Work With Us */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {[
             {
@@ -72,7 +70,6 @@ export default function CareerPage() {
           ))}
         </section>
 
-        {/* Open Positions */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6">Open Positions</h2>
           <div className="space-y-6">
@@ -127,7 +124,6 @@ export default function CareerPage() {
           />
         </section>
 
-        {/* Application Form (Optional) */}
         <section className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4">Didn’t find your role?</h2>
           <p className="text-gray-600 mb-6">
