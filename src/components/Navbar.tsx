@@ -9,6 +9,7 @@ const Navigation = [
   { name: "Home", path: "/" },
   { name: "About-us", path: "about-us" }, // Corrected path
   { name: "Our-Services", path: "service" },
+  { name: "Career", path: "career" },
   { name: "Portfolio", path: "project" }, // Corrected path
   { name: "Contact Us", path: "contact-us" },
 ];
