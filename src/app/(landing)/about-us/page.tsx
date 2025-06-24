@@ -13,7 +13,7 @@ const profiles = [
       "As a Frontend Developer, I specialize in crafting responsive and user-friendly interfaces that enhance user experience.",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
-    image: "/profile/utsav.enc",
+    image: "/profile/utsav.png",
   },
   {
     name: "Nikhil kumar",
@@ -22,7 +22,7 @@ const profiles = [
       "As the Founder & CEO, I am dedicated to driving innovation and delivering impactful web solutions for our clients.",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
-    image: "/profile/nikhil.enc",
+    image: "/profile/nikhil.png",
   },
 ];
 

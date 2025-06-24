@@ -42,8 +42,7 @@ export const Hero = () => (
           <div className="flex flex-wrap gap-4">
             <Button
               size="lg"
-              className="text-red-500 hover:bg-red-600 hover:text-white text-sm font-medium shadow border border-red-500 transition-all"
-              variant="outline"
+              variant="fourth"
               onClick={() => (window.location.href = "/project")}
             >
               View Portfolio

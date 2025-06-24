@@ -120,7 +120,7 @@ function SeoServicePage() {
           </p>
           <Link
             href="/contact-us"
-            className="inline-block bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-colors"
+            className="bg-white text-red-500 py-3 px-6 rounded-lg hover:bg-gray-100 transition"
           >
             Get in Touch
           </Link>

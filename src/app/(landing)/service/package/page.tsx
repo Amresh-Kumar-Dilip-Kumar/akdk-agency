@@ -160,7 +160,7 @@ function PackageServicePage() {
         </p>
         <Link
           href="/contact-us"
-          className="inline-block bg-white text-red-600 font-semibold px-8 py-3 rounded-full shadow hover:shadow-md transition"
+          className="bg-white text-red-500 py-3 px-6 rounded-lg hover:bg-gray-100 transition"
         >
           Contact Us
         </Link>
