@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Explore */}
           <div>
             <h3 className="text-xl font-semibold text-[#000000]">Explore</h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-3 text-gray-500">
               <li>
                 <Link
                   href="/about-us"
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Connect */}
           <div>
             <h3 className="text-xl font-semibold ext-[#000000]">Connect</h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-3 text-gray-500">
               <li>
                 <Link
                   href="/contact-us"
@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h3 className="text-xl font-semibold text-[#000000]">Resources</h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-3 text-gray-500">
               <li>
                 <Link href="/" passHref>
                   <span className="hover:text-red-600 transition-colors">
@@ -98,7 +98,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 my-8"></div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-gray-60000 text-sm  *:flex-1">
+        <div className="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm  *:flex-1">
           <p>© 2025 AKDK Digital. All rights reserved.</p>
 
           <div className="flex space-x-6 mt-4 md:mt-0 justify-center">

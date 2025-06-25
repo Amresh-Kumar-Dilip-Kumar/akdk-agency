@@ -54,10 +54,10 @@ const Project = () => {
 
       <div className="max-w-[1440px] mx-auto px-6 py-40 text-center sm:text-left">
         <div className="border-b mb-12">
-          <h3 className="text-3xl sm:text-5xl font-semibold text-gray-800">
+          <h3 className="text-4xl md:text-5xl font-semibold">
             Showcasing Our Projects
           </h3>
-          <p className="text-lg sm:text-xl text-gray-500 leading-relaxed mt-4 mb-8">
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mt-4 mb-8">
             Explore our diverse range of web applications that exemplify our
             commitment to quality and innovation.
           </p>
@@ -73,7 +73,7 @@ const Project = () => {
               } items-center pb-16 gap-16`}
             >
               <div className="text-center md:text-left px-10 max-w-2xl md:w-1/2">
-                <h4 className="text-xl sm:text-2xl font-semibold text-gray-800">
+                <h4 className="text-xl sm:text-2xl font-semibold">
                   {project.title}
                 </h4>
                 <p className="text-gray-600 mt-3 text-sm sm:text-base">
@@ -88,7 +88,7 @@ const Project = () => {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-100 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                      className="bg-gray-100 text-black text-xs font-semibold px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>

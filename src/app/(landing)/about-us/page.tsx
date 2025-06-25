@@ -35,7 +35,7 @@ export default function AboutUs() {
         description={
           <>
             Founded in 2020,{" "}
-            <span className="font-semibold text-slate-800">AKDK Digital</span>{" "}
+            <span className="font-semibold text-gray-700">AKDK Digital</span>{" "}
             empowers businesses with innovative web solutions that enhance
             functionality and drive engagement. Our mission is to deliver
             quality and innovation.
@@ -45,10 +45,10 @@ export default function AboutUs() {
       <Mission />
       {/* Section 2: Our Talented Team */}
       <div className="max-w-4xl mx-auto text-center px-6 py-40">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
+        <h1 className="text-4xl sm:text-5xl font-bold  mb-6">
           Our Talented Team
         </h1>
-        <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+        <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
           Meet the skilled professionals behind{" "}
           <span className="font-semibold text-gray-800">AKDK Digital</span>’s
           success.
@@ -62,10 +62,8 @@ export default function AboutUs() {
       {/* <ProfileSection /> */}
       {/* Section 3: Get in Touch */}
       <div className="max-w-4xl mx-auto text-center px-6 py-16">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
-          Get in Touch
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-6">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6">Get in Touch</h1>
+        <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
           Reach out to our team for any inquiries or project discussions.
         </p>
         <Link
@@ -92,8 +90,8 @@ function ProfileTemplate({ profile }: { profile: (typeof profiles)[number] }) {
       <div className="space-y-3 max-w-3xl lg:max-w-xl md:max-w-2xl">
         <h2 className="text-2xl font-semibold text-gray-900">{profile.name}</h2>
         <p className="text-lg text-gray-600">{profile.role}</p>
-        <p className="text-gray-500">{profile.description}</p>
-        <div className="flex justify-center lg:justify-start space-x-4 mt-2 text-xl text-gray-500">
+        <p className="text-gray-600">{profile.description}</p>
+        <div className="flex justify-center lg:justify-start space-x-4 mt-2 text-xl text-gray-600">
           <Link
             href={profile.linkedin}
             className="hover:text-red-500 transition-all"

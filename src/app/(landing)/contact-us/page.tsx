@@ -72,7 +72,7 @@ export default function ContactForm() {
         </div>
 
         <div className="w-full space-y-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl font-bold  mb-4">
             We’d Love to Hear From You!
           </h2>
 

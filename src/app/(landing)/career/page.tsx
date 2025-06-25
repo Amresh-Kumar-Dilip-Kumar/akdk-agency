@@ -13,9 +13,9 @@ import {
 
 export default function CareerPage() {
   return (
-    <section className="text-gray-900">
+    <section>
       <PageHeader
-        heading={<>Careers at AKDK Digital</>}
+        heading={<>Career At AKDK Digital</>}
         description={
           <>
             Join our passionate team in shaping the future of web development
@@ -66,7 +66,9 @@ export default function CareerPage() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
                   {item.icon}
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <h3 className="text-xl text-gray-700 font-semibold">
+                    {item.title}
+                  </h3>
                 </div>
                 <p className="text-gray-600">{item.desc}</p>
               </CardContent>
@@ -102,11 +104,13 @@ export default function CareerPage() {
             ].map((job, i) => (
               <Card key={i}>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">{job.title}</h3>
+                  <h3 className="text-2xl font-semibold mb-2 text-gray-700">
+                    {job.title}
+                  </h3>
                   <p className="text-sm text-gray-500 mb-2">
                     {job.location} • {job.type}
                   </p>
-                  <p className="mb-4 text-gray-700">{job.description}</p>
+                  <p className="mb-4 text-gray-600">{job.description}</p>
                   <Button variant="third">Apply Now</Button>
                 </CardContent>
               </Card>
@@ -116,20 +120,20 @@ export default function CareerPage() {
 
         {/* Culture Section */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Life at AKDK</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            At AKDK, we believe in creativity, collaboration, and celebrating
-            every achievement—big or small.
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Life at AKDK</h2>
+          <p className="text-gray-700 mb-6 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+            At <strong>AKDK</strong>, we believe in creativity, collaboration,
+            and celebrating every achievement—big or small.
           </p>
           <img
-            src="/team.webp"
+            src="/career.jpg"
             alt="Our Team"
             className="mx-auto rounded-xl shadow-md w-full max-w-3xl"
           />
         </div>
 
         <div className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-2xl font-bold mb-4">Didn’t find your role?</h2>
+          <h2 className="text-3xl font-bold mb-4">Didn’t find your role?</h2>
           <p className="text-gray-600 mb-6">
             Send us your resume and we’ll reach out when a suitable position
             opens up.
@@ -164,10 +168,10 @@ export default function CareerPage() {
             defaultValue="item-1"
           >
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-lg font-semibold">
+              <AccordionTrigger className="text-lg  font-semibold">
                 Can I apply as a fresher or intern?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   Absolutely! We welcome freshers, interns, and students with a
                   passion for learning and building.
@@ -179,7 +183,7 @@ export default function CareerPage() {
                 {" "}
                 What does the hiring process look like?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   Our process typically involves an application review, a short
                   interview or task round, and a final discussion with our core
@@ -192,7 +196,7 @@ export default function CareerPage() {
                 {" "}
                 What should I include in my application?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   Share your resume, portfolio or GitHub (if available), and a
                   short note about why you want to join AKDK.
@@ -205,7 +209,7 @@ export default function CareerPage() {
                 {" "}
                 What technologies do you use at AKDK?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   We primarily work with React, Tailwind CSS, Astro, Node.js,
                   Prisma, and modern design tools like Figma.
@@ -218,7 +222,7 @@ export default function CareerPage() {
                 {" "}
                 What’s the culture like at AKDK?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   We're a small, passionate, and fast-moving team. We value
                   transparency, creativity, and mutual respect.
@@ -231,7 +235,7 @@ export default function CareerPage() {
                 {" "}
                 How long do internships last?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   Most internships last 6 to 8 months, with the option to extend
                   based on performance and interest.
@@ -244,7 +248,7 @@ export default function CareerPage() {
                 {" "}
                 Are there growth or mentorship opportunities?
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-balance">
+              <AccordionContent className="flex flex-col gap-4 text-base text-gray-600">
                 <p>
                   Yes! We actively mentor junior team members, offer learning
                   resources, and encourage upskilling across roles.

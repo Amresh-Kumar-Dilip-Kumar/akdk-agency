@@ -110,7 +110,7 @@ function ServiceCard({
           className="w-full h-60 sm:h-72 lg:h-80 object-cover"
         />
         <div className="p-6 text-center">
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
             {service.title}
           </h3>
           <p className="text-gray-600 mt-3 text-sm sm:text-base">
