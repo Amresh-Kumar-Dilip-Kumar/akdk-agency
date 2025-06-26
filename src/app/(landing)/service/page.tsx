@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-// import { allowedServices } from "../../service-detail/services";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/landing/page-header2";
+import GetAQuoteModal from "@/components/landing/GetAQuoteModal"; // ✅ imported here
+
 const service = [
   {
     title: "Website Design and Development",
@@ -13,7 +14,6 @@ const service = [
     image: "/web.jpg",
     link: `/service/website-development`,
   },
-
   {
     title: "Mobile App Development",
     description:
@@ -21,7 +21,6 @@ const service = [
     image: "/mobile.jpg",
     link: `/service/mobile-development`,
   },
-
   {
     title: "E-commerce & CMS",
     description:
@@ -50,9 +49,11 @@ export default function Service2() {
 
   return (
     <>
+      {/* ✅ Only show modal when state is true */}
       {showQuoteModal && (
-        <GetAQuoteModel setShowQuoteModal={setShowQuoteModal} />
+        <GetAQuoteModal setShowQuoteModal={setShowQuoteModal} />
       )}
+
       <PageHeader
         heading={<>Our Comprehensive Web App Services</>}
         description={
@@ -65,19 +66,8 @@ export default function Service2() {
           </>
         }
       />
+
       <section className="max-w-[1440px] mx-auto py-40 px-6">
-        {/* <div className="text-center mb-16">
-          <h2 className="mb-8 font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#000000]">
-            Our Comprehensive Web App Services
-          </h2>
-          <p className="max-w-4xl mx-auto mb-10 text-lg sm:text-lg md:text-xl leading-relaxed text-gray-500">
-            At AKDK Digital, we offer a range of web app services designed to
-            meet your business needs. Our team of expert developers is dedicated
-            to delivering custom solutions, seamless upgrades, and ongoing
-            support to ensure your web applications are always performing at
-            their best. Discover how we can help you achieve your digital goals.
-          </p>
-        </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 sm:gap-8">
           {service.map((service, index) => (
             <ServiceCard
@@ -118,7 +108,7 @@ function ServiceCard({
           </p>
         </div>
       </Link>
-      <div className="pb-5">
+      <div className="pb-5 text-center">
         <Button
           variant="link"
           onClick={(e) => {
@@ -128,81 +118,6 @@ function ServiceCard({
         >
           Get a Quote
         </Button>
-      </div>
-    </div>
-  );
-}
-
-function GetAQuoteModel({
-  setShowQuoteModal,
-}: {
-  setShowQuoteModal: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
-  return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      onClick={() => setShowQuoteModal(false)}
-    >
-      <div
-        className="bg-white rounded-lg p-8 max-w-lg w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <h2 className="text-2xl font-semibold mb-4">Get a Quote</h2>
-        <form>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="message"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              rows={4}
-            ></textarea>
-          </div>
-          <div className="flex items-center justify-between">
-            <Button variant="secondary" type="submit">
-              Submit
-            </Button>
-            <Button
-              variant="link"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowQuoteModal(false);
-              }}
-            >
-              Cancel
-            </Button>
-          </div>
-        </form>
       </div>
     </div>
   );

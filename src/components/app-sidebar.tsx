@@ -14,6 +14,7 @@ import {
   HelpCircleIcon,
   LayoutDashboardIcon,
   ListIcon,
+  QuoteIcon,
   SearchIcon,
   SettingsIcon,
   UsersIcon,
@@ -61,6 +62,12 @@ const data = {
       url: "/admin/news-letter-list",
       icon: FolderIcon,
     },
+    {
+      title: "Quotes",
+      url: "/admin/quote",
+      icon: QuoteIcon,
+    },
+
     // {
     //   title: "Team",
     //   url: "#",
