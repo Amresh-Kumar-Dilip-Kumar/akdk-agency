@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/landing/Footer";
+import { FloatingQuestionnaireCTA } from "@/components/new-landing-comp/floating-questionnaire-cta";
 import { headers } from "next/headers";
 
 export default function RootLayout({
@@ -18,6 +19,9 @@ export default function RootLayout({
       {/* </div> */}
       {children}
       <Footer />
+      
+      {/* Floating Questionnaire CTA */}
+      <FloatingQuestionnaireCTA />
     </div>
   );
 }
