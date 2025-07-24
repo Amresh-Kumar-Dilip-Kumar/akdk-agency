@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Briefcase, Users, Rocket, Smile } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
+import { ApplyNowModal } from "@/components/careers/apply-now-modal";
+
 import {
   Accordion,
   AccordionContent,
@@ -82,7 +84,7 @@ export default function CareerPage() {
             {[
               {
                 title: "Frontend Developer",
-                location: "Remote",
+                location: "Raipur / Remote",
                 type: "Full-time",
                 description:
                   "Design and build engaging, user-friendly UI components using React, Tailwind, or any other modern technology of your choice—bring your creativity and preferred tools to craft impressive digital experiences.",
@@ -96,7 +98,7 @@ export default function CareerPage() {
               },
               {
                 title: "Backend Developer",
-                location: "Remote",
+                location: "Raipur / Remote",
                 type: "Full-time",
                 description:
                   "Build and maintain scalable, efficient backend systems using technologies like Node.js, databases, or any stack you're comfortable with—what matters most is writing clean, secure code that powers great user experiences.",
@@ -111,7 +113,7 @@ export default function CareerPage() {
                     {job.location} • {job.type}
                   </p>
                   <p className="mb-4 text-gray-600">{job.description}</p>
-                  <Button variant="third">Apply Now</Button>
+                  <ApplyNowModal role={job.title} />
                 </CardContent>
               </Card>
             ))}
