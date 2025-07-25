@@ -1,7 +1,15 @@
 "use client";
 
 import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import { Mail, Phone, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  ArrowRight,
+  Code2,
+  Sparkles,
+} from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Newsletter from "./Newsletter";
@@ -23,8 +31,13 @@ export default function Footer() {
             className="lg:col-span-1 space-y-6"
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-red-600 border-2 border-red-700 flex items-center justify-center">
-                <CheckCircle2 className="w-6 h-6 text-white" />
+              <div className="relative w-14 h-14 bg-gradient-to-br from-red-600 via-red-700 to-pink-600 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center border-2 border-red-500/20 group-hover:scale-105">
+                {/* Inner Icon */}
+                <div className="relative">
+                  <Code2 className="w-7 h-7 text-white" />
+                  {/* Sparkle Effect */}
+                  <Sparkles className="w-3 h-3 text-yellow-300 absolute -top-1 -right-1 animate-pulse" />
+                </div>
               </div>
               <div className="flex flex-col">
                 <h1 className="text-2xl font-black tracking-tight leading-none">
