@@ -10,16 +10,10 @@ export default function RootLayout({
   // const isHomePage;
 
   return (
-    <div className="w-screen overflow-hidden">
-      {/* <div className="relative w-full flex items-center justify-center "> */}
+    <div className="w-screen overflow-hidden relative min-h-screen bg-white antialiased z-0">
       <Navbar />
-
-      <div className="p-10"></div>
-
-      {/* </div> */}
       {children}
       <Footer />
-      
       {/* Floating Questionnaire CTA */}
       <FloatingQuestionnaireCTA />
     </div>

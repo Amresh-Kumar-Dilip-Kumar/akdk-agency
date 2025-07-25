@@ -10,21 +10,24 @@ const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "20+", label: "Happy Clients" },
   { value: "50+", label: "Projects Delivered" },
-  { value: "24/7", label: "Support" }
+  { value: "24/7", label: "Support" },
 ];
 
 const features = [
   "Custom Web Development",
-  "Mobile App Solutions", 
+  "Mobile App Solutions",
   "E-commerce Platforms",
-  "Digital Marketing"
+  "Digital Marketing",
 ];
 
 export const Hero = () => (
-  <Section size="xl" className="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+  <Section
+    size="xl"
+    className="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+  >
     {/* Grid background */}
     <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
-    
+
     {/* Geometric shapes */}
     <div className="absolute top-20 right-20 w-32 h-32 bg-red-100 opacity-60 rotate-45 -z-10"></div>
     <div className="absolute bottom-20 left-20 w-24 h-24 bg-blue-100 opacity-60 -z-10"></div>
@@ -50,7 +53,7 @@ export const Hero = () => (
         </motion.div>
 
         {/* Main heading */}
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -61,13 +64,15 @@ export const Hero = () => (
         </motion.h1>
 
         {/* Description */}
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="text-xl text-gray-600 max-w-lg leading-relaxed"
         >
-          Transform your business with cutting-edge digital solutions. We create powerful web applications, mobile apps, and digital experiences that drive real results.
+          Transform your business with cutting-edge digital solutions. We create
+          powerful web applications, mobile apps, and digital experiences that
+          drive real results.
         </motion.p>
 
         {/* Feature list */}
@@ -86,7 +91,7 @@ export const Hero = () => (
         </motion.div>
 
         {/* CTA buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -144,7 +149,7 @@ export const Hero = () => (
           variant="elevated"
           className="mt-6 bg-gradient-to-br from-red-50 to-pink-50 border-2 border-red-200 text-center"
         >
-          <IconBox 
+          <IconBox
             icon={<CheckCircle2 className="w-8 h-8" />}
             variant="red"
             size="lg"

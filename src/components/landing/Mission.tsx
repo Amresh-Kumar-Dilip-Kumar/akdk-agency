@@ -1,144 +1,138 @@
 import React from "react";
 import { FaUsers, FaUserTie, FaStar } from "react-icons/fa";
+import { Target, Users, Award, Zap } from "lucide-react";
+
 const data = [
   {
-    icon: <FaStar className="text-5xl text-red-600" />,
+    icon: <Target className="w-8 h-8" />,
+    bgIcon: <FaStar className="text-6xl text-red-200/30" />,
     title: "Our Mission",
-    text: "We strive to provide exceptional web app services that exceed client expectations. Our focus is on innovation and quality, ensuring every project is a success.",
+    subtitle: "Driving Innovation",
+    text: "We strive to provide exceptional digital solutions that exceed client expectations. Our focus is on innovation, quality, and transforming businesses through cutting-edge technology.",
+    color: "from-red-500 to-pink-500",
+    bgColor: "from-red-50 to-pink-50",
   },
   {
-    icon: <FaUsers className="text-5xl text-red-600" />,
+    icon: <Users className="w-8 h-8" />,
+    bgIcon: <FaUsers className="text-6xl text-blue-200/30" />,
     title: "Our Values",
-    text: "We prioritize quality, collaboration, and innovation. By working closely with clients, we ensure their vision is realized while leveraging the latest technologies.",
+    subtitle: "Excellence & Integrity",
+    text: "We prioritize quality, collaboration, and innovation. By working closely with clients, we ensure their vision is realized while leveraging the latest technologies and best practices.",
+    color: "from-blue-500 to-cyan-500",
+    bgColor: "from-blue-50 to-cyan-50",
   },
   {
-    icon: <FaUserTie className="text-5xl text-red-600" />,
-    title: "Meet Our Team",
-    text: "Our talented team of developers and designers collaborates to create outstanding web solutions, ensuring seamless functionality and beautiful designs.",
+    icon: <Award className="w-8 h-8" />,
+    bgIcon: <FaUserTie className="text-6xl text-purple-200/30" />,
+    title: "Our Team",
+    subtitle: "Expert Professionals",
+    text: "Our talented team of developers, designers, and strategists collaborates to create outstanding digital solutions, ensuring seamless functionality and beautiful user experiences.",
+    color: "from-purple-500 to-indigo-500",
+    bgColor: "from-purple-50 to-indigo-50",
   },
 ];
+
 export default function Mission() {
   return (
-    <section className="relative bg-white z-0 py-24">
-      <div className="w-full  mx-auto px-0 lg:px-12 z-0 ">
-        {/* Section Heading */}
-        <h2 className="text-4xl sm:text-6xl font-bold text-center text-gray-900 tracking-tight leading-tight">
-          {/* Discover <span className="text-red-600">AKDK Digital</span> */}
-        </h2>
+    <section className="relative bg-gradient-to-b from-white via-gray-50 to-white py-24 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
 
-        {/* <p className="mt-4 text-lg text-gray-600 text-center max-w-2xl mx-auto">
-          We build innovative web solutions that drive business success. Our
-          mission, values, and expert team make us your ideal digital partner.
-        </p> */}
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-red-100/30 rounded-full blur-2xl -z-10"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-100/20 rounded-full blur-2xl -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-100/10 rounded-full blur-3xl -z-10"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-12 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 mr-4"></div>
+            <Zap className="w-8 h-8 text-red-600 mx-2" />
+            <div className="w-12 h-0.5 bg-gradient-to-l from-red-500 to-pink-500 ml-4"></div>
+          </div>
+
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-900 via-red-700 to-gray-900 bg-clip-text text-transparent">
+            Discover AKDK Digital
+          </h2>
+
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+            We build innovative digital solutions that drive business success.
+            Our mission, values, and expert team make us your ideal digital
+            transformation partner.
+          </p>
+        </div>
 
         {/* Mission Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 mt-12 px-6 sm:px-20 md:px-40 first:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {data.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-6 bg-white shadow-lg rounded-xl border border-gray-200 transition-transform hover:scale-105
-              hover:z-30
-              overflow-hidden
-              relative z-0
-              transform duration-500 ease-in-out 
-              group
-            "
-            >
+            <div key={index} className="group relative">
+              {/* Card Background with Enhanced Effects */}
               <div
-                className="absolute bg-white z-10
-               bg-gradient-to-tr from-red-100 to-red-50
-              opacity-70
-              group-hover:bg-gradient-to-bl 
-              group-hover:rotate-0
-              group-hover:top-0/
-              group-hover:left-0/
-              group-hover:right-0/
-              group-hover:bottom-0/
-              group-hover:scale-[2]
-              group-hover:translate-x-0
-              group-hover:translate-y-0
-              group-hover:opacity-50
-              group-hover:w-full
-              group-hover:h-full
-              group-hover:rounded-none
-              transition-all duration-1000 ease-in-out
-             top-0 left-0
-             rounded-full
-              mx-auto
-              transform -translate-x-1/2 -translate-y-1/2
-              w-20 h-20
-              "
+                className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-red-200 group-hover:scale-105`}
               ></div>
-              <div
-                className="absolute bg-white z-20
-                bg-gradient-to-br from-green-100 to-green-500
-                opacity-70
-                group-hover:bg-gradient-to-bl
-                group-hover:rotate-360
-                group-hover:top-0/
-                group-hover:left-0/
-                group-hover:right-0/
-                group-hover:bottom-0/
-                group-hover:translate-x-0
-                group-hover:translate-y-0
-                group-hover:opacity-0
-                group-hover:w-full
-                group-hover:z-0
-                group-hover:h-full
 
-                group-hover:rounded-none
+              {/* Hover Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-red-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-                transition-all duration-1000 ease-in-out
+              <div className="relative p-8 lg:p-10 h-full flex flex-col">
+                {/* Icon Section */}
+                <div className="relative mb-8">
+                  {/* Background Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-20">
+                    {item.bgIcon}
+                  </div>
 
-                top-0 left-0
-
-                rounded-full
-
-                mx-auto
-
-
-                transform -translate-x-1/2 -translate-y-1/2
-
-                w-10 h-10
-                "
-              ></div>
-              <div
-                className="absolute bg-yellow-400 z-0
-                opacity-50
-                group-hover:opacity-0
-                group-hover:bg-gradient-to-bl
-                group-hover:rotate-0
-                group-hover:top-0/
-                group-hover:left-0/
-                group-hover:right-0/
-                group-hover:bottom-0/
-                group-hover:scale-[2]
-                group-hover:translate-x-0
-                group-hover:translate-y-0
-                transition-all duration-1000 ease-in-out
-                top-0 left-0
-                rounded-full
-                mx-auto
-                transform -translate-x-1/2 -translate-y-1/2
-                w-24 h-24
-              "
-              />
-              <div className="relative z-10 flex flex-col items-center justify-center h-full ">
-                <div className="p-4  border rounded-full shadow-md">
-                  {item.icon}
+                  {/* Main Icon */}
+                  <div
+                    className={`relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${item.color} text-white rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}
+                  >
+                    {item.icon}
+                  </div>
                 </div>
-                <h3 className="mt-6 text-2xl font-bold text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-gray-600 leading-relaxed ">
-                  {item.text}
-                </p>
-                {/* <button className="mt-6 px-6 py-2 text-white bg-red-600 hover:bg-violet-600 rounded-full shadow-md transition-all duration-300">
-                  Learn More
-                </button> */}
+
+                {/* Content */}
+                <div className="flex-1">
+                  <div
+                    className={`inline-block px-3 py-1 bg-gradient-to-r ${item.color} text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4`}
+                  >
+                    {item.subtitle}
+                  </div>
+
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-gray-600 leading-relaxed text-lg font-light">
+                    {item.text}
+                  </p>
+                </div>
+
+                {/* Bottom Accent */}
+                <div className="mt-8 pt-6 border-t border-gray-200 group-hover:border-red-200 transition-colors duration-300">
+                  <div
+                    className={`w-12 h-1 bg-gradient-to-r ${item.color} rounded-full group-hover:w-20 transition-all duration-500`}
+                  ></div>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Call-to-Action Section */}
+        <div className="text-center mt-20">
+          <div className="inline-flex items-center space-x-2 text-red-600 mb-4">
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+            <span className="text-sm font-bold uppercase tracking-wider">
+              Ready to Transform Your Business?
+            </span>
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse delay-300"></div>
+          </div>
+
+          <p className="text-lg text-gray-600 font-medium">
+            Join the businesses that trust AKDK Digital with their digital
+            transformation journey.
+          </p>
         </div>
       </div>
     </section>
