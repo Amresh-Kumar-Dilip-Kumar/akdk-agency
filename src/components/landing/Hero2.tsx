@@ -94,6 +94,7 @@ export const Hero = () => (
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-8 text-left"
         >
+          <div className="p-1"></div>
           {/* Premium Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -275,6 +276,7 @@ export const Hero = () => (
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
       >
         <span className="text-sm text-gray-300 mb-2 font-medium">
           Discover More

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { sendOTP, verifyOTPAndSubmit } from "@/server-functions/questionnaire-handler";
-
+// todo:: if some tries to go back and the form is open it will go back one step if its on step 1 it will close the form 
 export interface QuestionnaireData {
   // Step 1: Project Type
   projectType: string;
@@ -31,7 +31,8 @@ services: (
   industry: string;
   businessSize: string;
   currentWebsite: string;
-  
+  description: string;
+
   // Step 4: Requirements
   features: string[];
   additionalInfo: string;
@@ -57,12 +58,13 @@ const initialData: QuestionnaireData = {
   industry: "",
   businessSize: "",
   currentWebsite: "",
+  description: "",
   features: [],
   additionalInfo: "",
   contactName: "",
   email: "",
   phone: "",
-  preferredContact: ""
+  preferredContact: "",
 };
 
 export const QuestionnaireModal = ({ isOpen, onClose }: QuestionnaireModalProps) => {
@@ -328,6 +330,17 @@ export const QuestionnaireModal = ({ isOpen, onClose }: QuestionnaireModalProps)
                   className="mt-2 p-3 border-2 border-gray-300 focus:border-red-500"
                 />
               </div>
+              <div>
+                <Label htmlFor="description" className="text-base font-semibold">Business Description</Label>
+                <textarea
+                  id="description"
+                  value={data.description}
+                  onChange={(e) => updateData("description", e.target.value)}
+                  placeholder="Briefly describe your business and its goals"
+                  rows={4}
+                  className="w-full mt-2 p-3 border-2 border-gray-300 rounded-lg focus:border-red-500"
+                />
+              </div>
             </div>
           </div>
         );
@@ -379,6 +392,14 @@ export const QuestionnaireModal = ({ isOpen, onClose }: QuestionnaireModalProps)
                 rows={4}
                 className="w-full mt-2 p-3 border-2 border-gray-300 rounded-lg focus:border-red-500"
               />
+            </div>
+            <div>
+              <p className="text-sm text-gray-500">
+                Please provide as much detail as possible to help us understand your project better.
+              </p>
+              <p className="text-sm text-gray-500">
+                This information will be used to tailor our proposal to your specific needs.
+              </p>
             </div>
           </div>
         );

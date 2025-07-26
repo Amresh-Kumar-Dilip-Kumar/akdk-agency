@@ -1,7 +1,7 @@
 // app/(su)/admin/quote-form/action.ts
 "use server";
 
-import db from "@/db/prisma";
+import {db} from "@/db/prisma";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 

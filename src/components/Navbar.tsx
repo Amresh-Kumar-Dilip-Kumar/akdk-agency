@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { X, Menu, Zap, Code2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const Navigation = [
   { name: "Home", path: "/" },
@@ -114,8 +115,12 @@ export default function Navbar() {
               </ul>
             </nav>
 
-            {/* CTA Button */}
+            {/* CTA Button & Theme Toggle */}
             <div className="hidden md:flex items-center gap-4">
+              {/*
+                // todo :: mode toggle is not complete as no block is optimized for it yet
+              */}
+              {/* <ModeToggle /> */}
               <Button
                 size="lg"
                 className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-red-600 to-pink-600 text-white border-2 border-red-600 hover:from-red-700 hover:to-pink-700 hover:border-red-700 transition-all duration-300 hover:shadow-lg hover:scale-105 rounded-xl"

@@ -1,22 +1,9 @@
 "use server";
 import { cookies } from "next/headers";
+import  {db}  from "@/db/prisma"
 
-interface QuestionnaireData {
-  projectType: string;
-  services: string[];
-  timeline: string;
-  budget: string;
-  businessName: string;
-  industry: string;
-  businessSize: string;
-  currentWebsite: string;
-  features: string[];
-  additionalInfo: string;
-  contactName: string;
-  email: string;
-  phone: string;
-  preferredContact: string;
-}
+import type { QuestionnaireData } from "@/components/new-landing-comp/questionnaire-modal";
+
 
 interface OTPData {
   code: string;
@@ -26,9 +13,13 @@ interface OTPData {
 }
 
 // In a real application, you would use a proper database
-// For demo purposes, we'll use a simple in-memory store
+// For OTP storage, we'll keep the in-memory store (you can later move this to Redis or database)
 const otpStore = new Map<string, OTPData>();
-const submissionStore = new Map<string, QuestionnaireData>();
+
+// Then, use Prisma queries to create, find, and delete OTPs instead of the in-memory Map.
+// Remove the otpStore Map entirely.
+
+// Remove the submissionStore as we'll use Prisma instead
 
 export async function sendOTP(email: string, phone: string, preferredMethod: string) {
   try {
@@ -108,36 +99,41 @@ export async function verifyOTPAndSubmit(
     }
 
     // OTP is valid, process the submission
-    const submissionId = Date.now().toString();
-    
-    // Store the submission
-    submissionStore.set(submissionId, {
-      ...questionnaireData,
-      submittedAt: new Date().toISOString()
-    } as any);
+    try {
+      // Save to database using Prisma
+      const submission = await db.questionnaireSubmission.create({
+        data: {
+          contactName: questionnaireData.contactName,
+          email: questionnaireData.email,
+          phone: questionnaireData.phone,
+          businessName: questionnaireData.businessName || null,
+          projectType: questionnaireData.projectType,
+          services: JSON.stringify(questionnaireData.services), // Store as JSON string
+          timeline: questionnaireData.timeline,
+          budget: questionnaireData.budget,
+          industry: questionnaireData.industry || null,
+          description: questionnaireData.description || null,
+        }
+      });
 
-    // Clean up OTP
-    otpStore.delete(contactKey);
+      // Clean up OTP
+      otpStore.delete(contactKey);
 
-    // In a real application, you would:
-    // 1. Save to database
-    // 2. Send notification email to your team
-    // 3. Add to CRM system
-    // 4. Trigger automated follow-up workflows
-    
-    console.log('New questionnaire submission:', {
-      id: submissionId,
-      data: questionnaireData
-    });
+      // Send notification email to your team
+      await sendTeamNotification(questionnaireData);
 
-    // Send notification email to your team (simulate)
-    await sendTeamNotification(questionnaireData);
-
-    return { 
-      success: true, 
-      message: 'Thank you! Your request has been submitted successfully. We\'ll contact you within 24 hours.',
-      submissionId 
-    };
+      return { 
+        success: true, 
+        message: 'Thank you! Your request has been submitted successfully. We\'ll contact you within 24 hours.',
+        submissionId: submission.id.toString()
+      };
+    } catch (dbError) {
+      console.error('Database error:', dbError);
+      return { 
+        success: false, 
+        message: 'An error occurred while saving your request. Please try again.' 
+      };
+    }
   } catch (error) {
     console.error('Error verifying OTP and submitting:', error);
     return { 
@@ -178,8 +174,11 @@ async function sendTeamNotification(data: QuestionnaireData) {
 
 export async function getSubmissionStats() {
   // For admin dashboard - get submission statistics
-  return {
-    total: submissionStore.size,
-    recent: Array.from(submissionStore.values()).slice(-10)
-  };
+  return{
+    total: await db.questionnaireSubmission.count(),
+    recent: await db.questionnaireSubmission.findMany({
+      orderBy: { createdAt: 'desc' },
+      take: 10
+    })
+  }
 }

@@ -21,12 +21,18 @@ const features = [
 ];
 
 export const Hero = () => (
-  <Section
-    size="xl"
-    className="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
-  >
+
+  <Section size="xl" className="min-h-screen flex items-center bg-gradient-to-br from-red-50 to-red-100 relative overflow-hidden z-0">
     {/* Grid background */}
-    <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+    <div className="absolute top-0 bottom-0 right-0 left-0 inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+    <div className="absolute inset-0 w-full h-full -z-20 top-0 left-0 right-0 bottom-0">
+      <img
+        src="/hero.webp"
+        alt="Hero background"
+        className="w-full h-full object-cover object-center opacity-30"
+        draggable={false}
+      />
+    </div>
 
     {/* Geometric shapes */}
     <div className="absolute top-20 right-20 w-32 h-32 bg-red-100 opacity-60 rotate-45 -z-10"></div>

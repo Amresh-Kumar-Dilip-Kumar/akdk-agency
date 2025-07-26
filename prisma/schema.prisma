@@ -9,10 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+model OTP {
+  id         String   @id @default(uuid())
+  code       String
+  email      String?  // nullable if using phone
+  phone      String?  // nullable if using email
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+}
 model Requests {
   id         Int      @id @default(autoincrement())
   name       String
@@ -46,3 +54,21 @@ model quoteformdetails {
   message    String?
   created_at DateTime @default(now())
 }
+
+model QuestionnaireSubmission {
+  id           Int      @id @default(autoincrement())
+  contactName  String
+  email        String
+  phone        String
+  businessName String?
+  projectType  String
+  services     String   // JSON string array of services
+  timeline     String
+  budget       String
+  industry     String?
+  description  String?
+  // submittedAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  @@map("questionnaire_submissions")
+}
+

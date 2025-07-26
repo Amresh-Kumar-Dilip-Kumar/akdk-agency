@@ -1,6 +1,6 @@
 "use server";
 import React from "react";
-import db from "@/db/prisma";
+import {db} from "@/db/prisma";
 // import { z } from "zod";
 import { deleteMessage } from "./action";
 

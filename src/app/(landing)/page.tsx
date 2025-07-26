@@ -1,22 +1,24 @@
 "use server";
 import { Hero } from "@/components/new-landing-blocks/HeroProfessional";
 import { Hero as Hero2 } from "@/components/landing/Hero2";
-import { WhyUs } from "@/components/new-landing-blocks/WhyUsProfessional";
-import { ServicesProfessional } from "@/components/new-landing-blocks/ServicesProfessional";
-import { TechnologyProfessional } from "@/components/new-landing-blocks/TechnologyProfessional";
-import { TestimonialsProfessional } from "@/components/new-landing-blocks/TestimonialsProfessional";
-import { CallToActionProfessional } from "@/components/new-landing-blocks/CallToActionProfessional";
+import Mission from "@/components/landing/Mission";
+import WhyUsMission from "@/components/new-landing-blocks/Round_WhyUs";
+import ServicesMission from "@/components/new-landing-blocks/Round_Services";
+import TechnologyMission from "@/components/new-landing-blocks/Round_Technology";
+import TestimonialsMission from "@/components/new-landing-blocks/Round_Testimonials";
+import CallToActionMission from "@/components/new-landing-blocks/Round_CallToAction";
 
 export default async function Home() {
   return (
     <main className="min-h-screen antialiased bg-white">
       {/* <Hero /> */}
       <Hero2 />
-      <WhyUs />
-      <ServicesProfessional />
-      <TechnologyProfessional />
-      <TestimonialsProfessional />
-      <CallToActionProfessional />
+      {/* <Mission /> */}
+      <WhyUsMission />
+      <ServicesMission />
+      <TechnologyMission />
+      <TestimonialsMission />
+      <CallToActionMission />
     </main>
   );
 }

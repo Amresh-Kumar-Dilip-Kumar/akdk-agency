@@ -1,6 +1,6 @@
 "use server";
 
-import db from "@/db/prisma";
+import {db} from "@/db/prisma";
 import { z } from "zod";
 
 export async function quoteformdetail(data: FormData) {

@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import db from "@/db/prisma"; // adjust path if needed
+import {db} from "@/db/prisma"; // adjust path if needed
 import { format } from "date-fns"; // Optional: to format createdAt date
 
 export default async function NewsLetterList() {

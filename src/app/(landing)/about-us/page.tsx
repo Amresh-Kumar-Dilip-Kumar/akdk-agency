@@ -1,30 +1,66 @@
+"use client";
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Award, Users, Target, Lightbulb, Heart, Zap, Shield, Globe, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHeader } from "@/components/landing/page-header2";
 import Mission from "@/components/landing/Mission";
-import { ArrowRight, Users, Target, Zap, Award } from "lucide-react";
 
 const profiles = [
   {
-    name: "Utsav Soni",
-    role: "Frontend Developer",
-    description:
-      "As a Frontend Developer, I specialize in crafting responsive and user-friendly interfaces that enhance user experience.",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    image: "/profile/utsav.png",
-  },
-  {
-    name: "Nikhil kumar",
+    name: "Nikhil Kumar",
     role: "Founder & CEO",
     description:
-      "As the Founder & CEO, I am dedicated to driving innovation and delivering impactful web solutions for our clients.",
+      "Visionary leader with 3+ years of experience in web development. Passionate about creating digital solutions that drive real business growth and innovation.",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
+    twitter: "https://twitter.com",
     image: "/profile/nikhil.png",
+    specialties: ["Strategic Planning", "Full-Stack Development", "Team Leadership"]
   },
+  {
+    name: "Utsav Soni",
+    role: "Frontend Developer & Co-Founder",
+    description:
+      "Creative frontend specialist focused on crafting beautiful, responsive interfaces that deliver exceptional user experiences across all devices.",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    twitter: "https://twitter.com",
+    image: "/profile/utsav.png",
+    specialties: ["React/Next.js", "UI/UX Design", "Mobile Responsiveness"]
+  },
+];
+
+const values = [
+  {
+    icon: Lightbulb,
+    title: "Innovation First",
+    description: "We embrace cutting-edge technologies and creative solutions to solve complex challenges."
+  },
+  {
+    icon: Heart,
+    title: "Client-Centric",
+    description: "Your success is our success. We build lasting partnerships through exceptional service."
+  },
+  {
+    icon: Shield,
+    title: "Quality Assurance",
+    description: "Every project undergoes rigorous testing to ensure flawless performance and reliability."
+  },
+  {
+    icon: Zap,
+    title: "Agile Delivery",
+    description: "Fast, iterative development cycles that keep you ahead of the competition."
+  }
+];
+
+const stats = [
+  { value: "3+", label: "Years Experience", description: "Building digital excellence" },
+  { value: "20+", label: "Happy Clients", description: "Across various industries" },
+  { value: "50+", label: "Projects Completed", description: "Successful implementations" },
+  { value: "24/7", label: "Support", description: "Always here for you" }
 ];
 
 export default function AboutUs() {
