@@ -65,10 +65,24 @@ model QuestionnaireSubmission {
   services     String   // JSON string array of services
   timeline     String
   budget       String
-  industry     String?
   description  String?
+  industry     String?
   // submittedAt  DateTime @default(now())
   createdAt   DateTime @default(now())
   @@map("questionnaire_submissions")
+}
+
+model JobApplication {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String
+  resumeUrl  String
+  message    String?
+  role       String
+  status     String   @default("pending") // pending, reviewed, shortlisted, 
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@map("job_applications")
 }
 

@@ -5,6 +5,7 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { submitJobApplication } from "@/app/(su)/actions.apply-for-job";
 
 export function ApplyNowModal({ role }: { role: string }) {
   const [name, setName] = useState("");
@@ -12,20 +13,24 @@ export function ApplyNowModal({ role }: { role: string }) {
   const [resumeUrl, setResumeUrl] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const res = await fetch("/api/job-application", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, resumeUrl, message, role }),
-    });
-
-    if (res.ok) {
-      setSubmitted(true);
-    } else {
+    try {
+      const result = await submitJobApplication(name, email, resumeUrl, message, role);
+      
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert(result.error || "Failed to send application");
+      }
+    } catch (error) {
       alert("Failed to send application");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,8 +66,8 @@ export function ApplyNowModal({ role }: { role: string }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <Button type="submit" variant="third">
-              Submit Application
+            <Button type="submit" variant="third" disabled={isLoading}>
+              {isLoading ? "Submitting..." : "Submit Application"}
             </Button>
           </form>
         ) : (

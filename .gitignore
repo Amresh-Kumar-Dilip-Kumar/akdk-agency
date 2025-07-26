@@ -46,3 +46,7 @@ dev.db
 prisma/migrations/20250724104032_add_questionnaire_submissions_table/migration.sql
 src/app/(landing)/about-us/page-new.tsx
 src/app/(landing)/about-us/page-old.tsx
+prisma/migrations/migration_lock.toml
+prisma/migrations/20250523065241_add_subscriber_table/migration.sql
+prisma/migrations/20250625112033_add_quoteformdetails_table/migration.sql
+prisma/migrations/20250726115459_init/migration.sql
