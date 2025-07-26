@@ -62,10 +62,15 @@ const data = {
       url: "/admin/news-letter-list",
       icon: FolderIcon,
     },
+     {
+      title: "Job Applications",
+      url: "/admin/apply",
+      icon: FolderIcon,
+    },
     {
       title: "Quotes",
       url: "/admin/quote",
-      icon: QuoteIcon,
+      icon: FolderIcon,
     },
 
     // {
