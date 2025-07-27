@@ -35,17 +35,55 @@ model contactformdetails {
   id         Int      @id @default(autoincrement())
   name       String
   email      String
-  phone      String
+  phone      String?
   message    String?
+  status     String   @default("unread") // unread, read, replied, archived
+  priority   String   @default("normal") // high, medium, normal
+  source     String   @default("website") // website, landing, mobile
+  tags       String?  // JSON string array of tags
+  notes      String?  // Admin notes
+  
+  // Timestamps
   created_at DateTime @default(now())
+  readAt     DateTime?
+  repliedAt  DateTime?
+  archivedAt DateTime?
+  
+  // Relations (for future use)
+  assignedTo String?  // Admin user ID who is handling this
+  
+  @@index([status])
+  @@index([priority])
+  @@index([created_at])
 }
 
 model Subscriber {
   id           Int      @id @default(autoincrement())
   email        String   @unique
-  subscribedAt DateTime @default(now())
+  status       String   @default("active") // active, inactive, bounced, unsubscribed
+  source       String   @default("website") // website, landing, import, api
+  tags         String?  // JSON string array of tags
+  preferences  String?  // JSON object for email preferences
+  
+  // Analytics
+  openCount    Int      @default(0)
+  clickCount   Int      @default(0)
+  lastOpenAt   DateTime?
+  lastClickAt  DateTime?
+  
+  // Timestamps
+  subscribedAt   DateTime @default(now())
+  unsubscribedAt DateTime?
+  
+  // Relations
+  campaigns    CampaignSend[]
+  events       EmailEvent[]
+  
+  @@index([status])
+  @@index([subscribedAt])
 }
 
+// todo:: remove this
 model quoteformdetails {
   id         Int      @id @default(autoincrement())
   name       String
@@ -79,10 +117,211 @@ model JobApplication {
   resumeUrl  String
   message    String?
   role       String
-  status     String   @default("pending") // pending, reviewed, shortlisted, 
+  status     String   @default("pending") // pending, reviewed, shortlisted, rejected, hired
   
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   @@map("job_applications")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//▀█▀ ▄▀▄ █▀▄ ▄▀▄ 
+// █  ▀▄▀ █▄▀ ▀▄▀ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Newsletter Management Models
+model Campaign {
+  id          Int      @id @default(autoincrement())
+  title       String
+  subject     String
+  content     String   // Large text content for SQLite
+  status      String   @default("draft") // draft, scheduled, sending, sent, paused
+  templateId  Int?
+  
+  // Scheduling
+  scheduledAt DateTime?
+  sentAt      DateTime?
+  
+  // Analytics
+  totalSent      Int @default(0)
+  totalDelivered Int @default(0)
+  totalOpened    Int @default(0)
+  totalClicked   Int @default(0)
+  totalBounced   Int @default(0)
+  
+  // Metadata
+  tags       String?  // JSON string array
+  notes      String?
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  template   EmailTemplate? @relation(fields: [templateId], references: [id])
+  sends      CampaignSend[]
+  events     EmailEvent[]
+  
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+model EmailTemplate {
+  id        Int      @id @default(autoincrement())
+  name      String
+  content   String   // Large text content for SQLite
+  thumbnail String?
+  isDefault Boolean  @default(false)
+  category  String   @default("general") // newsletter, promotion, transactional
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  campaigns Campaign[]
+  
+  @@index([category])
+}
+
+model CampaignSend {
+  id           Int      @id @default(autoincrement())
+  campaignId   Int
+  subscriberId Int
+  status       String   @default("pending") // pending, sent, delivered, bounced, failed
+  
+  sentAt       DateTime?
+  deliveredAt  DateTime?
+  
+  // Relations
+  campaign   Campaign   @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  subscriber Subscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  events     EmailEvent[]
+  
+  @@unique([campaignId, subscriberId])
+  @@index([status])
+}
+
+model EmailEvent {
+  id           Int      @id @default(autoincrement())
+  type         String   // open, click, bounce, unsubscribe, spam
+  campaignId   Int
+  subscriberId Int
+  sendId       Int?
+  
+  // Event data
+  userAgent    String?
+  ipAddress    String?
+  linkUrl      String?  // For click events
+  metadata     String?  // JSON for additional data
+  
+  createdAt    DateTime @default(now())
+  
+  // Relations
+  campaign   Campaign      @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  subscriber Subscriber    @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  send       CampaignSend? @relation(fields: [sendId], references: [id], onDelete: SetNull)
+  
+  @@index([type])
+  @@index([campaignId])
+  @@index([subscriberId])
+  @@index([createdAt])
+}
+
+// Automation Models
+model Automation {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  trigger     String   // subscription, date, behavior
+  conditions  String   // JSON conditions
+  actions     String   // JSON actions
+  isActive    Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([trigger])
+  @@index([isActive])
+}
+
+// Admin & User Management
+model AdminUser {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  role      String   @default("admin") // admin, editor, viewer
+  isActive  Boolean  @default(true)
+  
+  // Security
+  passwordHash String?
+  lastLoginAt  DateTime?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([role])
+  @@index([isActive])
+}
+
+// Analytics & Reporting
+model AnalyticsSnapshot {
+  id               Int      @id @default(autoincrement())
+  date             DateTime @unique
+  totalSubscribers Int      @default(0)
+  newSubscribers   Int      @default(0)
+  unsubscribes     Int      @default(0)
+  campaignsSent    Int      @default(0)
+  totalOpens       Int      @default(0)
+  totalClicks      Int      @default(0)
+  
+  createdAt        DateTime @default(now())
+  
+  @@index([date])
 }
 

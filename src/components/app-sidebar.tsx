@@ -47,31 +47,31 @@ const data = {
       url: "/admin",
       icon: LayoutDashboardIcon,
     },
+      {
+        title: "Analytics",
+        url: "/admin/analytics",
+        icon: BarChartIcon,
+      },
     {
       title: "Contact Form Entries",
       url: "/admin/contact-form",
       icon: ListIcon,
     },
     {
-      title: "Analytics",
-      url: "/admin/analytics",
-      icon: BarChartIcon,
-    },
-    {
       title: "NewsLetter List",
       url: "/admin/news-letter-list",
-      icon: FolderIcon,
+      icon: ListIcon,
     },
      {
       title: "Job Applications",
       url: "/admin/apply",
-      icon: FolderIcon,
+      icon: ListIcon,
     },
-    {
-      title: "Quotes",
-      url: "/admin/quote",
-      icon: FolderIcon,
-    },
+    // {
+    //   title: "Quotes",
+    //   url: "/admin/quote",
+    //   icon: FolderIcon,
+    // },
 
     // {
     //   title: "Team",
