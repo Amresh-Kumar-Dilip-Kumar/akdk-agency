@@ -1,5 +1,11 @@
-import React from "react";
+'use client'
+
+import { AnalyticsDashboard } from '@/components/analytics-dashboard'
 
 export default function AnalyticsPage() {
-  return <div>AnalyticsPage</div>;
+  return (
+    <div className="container mx-auto p-6">
+      <AnalyticsDashboard />
+    </div>
+  )
 }

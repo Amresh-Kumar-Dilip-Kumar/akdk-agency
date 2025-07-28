@@ -1,5 +1,11 @@
 # AKDK Landing page
 
+todo
+- [ ] move analytics form root layout to landing  
+- [ ] submit form for praposol without otp
+- [x] todos
+
+
 ### nextjs
 
 ![screenshot](./screenshot.png)

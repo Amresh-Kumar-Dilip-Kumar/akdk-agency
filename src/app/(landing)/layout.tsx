@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/landing/Footer";
 import { FloatingQuestionnaireCTA } from "@/components/new-landing-comp/floating-questionnaire-cta";
 import { headers } from "next/headers";
+import { AnalyticsProvider, AnalyticsTracker } from "@/components/analytics-provider";
 
 export default function RootLayout({
   children,
@@ -12,7 +13,10 @@ export default function RootLayout({
   return (
     <div className="w-screen overflow-hidden relative min-h-screen bg-white antialiased z-0">
       <Navbar />
-      {children}
+        <AnalyticsProvider>
+            {children}
+            <AnalyticsTracker />
+          </AnalyticsProvider>
       <Footer />
       {/* Floating Questionnaire CTA */}
       <FloatingQuestionnaireCTA />

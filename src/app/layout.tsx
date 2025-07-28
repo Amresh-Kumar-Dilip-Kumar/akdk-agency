@@ -16,13 +16,12 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "AKDK Digital",
-  description: "Creaeting web solutions",
+  description: "Creating web solutions",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // const isHomePage;
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -30,12 +29,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-      
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

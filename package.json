@@ -31,6 +31,7 @@
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-table": "^8.21.3",
     "@types/nodemailer": "^6.4.17",
+    "@types/ua-parser-js": "^0.7.39",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.1",
@@ -53,6 +54,7 @@
     "swiper": "^11.2.10",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
+    "ua-parser-js": "^2.0.4",
     "vaul": "^1.1.2",
     "zod": "^3.25.76"
   },
