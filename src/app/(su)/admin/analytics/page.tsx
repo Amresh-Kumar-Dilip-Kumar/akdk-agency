@@ -1,6 +1,6 @@
 'use client'
 
-import { AnalyticsDashboard } from '@/app/(analytics)/_view/analytics-dashboard'
+import { AnalyticsDashboard } from '@/app/(analytics)/_blocks/analytics-dashboard'
 
 export default function AnalyticsPage() {
   return (

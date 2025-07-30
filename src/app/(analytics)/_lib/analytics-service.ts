@@ -206,7 +206,6 @@ export class AnalyticsService {
         deviceStats,
         recentEvents,
         dailyStats,
-        conversionStats,
       ] = await Promise.all([
         // Total page views
         db.pageView.count({
@@ -302,8 +301,6 @@ export class AnalyticsService {
         // Daily statistics
         this.getDailyStats(days),
 
-        // Conversion statistics
-        this.getConversionStats(startDate),
       ]);
 
       return {
@@ -323,7 +320,7 @@ export class AnalyticsService {
           metadata: event.metadata ? JSON.parse(event.metadata) : null,
         })),
         dailyStats,
-        conversions: conversionStats,
+        // conversions: conversionStats,
       };
     } catch (error) {
       console.error('Error getting dashboard data:', error);
@@ -346,6 +343,17 @@ export class AnalyticsService {
       GROUP BY DATE(timestamp)
       ORDER BY date DESC
     ` as any[];
+    //   const result = await db.pageView.groupBy({
+    //   by: ['timestamp'],
+    //   _count: { _all: true },
+    //   _countDistinct: { visitorId: true },
+    //   where: {
+    //   timestamp: { gte: startDate },
+    //   },
+    //   orderBy: {
+    //   timestamp: 'desc',
+    //   },
+    // });
 
     return result.map(row => ({
       date: row.date,
@@ -354,30 +362,6 @@ export class AnalyticsService {
     }));
   }
 
-  // Get conversion statistics
-  private static async getConversionStats(startDate: Date) {
-    const [contactForms, newsletters, quotes, jobApplications] = await Promise.all([
-      db.contactformdetails.count({
-        where: { created_at: { gte: startDate } },
-      }),
-      db.subscriber.count({
-        where: { subscribedAt: { gte: startDate } },
-      }),
-      db.questionnaireSubmission.count({
-        where: { createdAt: { gte: startDate } },
-      }),
-      db.jobApplication.count({
-        where: { createdAt: { gte: startDate } },
-      }),
-    ]);
-
-    return {
-      contactForms,
-      newsletters,
-      quotes,
-      jobApplications,
-    };
-  }
 
   // Get average session duration
   private static async getAvgSessionDuration(startDate: Date): Promise<number> {
@@ -422,7 +406,6 @@ export class AnalyticsService {
         pageViews,
         uniqueVisitors,
         sessions,
-        conversionStats,
         bounceRate,
         avgDuration,
         topPages,
@@ -451,8 +434,6 @@ export class AnalyticsService {
           },
         }),
 
-        // Conversions
-        this.getConversionStats(targetDate),
 
         // Bounce rate
         this.getBounceRate(targetDate),
@@ -519,10 +500,6 @@ export class AnalyticsService {
           topReferrers: JSON.stringify(topReferrers.map(r => ({ referrer: r.referrer, count: r._count.referrer }))),
           topCountries: JSON.stringify(topCountries.map(c => ({ country: c.country, count: c._count.country }))),
           topDevices: JSON.stringify(topDevices.map(d => ({ device: d.device, count: d._count.device }))),
-          contactFormSubmissions: conversionStats.contactForms,
-          newsletterSubscriptions: conversionStats.newsletters,
-          quoteRequests: conversionStats.quotes,
-          jobApplications: conversionStats.jobApplications,
         },
         create: {
           date: targetDate,
@@ -535,10 +512,6 @@ export class AnalyticsService {
           topReferrers: JSON.stringify(topReferrers.map(r => ({ referrer: r.referrer, count: r._count.referrer }))),
           topCountries: JSON.stringify(topCountries.map(c => ({ country: c.country, count: c._count.country }))),
           topDevices: JSON.stringify(topDevices.map(d => ({ device: d.device, count: d._count.device }))),
-          contactFormSubmissions: conversionStats.contactForms,
-          newsletterSubscriptions: conversionStats.newsletters,
-          quoteRequests: conversionStats.quotes,
-          jobApplications: conversionStats.jobApplications,
         },
       });
 
