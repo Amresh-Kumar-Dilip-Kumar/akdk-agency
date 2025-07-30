@@ -1,3 +1,4 @@
+```tsx
 'use client'
 
 import { AnalyticsDashboard } from '@/app/(analytics)/_view/analytics-dashboard'
@@ -9,3 +10,4 @@ export default function AnalyticsPage() {
     </div>
   )
 }
+```

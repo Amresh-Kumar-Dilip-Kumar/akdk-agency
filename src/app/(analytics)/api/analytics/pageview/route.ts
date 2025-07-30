@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { AnalyticsService } from '@/lib/analytics-service'
-import { AnalyticsCollector } from '@/lib/analytics'
+import { AnalyticsService } from '@/app/(analytics)/_lib/analytics-service'
+import { AnalyticsCollector } from '@/app/(analytics)/_lib/analytics'
 
 export async function POST(request: NextRequest) {
   try {

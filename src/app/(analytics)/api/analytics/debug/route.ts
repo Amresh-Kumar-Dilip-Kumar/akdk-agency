@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { AnalyticsCollector } from '@/lib/analytics'
+import { AnalyticsCollector } from '@/app/(analytics)/_lib/analytics'
 
 export async function GET(request: NextRequest) {
   const ipAddress = AnalyticsCollector.getClientIP(request)

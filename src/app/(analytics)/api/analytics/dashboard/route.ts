@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { AnalyticsService } from '@/lib/analytics-service'
+import { AnalyticsService } from '@/app/(analytics)/_lib/analytics-service'
 
 export async function GET(request: NextRequest) {
   try {

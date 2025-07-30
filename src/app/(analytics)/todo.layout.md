@@ -1,7 +1,9 @@
+```tsx
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/landing/Footer";
 import { FloatingQuestionnaireCTA } from "@/components/new-landing-comp/floating-questionnaire-cta";
+import { headers } from "next/headers";
 import { AnalyticsProvider, AnalyticsTracker } from "@/app/(analytics)/_components/analytics-provider";
 
 export default function RootLayout({
@@ -22,3 +24,4 @@ export default function RootLayout({
     </div>
   );
 }
+```

@@ -1,6 +1,6 @@
 'use client'
 
-import { useAnalytics } from '@/hooks/use-analytics'
+import { useAnalytics } from '@/app/(analytics)/_hooks/use-analytics'
 import { useRef, useEffect } from 'react'
 
 interface AnalyticsFormProps {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { clientAnalytics } from '@/lib/analytics'
+import { clientAnalytics } from '@/app/(analytics)/_lib/analytics'
 
 interface AnalyticsSession {
   visitorId: string

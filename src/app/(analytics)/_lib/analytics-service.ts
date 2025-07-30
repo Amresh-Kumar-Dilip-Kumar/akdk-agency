@@ -1,5 +1,5 @@
 import { db } from '@/db/prisma';
-import { AnalyticsCollector, VisitorData, SessionData, PageViewData, AnalyticsEventData } from '@/lib/analytics';
+import { AnalyticsCollector, VisitorData, SessionData, PageViewData, AnalyticsEventData } from '@/app/(analytics)/_lib/analytics';
 
 export class AnalyticsService {
   
