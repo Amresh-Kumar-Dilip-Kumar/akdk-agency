@@ -1,21 +1,24 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/landing/Footer";
+import { FloatingQuestionnaireCTA } from "@/components/new-landing-comp/floating-questionnaire-cta";
+import { AnalyticsProvider, AnalyticsTracker } from "@/app/(analytics)/_components/analytics-provider";
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   // const isHomePage;
+
   return (
-    <div className="w-screen overflow-hidden">
-      {/* <div className="relative w-full flex items-center justify-center "> */}
+    <div className="w-screen overflow-hidden relative min-h-screen bg-white antialiased z-0">
       <Navbar />
-
-      <div className="p-10"></div>
-
-      {/* </div> */}
-      {children}
+        <AnalyticsProvider>
+            {children}
+            <AnalyticsTracker />
+          </AnalyticsProvider>
       <Footer />
+      {/* Floating Questionnaire CTA */}
+      <FloatingQuestionnaireCTA />
     </div>
   );
 }

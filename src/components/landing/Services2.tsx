@@ -9,20 +9,21 @@ export default function Services2() {
   return (
     <div className="mb-14">
       <section className="max-w-[1440px] mx-auto pt-8">
-        <h2 className="mb-8 font-heading font-bold text-3xl sm:text-4xl md:text-4xl lg:text-5xl text-black text-center ">
+        <h2 className="mb-8 font-heading font-bold text-4xl md:text-4xl lg:text-5xl text-black text-center ">
           Our
           <span className="text-red-600 ml-2">Services</span>
         </h2>
-        <p className="max-w-5xl mx-auto mb-8 text-lg sm:text-lg md:text-xl leading-relaxed text-gray-600  text-center">
-          At AKDK Digital, we offer a range of web app services designed to meet
-          your business needs. Our team of expert developers is dedicated to
-          delivering custom solutions, seamless upgrades, and ongoing support to
-          ensure your web applications are always performing at their best.
-          Discover how we can help you achieve your digital goals.
+        <p className="max-w-5xl mx-auto mb-8 text-lg  md:text-xl leading-relaxed text-gray-700  text-center">
+          At <strong>AKDK Digital</strong> , we offer a range of web app
+          services designed to meet your business needs. Our team of expert
+          developers is dedicated to delivering custom solutions, seamless
+          upgrades, and ongoing support to ensure your web applications are
+          always performing at their best. Discover how we can help you achieve
+          your digital goals.
         </p>
       </section>
       <div className="p-5"></div>
-      <Container className="mt-16">
+      <Container className="mt-12">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
