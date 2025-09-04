@@ -103,7 +103,7 @@ export default function ContactForm() {
               {
                 icon: <Mail className="w-8 h-8" />,
                 title: "Email Us",
-                info: "hello@akdkdigital.com",
+                info: "akdkdigital@gmail.com",
                 color: "from-purple-500 to-pink-500",
                 bgColor: "from-purple-50 to-pink-50",
               },

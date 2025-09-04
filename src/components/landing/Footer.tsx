@@ -58,7 +58,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 text-gray-700 hover:text-red-500 transition-colors">
                 <Mail className="w-4 h-4 text-red-500 flex-shrink-0" />
                 <span className="text-sm font-medium">
-                  contact@akdkdigital.com
+                  akdkdigital@gmail.com
                 </span>
               </div>
               <div className="flex items-center gap-3 text-gray-700 hover:text-blue-500 transition-colors">
