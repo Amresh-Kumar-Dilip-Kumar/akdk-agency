@@ -176,8 +176,8 @@ export default function ServicesMission() {
             {/* Card Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
             
-            {/* Content */}
-            <div className="relative p-12 text-white">
+          
+            {/* <div className="relative p-12 text-white">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Business?
               </h3>
@@ -200,7 +200,7 @@ export default function ServicesMission() {
                   View Portfolio
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="inline-flex items-center space-x-2 text-blue-600 mt-8">

@@ -228,9 +228,9 @@ export const Hero = () => (
               <div className="w-8 h-8 bg-gradient-to-r from-red-400 to-pink-400 rounded-full"></div>
               <div>
                 <div className="text-white text-sm font-semibold">
-                  Sarah Chen
+                  Ajay Verma
                 </div>
-                <div className="text-gray-300 text-xs">CEO, TechStart</div>
+                <div className="text-gray-300 text-xs"> Digital Innovation</div>
               </div>
             </div>
           </motion.div>
