@@ -43,6 +43,17 @@ const projects = [
     link: "https://greenagricorp.netlify.app/",
     quote: "\u201cProfessional, responsive, and results-driven.\u201d",
   },
+  {
+    title: "Warehouse Gate Logger",
+    description:
+      "Warehouse Gate Logger is a smart system designed to streamline entry and exit tracking at warehouses. It enables secure logging of vehicles, goods, and personnel movements, ensuring better accountability, efficiency, and safety in warehouse operations.",
+    features: "Secure Logging, Real-time Tracking, Easy Management",
+    techStack: ["Next.js", "Tailwind CSS", "Prisma"],
+    image: ["/warehouse-1.png", "/warehouse-2.png", "/warehouse-3.png"],
+    link: "https://server.ermonline.in/",
+    quote: "“Efficient, reliable, and built for modern warehouse operations.”",
+  }
+  
 ];
 
 const Project = () => {
@@ -161,6 +172,7 @@ const Project = () => {
                     )}
 
                     {/* CTA Button */}
+                      <div className="flex gap-4">  
                     <div className="flex flex-col sm:flex-row gap-4">
                       <a
                         href={project.link}
@@ -172,6 +184,21 @@ const Project = () => {
                         <ExternalLink className="w-4 h-4 ml-2" />
                       </a>
                     </div>
+
+                  {/*  */}
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a
+                        href="/project/greenagri"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      >
+                          Detailed Description
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
+                    </div> 
+
+                       </div>
                   </div>
 
                   {/* Image Section */}
