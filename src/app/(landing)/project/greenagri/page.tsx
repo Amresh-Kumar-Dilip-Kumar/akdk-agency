@@ -81,6 +81,74 @@ export default function Page() {
         <li>🔒 Role-based access and data security</li>
       </ul>
 
+
+      <h2 className="text-2xl font-semibold mt-12">Analytics Page</h2>
+
+
+      <Image
+        src="/project-detail/greenagri-4.png"
+        alt="GreenAgri Admin Dashboard"
+        width={700}
+        height={450}
+        className="mx-auto mt-6 rounded-lg"
+      />
+
+<ul className="max-w-full mx-auto mt-4  text-gray-700">
+  <li className="flex items-start space-x-3 ">
+    <span className="text-2xl">📈</span>
+    <span>
+      <strong>Page Views & Unique Visitors</strong> – Track overall traffic and engagement trends.
+    </span>
+  </li>
+  <li className="flex items-start space-x-3 ">
+    <span className="text-2xl">🌐</span>
+    <span>
+      <strong>Traffic Sources</strong> – Identify whether users come from search engines, social media, referrals, or direct visits.
+    </span>
+  </li>
+  <li className="flex items-start space-x-3  ">
+    <span className="text-2xl">📱</span>
+    <span>
+      <strong>Device & Platform Insights</strong> – Breakdown of desktop, mobile, and tablet usage.
+    </span>
+  </li>
+  <li className="flex items-start space-x-3 ">
+    <span className="text-2xl">📍</span>
+    <span>
+      <strong>Location Analytics</strong> – See where visitors are coming from (country/city wise).
+    </span>
+  </li>
+  <li className="flex items-start space-x-3 ">
+    <span className="text-2xl">⏱️</span>
+    <span>
+      <strong>Engagement Metrics</strong> – Monitor average session duration, bounce rate, and top visited pages.
+    </span>
+  </li>
+</ul>
+
+<h2 className="text-2xl font-semibold mt-12">Contact Page</h2>
+
+
+     <Image
+        src="/project-detail/greenagri-5.png"
+        alt="GreenAgri Admin Dashboard"
+        width={700}
+        height={450}
+        className="mx-auto mt-6 rounded-lg"
+      />
+
+
+
+     <p className="mt-6">
+      View all messages submitted through the <strong>Green Agri contact form</strong>. 
+       Track inquiries, business requests, and customer feedback in one place, with options to search, filter, and manage submissions efficiently.
+     </p>
+
+
+
+
+
+
       {/* Closing */}
       <h2 className="text-2xl font-semibold mt-12">Why Green Agri Corp?</h2>
       <p>
