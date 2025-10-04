@@ -47,3 +47,4 @@ src/app/(landing)/about-us/page-new.tsx
 src/app/(landing)/about-us/page-old.tsx
 
 prisma/migrations
+generated

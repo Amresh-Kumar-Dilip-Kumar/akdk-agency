@@ -325,7 +325,7 @@ export default async function ContactFormEntriesPage() {
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0">
+                            <Button variant="ghost" className="h-8 w-8 p-0" type="button">
                               <MoreHorizontal className="h-4 w-4" />
                             </Button>
                           </DropdownMenuTrigger>
@@ -344,32 +344,13 @@ export default async function ContactFormEntriesPage() {
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>
-                              <AlertDialog>
-                                <AlertDialogTrigger className="flex items-center text-red-600 w-full">
+                              <form action={deleteMessage}>
+                                <input type="hidden" name="id" value={item.id} />
+                                <Button variant="ghost" className="flex items-center text-red-600 w-full p-0">
                                   <Trash2 className="h-4 w-4 mr-2" />
                                   Delete
-                                </AlertDialogTrigger>
-                                <AlertDialogContent>
-                                  <AlertDialogHeader>
-                                    <AlertDialogTitle>
-                                      Are you absolutely sure?
-                                    </AlertDialogTitle>
-                                    <AlertDialogDescription>
-                                      This action cannot be undone. This will permanently delete
-                                      the message from {item.name}.
-                                    </AlertDialogDescription>
-                                  </AlertDialogHeader>
-                                  <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <form action={deleteMessage}>
-                                      <input type="hidden" name="id" value={item.id} />
-                                      <AlertDialogAction type="submit">
-                                        Yes, delete
-                                      </AlertDialogAction>
-                                    </form>
-                                  </AlertDialogFooter>
-                                </AlertDialogContent>
-                              </AlertDialog>
+                                </Button>
+                              </form>
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>

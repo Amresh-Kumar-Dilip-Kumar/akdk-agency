@@ -6,5 +6,7 @@ services:
     ports:
       - "3003:3000"
       # - "5555:5500"
+    volumes:
+      - ./prisma/dev.db:/app/prisma/dev.db
     environment:
       - NODE_ENV=production
