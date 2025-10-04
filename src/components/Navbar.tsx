@@ -12,7 +12,7 @@ const Navigation = [
   { name: "Services", path: "service" },
   { name: "Career", path: "career" },
   { name: "Portfolio", path: "project" },
-  { name: "Contact", path: "contact-us" },
+  // { name: "Contact", path: "contact-us" },
 ];
 
 export default function Navbar() {
@@ -92,7 +92,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Navigation Links */}
-          <div className="md:flex md:items-center md:gap-8">
+          <div className="md:flex md:items-center md:gap-8 mr-36">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-8 text-base">
                 {Navigation.map((item, index) => (
@@ -116,7 +116,7 @@ export default function Navbar() {
             </nav>
 
             {/* CTA Button & Theme Toggle */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4 ">
               {/*
                 // todo :: mode toggle is not complete as no block is optimized for it yet
               */}
@@ -127,7 +127,7 @@ export default function Navbar() {
                 onClick={() => (window.location.href = "/contact-us")}
               >
                 <Zap className="w-4 h-4 mr-2" />
-                Get Started
+              Contact Us
               </Button>
             </div>
 
@@ -189,7 +189,7 @@ export default function Navbar() {
                   }}
                 >
                   <Zap className="w-4 h-4 mr-2" />
-                  Get Started
+                  Contact Us
                 </Button>
               </motion.div>
             </div>

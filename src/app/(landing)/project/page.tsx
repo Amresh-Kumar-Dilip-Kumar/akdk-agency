@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+
 const projects = [
   {
     title: "Our-Shop.site",
@@ -31,6 +32,7 @@ const projects = [
     techStack: ["Next.js", "React", "Tailwind CSS"],
     image: ["/shop-1.png", "/shop-2.png", "/shop-3.png"],
     link: "https://our-shop.site/",
+    descriptionLink: "/project/shopsite",
     quote: "\u201cA seamless experience from start to finish!\u201d",
   },
   {
@@ -41,8 +43,21 @@ const projects = [
     techStack: ["HTML", "CSS", "JavaScript"],
     image: ["/green-1.png", "/green-2.png", "/green-3.png"],
     link: "https://greenagricorp.netlify.app/",
+    descriptionLink: "/project/greenagri",
     quote: "\u201cProfessional, responsive, and results-driven.\u201d",
   },
+  {
+    title: "Warehouse Gate Logger",
+    description:
+      "Warehouse Gate Logger is a smart system designed to streamline entry and exit tracking at warehouses. It enables secure logging of vehicles, goods, and personnel movements, ensuring better accountability, efficiency, and safety in warehouse operations.",
+    features: "Secure Logging, Real-time Tracking, Easy Management",
+    techStack: ["Next.js", "Tailwind CSS", "Prisma"],
+    image: ["/warehouse-1.png", "/warehouse-2.png", "/warehouse-3.png"],
+    link: "https://server.ermonline.in/",
+    descriptionLink: "",
+    quote: "“Efficient, reliable, and built for modern warehouse operations.”",
+  }
+  
 ];
 
 const Project = () => {
@@ -161,6 +176,7 @@ const Project = () => {
                     )}
 
                     {/* CTA Button */}
+                      <div className="flex gap-4">  
                     <div className="flex flex-col sm:flex-row gap-4">
                       <a
                         href={project.link}
@@ -172,6 +188,21 @@ const Project = () => {
                         <ExternalLink className="w-4 h-4 ml-2" />
                       </a>
                     </div>
+
+                  {/*  */}
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Link
+                        href={project.descriptionLink}
+                        
+                       
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      >
+                          Detailed Description
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Link>
+                    </div> 
+
+                       </div>
                   </div>
 
                   {/* Image Section */}

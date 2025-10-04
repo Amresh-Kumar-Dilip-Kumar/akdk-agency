@@ -164,6 +164,7 @@ export default function CareerPage() {
                 description:
                   "Design and build engaging, user-friendly UI components using React, Tailwind, or any other modern technology of your choice—bring your creativity and preferred tools to craft impressive digital experiences.",
                 color: "from-blue-500 to-cyan-500",
+                position: "Close",
               },
               {
                 title: "UI/UX Designer",
@@ -172,6 +173,7 @@ export default function CareerPage() {
                 description:
                   "Create intuitive, visually appealing experiences tailored to client needs—whether you're skilled in UI/UX design tools, front-end frameworks, or prefer bringing your own creative process, your design thinking is what makes the difference.",
                 color: "from-green-500 to-emerald-500",
+                position: "Open",
               },
               {
                 title: "Backend Developer",
@@ -180,6 +182,7 @@ export default function CareerPage() {
                 description:
                   "Build and maintain scalable, efficient backend systems using technologies like Node.js, databases, or any stack you're comfortable with—what matters most is writing clean, secure code that powers great user experiences.",
                 color: "from-purple-500 to-pink-500",
+                position: "Open",
               },
             ].map((job, i) => (
               <div key={i} className="group relative">
@@ -206,7 +209,7 @@ export default function CareerPage() {
                     <div
                       className={`inline-flex items-center px-4 py-2 bg-gradient-to-r ${job.color} text-white rounded-full text-sm font-bold uppercase tracking-wide mt-4 lg:mt-0`}
                     >
-                      Open Position
+                      {job.position}
                     </div>
                   </div>
 
@@ -276,6 +279,11 @@ export default function CareerPage() {
                 <input
                   type="email"
                   placeholder="Email Address"
+                  className="w-full border-2 border-gray-200 focus:border-red-400 p-4 rounded-xl transition-colors duration-300"
+                />
+                <input
+                  type="url"
+                  placeholder="Google Drive Resume URL"
                   className="w-full border-2 border-gray-200 focus:border-red-400 p-4 rounded-xl transition-colors duration-300"
                 />
               </div>
