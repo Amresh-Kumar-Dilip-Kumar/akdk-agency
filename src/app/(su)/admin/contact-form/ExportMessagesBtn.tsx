@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { format } from "date-fns";
-import { contactformdetails } from "@prisma/client";
+import { contactformdetails } from "@/../generated";
 
 export default function ExportMessagesBtn({
   messages = [],
