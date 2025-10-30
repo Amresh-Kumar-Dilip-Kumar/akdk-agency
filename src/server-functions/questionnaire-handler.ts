@@ -113,6 +113,11 @@ export async function verifyOTPAndSubmit(
           budget: questionnaireData.budget,
           industry: questionnaireData.industry || null,
           description: questionnaireData.description || null,
+          businessSize: questionnaireData.businessSize || null,
+          currentWebsite: questionnaireData.currentWebsite || null,
+          features: JSON.stringify(questionnaireData.features), // Store as JSON string
+          additionalInfo: questionnaireData.additionalInfo || null,
+          preferredContact: questionnaireData.preferredContact || null,
         }
       });
 

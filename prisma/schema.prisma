@@ -95,19 +95,23 @@ model quoteformdetails {
 }
 
 model QuestionnaireSubmission {
-  id           Int      @id @default(autoincrement())
-  contactName  String
-  email        String
-  phone        String
-  businessName String?
-  projectType  String
-  services     String   // JSON string array of services
-  timeline     String
-  budget       String
-  description  String?
-  industry     String?
-  // submittedAt  DateTime @default(now())
-  createdAt   DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  contactName     String
+  email           String
+  phone           String
+  businessName    String?
+  projectType     String
+  services        String   // JSON string array of services
+  timeline        String
+  budget          String
+  description     String?
+  industry        String?
+  businessSize    String?
+  currentWebsite  String?
+  features        String?  // JSON string array of features
+  additionalInfo  String?
+  preferredContact String?
+  createdAt       DateTime @default(now())
   @@map("questionnaire_submissions")
 }
 
