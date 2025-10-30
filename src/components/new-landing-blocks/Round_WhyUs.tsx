@@ -5,98 +5,97 @@ import { Target, Users, Award, Zap, Clock, Rocket, ShieldCheck } from "lucide-re
 const stats = [
   {
     icon: <Clock className="w-8 h-8" />,
-    bgIcon: <FaUsers className="text-6xl text-blue-200/30" />,
+    bgIcon: <FaUsers className="text-6xl text-slate-200/30" />,
     title: "3+ Years",
-    subtitle: "Excellence Track Record",
-    text: "Years of dedicated service in crafting exceptional digital solutions that exceed client expectations and drive business growth.",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "from-blue-50 to-cyan-50",
+    subtitle: "Proven Track Record",
+    text: "Over three years of delivering high-quality web and mobile solutions to businesses across various industries, consistently exceeding expectations.",
+    color: "from-slate-600 to-slate-800",
+    bgColor: "from-slate-50 to-gray-50",
   },
   {
     icon: <Users className="w-8 h-8" />,
-    bgIcon: <FaUserTie className="text-6xl text-green-200/30" />,
+    bgIcon: <FaUserTie className="text-6xl text-emerald-200/30" />,
     title: "20+ Clients",
-    subtitle: "Happy Partnerships",
-    text: "Satisfied clients who trust our expertise and continue to work with us for their ongoing digital transformation needs.",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "from-green-50 to-emerald-50",
+    subtitle: "Long-term Partnerships",
+    text: "Built lasting relationships with clients who trust us for ongoing development work and continue to recommend our services.",
+    color: "from-emerald-600 to-teal-600",
+    bgColor: "from-emerald-50 to-teal-50",
   },
   {
     icon: <Rocket className="w-8 h-8" />,
-    bgIcon: <FaTrophy className="text-6xl text-purple-200/30" />,
+    bgIcon: <FaTrophy className="text-6xl text-violet-200/30" />,
     title: "50+ Projects",
-    subtitle: "Successful Deliveries",
-    text: "Successfully delivered projects ranging from simple websites to complex enterprise applications across various industries.",
-    color: "from-purple-500 to-indigo-500",
-    bgColor: "from-purple-50 to-indigo-50",
+    subtitle: "Successful Launches",
+    text: "From startup MVPs to enterprise platforms, we've successfully launched projects that drive real business value and user engagement.",
+    color: "from-violet-600 to-purple-600",
+    bgColor: "from-violet-50 to-purple-50",
   },
 ];
 
 const features = [
   {
     icon: <Target className="w-8 h-8" />,
-    bgIcon: <FaStar className="text-6xl text-red-200/30" />,
-    title: "Strategic Approach",
-    subtitle: "Goal-Oriented Solutions",
-    text: "Every project starts with understanding your business goals and creating a tailored strategy that ensures measurable success and ROI.",
-    color: "from-red-500 to-pink-500",
-    bgColor: "from-red-50 to-pink-50",
+    bgIcon: <FaStar className="text-6xl text-amber-200/30" />,
+    title: "Strategic Planning",
+    subtitle: "Goal-Driven Development",
+    text: "We start every project by understanding your business objectives and creating a roadmap that aligns technology decisions with your strategic goals.",
+    color: "from-amber-600 to-orange-600",
+    bgColor: "from-amber-50 to-orange-50",
   },
   {
     icon: <Award className="w-8 h-8" />,
-    bgIcon: <FaTrophy className="text-6xl text-yellow-200/30" />,
-    title: "Quality Assurance",
-    subtitle: "Excellence Standard",
-    text: "Rigorous testing and quality checks ensure your digital solutions perform flawlessly across all platforms and exceed industry standards.",
-    color: "from-yellow-500 to-orange-500",
-    bgColor: "from-yellow-50 to-orange-50",
+    bgIcon: <FaTrophy className="text-6xl text-blue-200/30" />,
+    title: "Quality Engineering",
+    subtitle: "Built to Last",
+    text: "We follow industry best practices and conduct thorough testing to ensure your application is reliable, scalable, and maintainable.",
+    color: "from-blue-600 to-indigo-600",
+    bgColor: "from-blue-50 to-indigo-50",
   },
   {
     icon: <Zap className="w-8 h-8" />,
-    bgIcon: <FaUsers className="text-6xl text-blue-200/30" />,
-    title: "Fast Delivery",
-    subtitle: "Agile Development",
-    text: "Our agile development methodology ensures rapid delivery without compromising on quality, functionality, or user experience.",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "from-blue-50 to-cyan-50",
+    bgIcon: <FaUsers className="text-6xl text-rose-200/30" />,
+    title: "Agile Delivery",
+    subtitle: "Iterative Approach",
+    text: "Using agile methodologies, we deliver working software in short cycles, allowing for feedback and adjustments throughout the development process.",
+    color: "from-rose-600 to-pink-600",
+    bgColor: "from-rose-50 to-pink-50",
   },
   {
     icon: <ShieldCheck className="w-8 h-8" />,
-    bgIcon: <FaUserTie className="text-6xl text-green-200/30" />,
-    title: "Reliable Support",
-    subtitle: "24/7 Assistance",
-    text: "Comprehensive technical support and maintenance services to keep your digital assets running smoothly and securely at all times.",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "from-green-50 to-emerald-50",
+    bgIcon: <FaUserTie className="text-6xl text-cyan-200/30" />,
+    title: "Ongoing Support",
+    subtitle: "We're Here to Help",
+    text: "After launch, we provide maintenance, updates, and technical support to ensure your application continues to perform optimally.",
+    color: "from-cyan-600 to-blue-600",
+    bgColor: "from-cyan-50 to-blue-50",
   },
 ];
 
 export default function WhyUsMission() {
   return (
-    <section className="relative bg-gradient-to-b from-white via-gray-50 to-white py-24 overflow-hidden">
+    <section className="relative bg-white py-24 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10"></div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-100/30 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-100/20 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-100/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-slate-100/50 rounded-full blur-2xl -z-10"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-violet-100/30 rounded-full blur-2xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 mr-4"></div>
-            <Award className="w-8 h-8 text-blue-600 mx-2" />
-            <div className="w-12 h-0.5 bg-gradient-to-l from-blue-500 to-cyan-500 ml-4"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-slate-300 to-slate-500 mr-4"></div>
+            <Award className="w-8 h-8 text-slate-700 mx-2" />
+            <div className="w-12 h-0.5 bg-gradient-to-l from-slate-300 to-slate-500 ml-4"></div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r  from-gray-900 via-red-700 to-gray-900  bg-clip-text text-transparent">
-            Why Choose AKDK Digital
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
+            Why Work With Us
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-            We don't just build websites and apps – we craft digital experiences that drive real business growth, deliver exceptional value, and create lasting impact for your brand.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+            We combine technical expertise with a collaborative approach to deliver solutions that solve real business problems and drive growth.
           </p>
         </div>
 
@@ -106,11 +105,11 @@ export default function WhyUsMission() {
             <div key={index} className="group relative">
               {/* Card Background with Enhanced Effects */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-blue-200 group-hover:scale-105`}
+                className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-slate-200 group-hover:border-slate-300 group-hover:scale-[1.02]`}
               ></div>
 
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-blue-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-slate-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
               <div className="relative p-8 lg:p-10 h-full flex flex-col">
                 {/* Icon Section */}
@@ -136,17 +135,17 @@ export default function WhyUsMission() {
                     {item.subtitle}
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 group-hover:text-slate-800 transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed text-lg font-light">
+                  <p className="text-slate-600 leading-relaxed text-lg font-light">
                     {item.text}
                   </p>
                 </div>
 
                 {/* Bottom Accent */}
-                <div className="mt-8 pt-6 border-t border-gray-200 group-hover:border-blue-200 transition-colors duration-300">
+                <div className="mt-8 pt-6 border-t border-slate-200 group-hover:border-slate-300 transition-colors duration-300">
                   <div
                     className={`w-12 h-1 bg-gradient-to-r ${item.color} rounded-full group-hover:w-20 transition-all duration-500`}
                   ></div>
@@ -162,11 +161,11 @@ export default function WhyUsMission() {
             <div key={index} className="group relative">
               {/* Card Background with Enhanced Effects */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-red-200 group-hover:scale-105`}
+                className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-slate-200 group-hover:border-slate-300 group-hover:scale-[1.02]`}
               ></div>
 
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-red-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-slate-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
               <div className="relative p-8 lg:p-10 h-full flex flex-col">
                 {/* Icon Section */}
@@ -192,17 +191,17 @@ export default function WhyUsMission() {
                     {item.subtitle}
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors duration-300">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 group-hover:text-slate-800 transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed text-lg font-light">
+                  <p className="text-slate-600 leading-relaxed text-lg font-light">
                     {item.text}
                   </p>
                 </div>
 
                 {/* Bottom Accent */}
-                <div className="mt-8 pt-6 border-t border-gray-200 group-hover:border-red-200 transition-colors duration-300">
+                <div className="mt-8 pt-6 border-t border-slate-200 group-hover:border-slate-300 transition-colors duration-300">
                   <div
                     className={`w-12 h-1 bg-gradient-to-r ${item.color} rounded-full group-hover:w-20 transition-all duration-500`}
                   ></div>
@@ -214,16 +213,16 @@ export default function WhyUsMission() {
 
         {/* Call-to-Action Section */}
         <div className="text-center mt-20">
-          <div className="inline-flex items-center space-x-2 text-blue-600 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          <div className="inline-flex items-center space-x-2 text-slate-700 mb-4">
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-bold uppercase tracking-wider">
-              Built for Excellence
+              Partnership-Focused Development
             </span>
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-300"></div>
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-300"></div>
           </div>
 
-          <p className="text-lg text-gray-600 font-medium">
-            Experience the difference that comes with choosing AKDK Digital as your trusted technology partner.
+          <p className="text-lg text-slate-600 font-medium">
+            Let's work together to build something exceptional for your business.
           </p>
         </div>
       </div>

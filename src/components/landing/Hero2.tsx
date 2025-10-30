@@ -16,48 +16,48 @@ export const Hero = () => (
         priority
       />
       {/* Multi-layered overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-red-900/60"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-red-900/30 via-transparent to-blue-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-slate-900/60 to-black/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-900/20 via-transparent to-transparent"></div>
     </div>
 
     {/* Animated floating elements */}
     <div className="absolute inset-0 overflow-hidden z-10 bg-transparent">
       <motion.div
         animate={{
-          x: [0, 100, 0],
-          y: [0, -50, 0],
-          opacity: [0.3, 0.6, 0.3],
+          x: [0, 80, 0],
+          y: [0, -40, 0],
+          opacity: [0.15, 0.35, 0.15],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-20 w-32 h-32 bg-red-500/20 rounded-full blur-xl"
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 left-20 w-40 h-40 bg-violet-600/15 rounded-full blur-2xl"
       ></motion.div>
       <motion.div
         animate={{
-          x: [0, -80, 0],
-          y: [0, 60, 0],
-          opacity: [0.2, 0.5, 0.2],
+          x: [0, -60, 0],
+          y: [0, 50, 0],
+          opacity: [0.12, 0.3, 0.12],
         }}
         transition={{
-          duration: 10,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2,
+          delay: 3,
         }}
-        className="absolute bottom-32 right-32 w-40 h-40 bg-blue-500/20 rounded-full blur-xl"
+        className="absolute bottom-32 right-32 w-48 h-48 bg-indigo-500/15 rounded-full blur-2xl"
       ></motion.div>
       <motion.div
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.3, 0.1],
+          scale: [1, 1.15, 1],
+          opacity: [0.08, 0.2, 0.08],
         }}
         transition={{
-          duration: 6,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 4,
+          delay: 5,
         }}
-        className="absolute top-1/2 left-1/3 w-60 h-60 bg-purple-500/15 rounded-full blur-2xl"
+        className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
       ></motion.div>
     </div>
 
@@ -100,13 +100,13 @@ export const Hero = () => (
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-red-500/20 to-pink-500/20 backdrop-blur-sm border border-red-300/30 rounded-full text-white text-sm font-semibold w-fit shadow-lg"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-semibold w-fit shadow-lg"
           >
             <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 text-yellow-400 fill-current" />
-              <Sparkles className="w-4 h-4 text-red-300" />
+              <Star className="w-4 h-4 text-amber-300 fill-current" />
+              <Sparkles className="w-4 h-4 text-violet-300" />
             </div>
-            Premium Digital Solutions
+            Professional Web Solutions
           </motion.div>
 
           <motion.h1
@@ -115,15 +115,15 @@ export const Hero = () => (
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] text-white"
           >
-            Elevate Your
+            Building Digital
             <motion.span
-              className="block bg-gradient-to-r from-red-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
+              className="block bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             >
-              Digital Empire
+              Experiences That Convert
             </motion.span>
           </motion.h1>
 
@@ -133,12 +133,7 @@ export const Hero = () => (
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl text-gray-200 max-w-lg leading-relaxed"
           >
-            At{" "}
-            <span className="font-bold text-white bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
-              AKDK Digital
-            </span>
-            , we don't just build websites – we craft digital experiences that
-            inspire, engage, and convert. Your success is our masterpiece.
+            We partner with ambitious companies to create web and mobile applications that deliver measurable business impact. Custom solutions built with modern technology.
           </motion.p>
 
           <motion.div
@@ -149,11 +144,11 @@ export const Hero = () => (
           >
             <Button
               size="lg"
-              className="px-8 py-4 text-base font-bold rounded-xl bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 border-0"
+              className="px-8 py-4 text-base font-bold rounded-xl bg-white text-slate-900 hover:bg-gray-100 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 border-0"
               onClick={() => (window.location.href = "/project")}
             >
               <Play className="w-5 h-5 mr-2" />
-              View Our Masterpieces
+              View Our Work
             </Button>
             <Button
               size="lg"
@@ -177,7 +172,7 @@ export const Hero = () => (
               transition={{ duration: 0.2 }}
             >
               <div className="text-3xl font-bold text-white">3+</div>
-              <div className="text-sm text-gray-300">Years Crafting</div>
+              <div className="text-sm text-gray-300">Years Experience</div>
             </motion.div>
             <motion.div
               className="text-center"
@@ -185,7 +180,7 @@ export const Hero = () => (
               transition={{ duration: 0.2 }}
             >
               <div className="text-3xl font-bold text-white">20+</div>
-              <div className="text-sm text-gray-300">Thrilled Clients</div>
+              <div className="text-sm text-gray-300">Happy Clients</div>
             </motion.div>
             <motion.div
               className="text-center"
@@ -193,7 +188,7 @@ export const Hero = () => (
               transition={{ duration: 0.2 }}
             >
               <div className="text-3xl font-bold text-white">50+</div>
-              <div className="text-sm text-gray-300">Digital Masterpieces</div>
+              <div className="text-sm text-gray-300">Projects Delivered</div>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -222,15 +217,15 @@ export const Hero = () => (
               ))}
             </div>
             <p className="text-white text-sm mb-3">
-              "AKDK Digital transformed our vision into reality!"
+              "AKDK Digital delivered exactly what we needed - on time and on budget."
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-red-400 to-pink-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-gradient-to-r from-violet-400 to-indigo-400 rounded-full"></div>
               <div>
                 <div className="text-white text-sm font-semibold">
                   Ajay Verma
                 </div>
-                <div className="text-gray-300 text-xs"> Digital Innovation</div>
+                <div className="text-gray-300 text-xs">Product Manager</div>
               </div>
             </div>
           </motion.div>
@@ -262,10 +257,10 @@ export const Hero = () => (
           <motion.div
             animate={{
               scale: [1, 1.1, 1],
-              opacity: [0.5, 0.8, 0.5],
+              opacity: [0.3, 0.5, 0.3],
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-96 h-96 bg-gradient-to-r from-red-500/30 to-pink-500/30 rounded-full blur-3xl"
+            className="w-96 h-96 bg-gradient-to-r from-violet-500/20 to-indigo-500/20 rounded-full blur-3xl"
           ></motion.div>
         </motion.div>
       </div>

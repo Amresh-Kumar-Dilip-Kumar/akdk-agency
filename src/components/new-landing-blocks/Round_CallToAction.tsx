@@ -6,95 +6,94 @@ import { Phone, Mail, MessageSquare, CheckCircle2, ArrowRight, Target, Zap } fro
 const contactMethods = [
   {
     icon: <Phone className="w-8 h-8" />,
-    bgIcon: <FaPhone className="text-6xl text-blue-200/30" />,
+    bgIcon: <FaPhone className="text-6xl text-indigo-200/30" />,
     title: "Call Us",
-    subtitle: "Direct Communication",
-    text: "Speak directly with our experts to discuss your project requirements and get immediate answers to your questions.",
+    subtitle: "Direct Contact",
+    text: "Speak with our team to discuss your project requirements and get answers to your questions.",
     action: "Schedule a Call",
     href: "tel:+1234567890",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "from-blue-50 to-cyan-50",
+    color: "from-indigo-600 to-blue-600",
+    bgColor: "from-indigo-50 to-blue-50",
   },
   {
     icon: <Mail className="w-8 h-8" />,
-    bgIcon: <FaEnvelope className="text-6xl text-purple-200/30" />,
+    bgIcon: <FaEnvelope className="text-6xl text-violet-200/30" />,
     title: "Email Us",
-    subtitle: "Detailed Information",
-    text: "Send us your project details and requirements. We'll respond with a comprehensive proposal and timeline.",
+    subtitle: "Written Communication",
+    text: "Send us your project details and we'll respond with a proposal and timeline within 24 hours.",
     action: "Send Email",
     href: "mailto:contact@akdkdigital.com",
-    color: "from-purple-500 to-indigo-500",
-    bgColor: "from-purple-50 to-indigo-50",
+    color: "from-violet-600 to-purple-600",
+    bgColor: "from-violet-50 to-purple-50",
   },
   {
     icon: <MessageSquare className="w-8 h-8" />,
-    bgIcon: <FaComments className="text-6xl text-green-200/30" />,
-    title: "Live Chat",
-    subtitle: "Instant Support",
-    text: "Get quick answers to your questions and instant support for any concerns through our live chat system.",
-    action: "Start Chat",
+    bgIcon: <FaComments className="text-6xl text-teal-200/30" />,
+    title: "Contact Form",
+    subtitle: "Quick Inquiry",
+    text: "Fill out our contact form and we'll get back to you shortly to discuss your project needs.",
+    action: "Get in Touch",
     href: "/contact-us",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "from-green-50 to-emerald-50",
+    color: "from-teal-600 to-cyan-600",
+    bgColor: "from-teal-50 to-cyan-50",
   }
 ];
 
 const benefits = [
   {
     icon: <CheckCircle2 className="w-8 h-8" />,
-    bgIcon: <FaCheckCircle className="text-6xl text-red-200/30" />,
+    bgIcon: <FaCheckCircle className="text-6xl text-emerald-200/30" />,
     title: "Free Consultation",
-    subtitle: "No Cost Analysis",
-    text: "Comprehensive project analysis and consultation at absolutely no cost to help you make informed decisions.",
-    color: "from-red-500 to-pink-500",
-    bgColor: "from-red-50 to-pink-50",
+    subtitle: "No Obligation",
+    text: "Initial consultation and project assessment at no cost. We'll help you understand the scope and requirements.",
+    color: "from-emerald-600 to-teal-600",
+    bgColor: "from-emerald-50 to-teal-50",
   },
   {
     icon: <Target className="w-8 h-8" />,
-    bgIcon: <FaRocket className="text-6xl text-orange-200/30" />,
-    title: "Transparent Pricing",
-    subtitle: "No Hidden Costs",
-    text: "Clear, upfront pricing with detailed breakdowns and no surprise charges throughout the project lifecycle.",
-    color: "from-orange-500 to-amber-500",
-    bgColor: "from-orange-50 to-amber-50",
+    bgIcon: <FaRocket className="text-6xl text-amber-200/30" />,
+    title: "Clear Pricing",
+    subtitle: "Transparent Costs",
+    text: "Upfront pricing with detailed project breakdown. No hidden fees or surprise charges along the way.",
+    color: "from-amber-600 to-orange-600",
+    bgColor: "from-amber-50 to-orange-50",
   },
   {
     icon: <Zap className="w-8 h-8" />,
-    bgIcon: <FaUsers className="text-6xl text-teal-200/30" />,
-    title: "Dedicated Support",
-    subtitle: "Personal Manager",
-    text: "Dedicated project manager assigned to your project with regular updates and direct communication channel.",
-    color: "from-teal-500 to-cyan-500",
-    bgColor: "from-teal-50 to-cyan-50",
+    bgIcon: <FaUsers className="text-6xl text-slate-200/30" />,
+    title: "Project Manager",
+    subtitle: "Direct Communication",
+    text: "Dedicated project manager for direct communication and regular updates throughout development.",
+    color: "from-slate-600 to-gray-600",
+    bgColor: "from-slate-50 to-gray-50",
   }
 ];
 
 export default function CallToActionMission() {
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 via-blue-900 to-gray-900 py-24 overflow-hidden text-white">
+    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-24 overflow-hidden text-white">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,rgba(255,255,255,0.1))] -z-10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10"></div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-400/10 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-indigo-500/15 rounded-full blur-2xl -z-10"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-violet-500/10 rounded-full blur-2xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-red-400 to-pink-400 mr-4"></div>
-            <CheckCircle2 className="w-8 h-8 text-red-400 mx-2" />
-            <div className="w-12 h-0.5 bg-gradient-to-l from-red-400 to-pink-400 ml-4"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-slate-600 to-slate-400 mr-4"></div>
+            <CheckCircle2 className="w-8 h-8 text-slate-400 mx-2" />
+            <div className="w-12 h-0.5 bg-gradient-to-l from-slate-600 to-slate-400 ml-4"></div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-red-400 to-white bg-clip-text text-transparent">
-            Let's Build Your Digital Success
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent">
+            Ready to Start Your Project?
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
-            Transform your business with our expert digital solutions. From concept to launch, we're here to make your vision a reality and drive measurable results.
+          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
+            Let's discuss your requirements and build a solution that helps your business grow. Get in touch with our team today.
           </p>
         </div>
 
@@ -104,11 +103,11 @@ export default function CallToActionMission() {
             <div key={index} className="group relative">
               {/* Card Background with Enhanced Effects */}
               <div
-                className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-white/20 group-hover:border-red-400/50 group-hover:scale-105"
+                className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-white/20 group-hover:border-white/30 group-hover:scale-[1.02]"
               ></div>
 
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
               <div className="relative p-8 lg:p-10 h-full flex flex-col">
                 {/* Icon Section */}
@@ -134,16 +133,16 @@ export default function CallToActionMission() {
                     {item.subtitle}
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-slate-100 transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-300 leading-relaxed text-lg font-light mb-6">
+                  <p className="text-slate-300 leading-relaxed text-lg font-light mb-6">
                     {item.text}
                   </p>
 
                   <button
-                    className="w-full px-6 py-3 border-2 border-white/30 text-white hover:bg-red-500 hover:border-red-500 font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
+                    className="w-full px-6 py-3 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 font-bold rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
                     onClick={() => window.open(item.href, '_blank')}
                   >
                     {item.action}
@@ -152,7 +151,7 @@ export default function CallToActionMission() {
                 </div>
 
                 {/* Bottom Accent */}
-                <div className="mt-8 pt-6 border-t border-white/20 group-hover:border-red-400/50 transition-colors duration-300">
+                <div className="mt-8 pt-6 border-t border-white/20 group-hover:border-white/30 transition-colors duration-300">
                   <div
                     className={`w-12 h-1 bg-gradient-to-r ${item.color} rounded-full group-hover:w-20 transition-all duration-500`}
                   ></div>
@@ -168,11 +167,11 @@ export default function CallToActionMission() {
             <div key={index} className="group relative">
               {/* Card Background with Enhanced Effects */}
               <div
-                className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-white/20 group-hover:border-blue-400/50 group-hover:scale-105"
+                className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-white/20 group-hover:border-white/30 group-hover:scale-[1.02]"
               ></div>
 
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
               <div className="relative p-8 lg:p-10 h-full flex flex-col text-center">
                 {/* Icon Section */}
@@ -198,17 +197,17 @@ export default function CallToActionMission() {
                     {item.subtitle}
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-slate-100 transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-300 leading-relaxed text-lg font-light">
+                  <p className="text-slate-300 leading-relaxed text-lg font-light">
                     {item.text}
                   </p>
                 </div>
 
                 {/* Bottom Accent */}
-                <div className="mt-8 pt-6 border-t border-white/20 group-hover:border-blue-400/50 transition-colors duration-300">
+                <div className="mt-8 pt-6 border-t border-white/20 group-hover:border-white/30 transition-colors duration-300">
                   <div
                     className={`w-12 h-1 bg-gradient-to-r ${item.color} rounded-full group-hover:w-20 transition-all duration-500 mx-auto`}
                   ></div>
@@ -222,27 +221,27 @@ export default function CallToActionMission() {
         <div className="text-center">
           <div className="group relative max-w-4xl mx-auto">
             {/* Card Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-pink-600 to-red-600 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-white/10"></div>
             
             {/* Content */}
             <div className="relative p-12 text-white">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Transform Your Business?
+                Let's Build Something Great Together
               </h3>
-              <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Join the businesses that trust AKDK Digital with their digital transformation journey. Let's create something amazing together.
+              <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Get in touch with us today to discuss your project and receive a detailed proposal with timelines and pricing.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  className="px-8 py-4 bg-white text-red-600 font-bold rounded-2xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
+                  className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105"
                   onClick={() => window.location.href = "/contact-us"}
                 >
                   Start Your Project
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
-                  className="px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold rounded-2xl transition-all duration-300 group-hover:scale-105"
+                  className="px-8 py-4 border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 font-bold rounded-2xl transition-all duration-300 group-hover:scale-105"
                   onClick={() => window.location.href = "/project"}
                 >
                   View Portfolio
@@ -251,12 +250,12 @@ export default function CallToActionMission() {
             </div>
           </div>
 
-          <div className="inline-flex items-center space-x-2 text-red-400 mt-8">
-            <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+          <div className="inline-flex items-center space-x-2 text-slate-400 mt-8">
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-bold uppercase tracking-wider">
-              Your Success Is Our Mission
+              Your Vision, Our Expertise
             </span>
-            <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse delay-300"></div>
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-300"></div>
           </div>
         </div>
       </div>
