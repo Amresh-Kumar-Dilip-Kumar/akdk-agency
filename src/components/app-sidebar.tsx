@@ -14,6 +14,7 @@ import {
   HelpCircleIcon,
   LayoutDashboardIcon,
   ListIcon,
+  MessageSquareIcon,
   QuoteIcon,
   SearchIcon,
   SettingsIcon,
@@ -56,6 +57,11 @@ const data = {
       title: "Contact Form Entries",
       url: "/admin/contact-form",
       icon: ListIcon,
+    },
+    {
+      title: "Questionnaire Submissions",
+      url: "/admin/questionnaire",
+      icon: MessageSquareIcon,
     },
     {
       title: "NewsLetter List",
