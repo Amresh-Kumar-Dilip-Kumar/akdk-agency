@@ -98,30 +98,29 @@ const techCategories = [
 
 export default function TechnologyMission() {
   return (
-    <section className="relative bg-gradient-to-b from-white via-gray-50 to-white py-24 overflow-hidden">
+    <section className="relative bg-white py-24 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10"></div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-blue-100/30 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-100/20 rounded-full blur-2xl -z-10"></div>
-      <div className="absolute top-2/3 left-1/3 w-64 h-64 bg-green-100/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-20 left-20 w-32 h-32 bg-slate-100/50 rounded-full blur-2xl -z-10"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-indigo-100/30 rounded-full blur-2xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mr-4"></div>
-            <Code2 className="w-8 h-8 text-blue-600 mx-2" />
-            <div className="w-12 h-0.5 bg-gradient-to-l from-blue-500 to-purple-500 ml-4"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-slate-300 to-slate-500 mr-4"></div>
+            <Code2 className="w-8 h-8 text-slate-700 mx-2" />
+            <div className="w-12 h-0.5 bg-gradient-to-l from-slate-300 to-slate-500 ml-4"></div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-900 via-blue-700 to-gray-900 bg-clip-text text-transparent">
-            Modern Technology Stack
+          <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
+            Technology Stack
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-            We leverage cutting-edge technologies and industry best practices to build scalable, secure, and high-performance digital solutions that stand the test of time.
+          <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed font-light">
+            We use proven technologies and modern frameworks to build reliable, performant applications that scale with your business.
           </p>
         </div>
 
@@ -131,11 +130,11 @@ export default function TechnologyMission() {
             <div key={index} className="group relative">
               {/* Card Background with Enhanced Effects */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${category.bgColor} rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-blue-200 group-hover:scale-105`}
+                className={`absolute inset-0 bg-gradient-to-br ${category.bgColor} rounded-3xl shadow-lg group-hover:shadow-xl transition-all duration-500 border border-slate-200 group-hover:border-slate-300 group-hover:scale-[1.02]`}
               ></div>
 
               {/* Hover Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-blue-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-slate-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
               <div className="relative p-8 lg:p-10 h-full flex flex-col">
                 {/* Icon Section */}
@@ -161,18 +160,18 @@ export default function TechnologyMission() {
                     {category.subtitle}
                   </div>
 
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 group-hover:text-slate-800 transition-colors duration-300">
                     {category.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed text-lg font-light mb-6">
+                  <p className="text-slate-600 leading-relaxed text-lg font-light mb-6">
                     {category.text}
                   </p>
 
                   {/* Technologies Grid */}
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {category.technologies.map((tech, techIndex) => (
-                      <div key={techIndex} className="flex items-center gap-2 p-2 bg-white/70 rounded-lg border border-gray-200 group-hover:border-blue-200 transition-colors duration-300">
+                      <div key={techIndex} className="flex items-center gap-2 p-2 bg-white/70 rounded-lg border border-slate-200 group-hover:border-slate-300 transition-colors duration-300">
                         <div className="w-6 h-6 relative">
                           <Image
                             src={tech.logo}
@@ -182,14 +181,14 @@ export default function TechnologyMission() {
                             className="object-contain"
                           />
                         </div>
-                        <span className="text-xs font-semibold text-gray-700">{tech.name}</span>
+                        <span className="text-xs font-semibold text-slate-700">{tech.name}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Bottom Accent */}
-                <div className="mt-8 pt-6 border-t border-gray-200 group-hover:border-blue-200 transition-colors duration-300">
+                <div className="mt-8 pt-6 border-t border-slate-200 group-hover:border-slate-300 transition-colors duration-300">
                   <div
                     className={`w-12 h-1 bg-gradient-to-r ${category.color} rounded-full group-hover:w-20 transition-all duration-500`}
                   ></div>
@@ -201,16 +200,16 @@ export default function TechnologyMission() {
 
         {/* Call-to-Action Section */}
         <div className="text-center mt-20">
-          <div className="inline-flex items-center space-x-2 text-blue-600 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          <div className="inline-flex items-center space-x-2 text-slate-700 mb-4">
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></div>
             <span className="text-sm font-bold uppercase tracking-wider">
-              Cutting-Edge Technology
+              Modern & Reliable
             </span>
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-300"></div>
+            <div className="w-2 h-2 bg-slate-500 rounded-full animate-pulse delay-300"></div>
           </div>
 
-          <p className="text-lg text-gray-600 font-medium">
-            Leverage the power of modern technology to build exceptional digital experiences that drive business growth.
+          <p className="text-lg text-slate-600 font-medium">
+            Building applications with technologies that developers trust and businesses rely on.
           </p>
         </div>
       </div>
