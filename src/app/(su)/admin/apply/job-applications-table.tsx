@@ -80,7 +80,7 @@ export function JobApplicationsTable({
 }: JobApplicationsTableProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const debounceTimerRef = useRef<NodeJS.Timeout>();
+  const debounceTimerRef = useRef<NodeJS.Timeout>(null);
 
   const [isPending, startTransition] = useTransition();
   const [selectedApplication, setSelectedApplication] =
