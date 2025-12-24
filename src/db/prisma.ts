@@ -1,8 +1,15 @@
 import 'server-only';
-import { PrismaClient } from '@/../generated';
+import { PrismaPg } from "@prisma/adapter-pg"
+import { PrismaClient } from '@/../prisma/generated/client';
+
+const adapter = new PrismaPg({
+  connectionString: process.env.DATABASE_URL!,
+});
 
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  return new PrismaClient({
+    adapter
+  });
 };
 
 declare global {

@@ -3,7 +3,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { format } from "date-fns";
-import { Subscriber } from '@/../generated';
+import { Subscriber } from '@/../prisma/generated/client';
 export default function ExportClientBtn(
     { subscribers }:{subscribers: Subscriber[]} 
 ) {
