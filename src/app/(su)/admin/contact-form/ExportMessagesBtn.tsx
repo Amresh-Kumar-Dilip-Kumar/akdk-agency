@@ -4,12 +4,12 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { format } from "date-fns";
-import { contactformdetails } from "@/../prisma/generated/client";
+import { Contactformdetails } from "@/../prisma/generated/client";
 
 export default function ExportMessagesBtn({
   messages = [],
 }: {
-  messages: contactformdetails[];
+  messages: Contactformdetails[];
 }) {
   const exportMessages = () => {
     if (typeof window !== "undefined") {
