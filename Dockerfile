@@ -12,6 +12,8 @@ RUN npm install -g pnpm && \
     pnpm install --frozen-lockfile
 # Copy the rest of the application code
 COPY . .
+# Generate Prisma client
+RUN pnpm dlx prisma generate
 
 # Build the application
 RUN pnpm build
