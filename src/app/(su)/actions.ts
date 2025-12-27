@@ -9,20 +9,20 @@ import { db } from "@/db/prisma";
 
 const users = [
   {
-    username:'utsavsoni619@gmail.com',
-    password:'utsav99',
-    sessionId:'utsav'
+    username: 'utsavsoni619@gmail.com',
+    password: 'utsav99',
+    sessionId: 'utsav'
   },
-    {
-        username: "nknapster@gmail.com",
-        password: "Nikhil1234",
-        sessionId: "admin",
-    },
-    {
-        username: "user",
-        password: "user",
-        sessionId: "user",
-    },
+  {
+    username: "nknapster@gmail.com",
+    password: "Nikhil1234",
+    sessionId: "admin",
+  },
+  {
+    username: "user",
+    password: "user",
+    sessionId: "user",
+  },
 ]
 
 
@@ -52,7 +52,7 @@ async function decrypt(session: string) {
 
 //----------------------------------------------
 export async function getUser() {
-  const cookieStore = await cookies() 
+  const cookieStore = await cookies()
   const encryptedSessionValue = cookieStore.get("sessionId") as
     | { name: string; value: string }
     | undefined;
@@ -60,9 +60,9 @@ export async function getUser() {
   if (!encryptedSessionValue) {
     return null;
   }
-    const sessionUser = await decrypt(encryptedSessionValue.value) as { userId: string| undefined } | undefined
+  const sessionUser = await decrypt(encryptedSessionValue.value) as { userId: string | undefined } | undefined
 
-    console.log(sessionUser);
+  console.log(sessionUser);
   const user = users.find((user) => user.sessionId === sessionUser?.userId);
   if (!user) {
     return null;
@@ -78,18 +78,18 @@ export async function login(username: string, password: string) {
   );
   if (user) {
     const sessionId = await encrypt({ userId: user.sessionId });
-    const cookieStore =await  cookies();
-    cookieStore.set("sessionId",sessionId);
-      // {
-      // maxAge: 24 * 60 * 60 * 1000,
-      // ...(isProd
-      //   ? {
-      //       httpOnly: true,
-      //       sameSite: "lax",
-      //       secure: true,
-      //       path: "/",
-      //     }
-      //   : {}),
+    const cookieStore = await cookies();
+    cookieStore.set("sessionId", sessionId);
+    // {
+    // maxAge: 24 * 60 * 60 * 1000,
+    // ...(isProd
+    //   ? {
+    //       httpOnly: true,
+    //       sameSite: "lax",
+    //       secure: true,
+    //       path: "/",
+    //     }
+    //   : {}),
     // }
     return redirect("/admin");
     return user;
@@ -100,8 +100,8 @@ export async function login(username: string, password: string) {
 
 
 
-export async function logout(){
-  const cookieStore =await cookies();
+export async function logout() {
+  const cookieStore = await cookies();
   cookieStore.set("sessionId", "", {
     maxAge: 0,
     httpOnly: true,
@@ -145,7 +145,7 @@ export async function submitJobApplication(
     //     <p><strong>Status:</strong> ${jobApplication.status}</p>
     //   `,
     // });
-    
+
     return { success: true, applicationId: jobApplication.id };
   } catch (error) {
     console.log("Error submitting job application:", error);

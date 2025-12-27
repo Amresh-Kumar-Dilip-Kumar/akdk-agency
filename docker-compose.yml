@@ -5,13 +5,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4000:3000"
-      # - "5555:5500"
-    environment:
-      - NODE_ENV=production
-      - DATABASE_URL="postgresql://akdk-landing:akdk-landing-nk-1234@72.61.170.224:5433/akdk-landing-db"
-      - NODEMAILER_USER="mail@ermonline.in"
-      - NODEMAILER_PASS="Napster123i---"
-      - NODEMAILER_SECURE=true  # true -> port 465, false -> port 587
-      - SECRET="replace-with-random-32+charsadsf13241jfu9y8"
+    env_file:
+      - .env
+   
 
 
