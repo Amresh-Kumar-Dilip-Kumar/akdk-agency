@@ -15,19 +15,21 @@ const NODEMAILER_ARGS = {
 // Create a test account or replace with real credentials.
 export const mailer = nodemailer.createTransport(NODEMAILER_ARGS)
 
-// const transporter = nodemailer.createTransport({
-  //   service: "Gmail",
-  //   port: 465,
-  //   secure: true, // true for 465, false for other ports
-  //   logger: true,
-  //   debug: true, // include SMTP traffic in the logs
-  //   secureConnection: true, // use TLS
-  //   tls: {
-  //     rejectUnauthorized: true, // allow self-signed certificates
-  //   },
+export async function sendEmailOTP(email: string, otp: string) {
+    const mailOptions = {
+        from: '"AKDK Digital" <mail@ermonline.in>',
+        to: email,
+        subject: 'Your OTP Code',
+        text: `Your OTP code is: ${otp}. It will expire in 5 minutes.`,
+        html: `<p>Your OTP code is: <strong>${otp}</strong>. It will expire in 5 minutes.</p>`,
+    };
 
-  //   auth: {
-  //     user: process.env.EMAIL_USERNAME,   // your Gmail
-  //     pass: process.env.EMAIL_PASSWORD,   // your Gmail App Password
-  //   },
-  // });
+    try {
+        await mailer.sendMail(mailOptions);
+        console.log(`OTP email sent to ${email}`);
+    }
+    catch (error) {
+        console.error(`Failed to send OTP email to ${email}:`, error);
+        throw new Error('Failed to send OTP email');
+    }
+}

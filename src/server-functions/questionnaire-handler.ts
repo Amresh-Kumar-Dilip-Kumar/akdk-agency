@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import  {db}  from "@/db/prisma"
 
 import type { QuestionnaireData } from "@/components/new-landing-comp/questionnaire-modal";
+import { sendEmailOTP } from "@/lib/mail";
 
 
 interface OTPData {
@@ -45,7 +46,8 @@ export async function sendOTP(email: string, phone: string, preferredMethod: str
     if (preferredMethod === 'email') {
       // Simulate email sending
       console.log(`Sending OTP ${otp} to email: ${email}`);
-      // await sendEmailOTP(email, otp);
+      
+      await sendEmailOTP(email, otp);
     } else {
       // Simulate SMS sending  
       console.log(`Sending OTP ${otp} to phone: ${phone}`);
