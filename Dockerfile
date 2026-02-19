@@ -15,11 +15,13 @@ RUN npm install -g pnpm && \
 COPY . .
 
 # Generate Prisma client (DATABASE_URL will be provided at runtime)
-RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" \
+# RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" \
+RUN DATABASE_URL="${DATABASE_URL}" \
     pnpm dlx prisma generate
 
 # Build the application
-RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" \
+# RUN DATABASE_URL="postgresql://user:pass@localhost:5432/db?schema=public" \
+RUN DATABASE_URL="${DATABASE_URL}" \
     pnpm build
 
 # Expose the port the app runs on
