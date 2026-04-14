@@ -16,9 +16,10 @@ export function useAnalytics() {
   // Track page view on mount and route changes
   useEffect(() => {
     const trackPageView = async () => {
-      const loadTime = performance.timing ? 
-        performance.timing.loadEventEnd - performance.timing.navigationStart : 
-        undefined
+      const navEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined
+      const loadTime = navEntry
+        ? Math.max(0, Math.round(navEntry.loadEventEnd - navEntry.startTime))
+        : undefined
 
       try {
         const result = await clientAnalytics.trackPageView({
@@ -50,7 +51,10 @@ export function useAnalytics() {
     const handleBeforeUnload = () => {
       const timeSpent = Math.floor((Date.now() - startTime.current) / 1000)
       if (timeSpent > 5) { // Only track if user spent more than 5 seconds
-        clientAnalytics.trackTimeOnPage(timeSpent)
+        const sent = clientAnalytics.trackTimeOnPageBeacon(timeSpent)
+        if (!sent) {
+          clientAnalytics.trackTimeOnPage(timeSpent)
+        }
       }
     }
 
@@ -58,7 +62,10 @@ export function useAnalytics() {
       if (document.hidden) {
         const timeSpent = Math.floor((Date.now() - startTime.current) / 1000)
         if (timeSpent > 5) {
-          clientAnalytics.trackTimeOnPage(timeSpent)
+          const sent = clientAnalytics.trackTimeOnPageBeacon(timeSpent)
+          if (!sent) {
+            clientAnalytics.trackTimeOnPage(timeSpent)
+          }
         }
       } else {
         startTime.current = Date.now() // Reset timer when page becomes visible again

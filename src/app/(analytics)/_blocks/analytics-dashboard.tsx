@@ -75,7 +75,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
   const formatNumber = (num: number) => {
     if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M'
     if (num >= 1000) return (num / 1000).toFixed(1) + 'K'
-    return num.toString()
+    return num?.toString() || '0'
   }
 
   if (loading) {
@@ -132,7 +132,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <Eye className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatNumber(data.overview.totalPageViews)}</div>
+            <div className="text-2xl font-bold">{formatNumber(data.overview?.totalPageViews)}</div>
             <p className="text-xs text-muted-foreground">Total page views</p>
           </CardContent>
         </Card>
@@ -143,7 +143,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatNumber(data.overview.uniqueVisitors)}</div>
+            <div className="text-2xl font-bold">{formatNumber(data.overview?.uniqueVisitors)}</div>
             <p className="text-xs text-muted-foreground">Unique visitors</p>
           </CardContent>
         </Card>
@@ -154,7 +154,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatDuration(data.overview.avgSessionDuration)}</div>
+            <div className="text-2xl font-bold">{formatDuration(data.overview?.avgSessionDuration)}</div>
             <p className="text-xs text-muted-foreground">Average duration</p>
           </CardContent>
         </Card>
@@ -165,7 +165,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{data.overview.bounceRate}%</div>
+            <div className="text-2xl font-bold">{data.overview?.bounceRate}%</div>
             <p className="text-xs text-muted-foreground">Single-page sessions</p>
           </CardContent>
         </Card>
@@ -176,7 +176,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <Globe className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{formatNumber(data.overview.totalSessions)}</div>
+            <div className="text-2xl font-bold">{formatNumber(data.overview?.totalSessions)}</div>
             <p className="text-xs text-muted-foreground">Total sessions</p>
           </CardContent>
         </Card>
@@ -221,7 +221,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={data.topPages.slice(0, 10)}>
+                <BarChart data={data.topPages?.slice(0, 10)}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="path" angle={-45} textAnchor="end" height={100} />
                   <YAxis />
@@ -241,7 +241,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                {data.topReferrers.slice(0, 10).map((referrer, index) => (
+                {data.topReferrers?.slice(0, 10).map((referrer, index) => (
                   <div key={index} className="flex items-center justify-between">
                     <span className="text-sm truncate flex-1">{referrer.referrer || 'Direct'}</span>
                     <Badge variant="secondary">{referrer.count}</Badge>
@@ -272,7 +272,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
                       fill="#8884d8"
                       dataKey="count"
                     >
-                      {data.deviceStats.map((entry, index) => (
+                      {data.deviceStats?.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
@@ -289,7 +289,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  {data.topCountries.slice(0, 10).map((country, index) => (
+                  {data.topCountries?.slice(0, 10).map((country, index) => (
                     <div key={index} className="flex items-center justify-between">
                       <span className="text-sm">{country.country || 'Unknown'}</span>
                       <Badge variant="secondary">{country.count}</Badge>

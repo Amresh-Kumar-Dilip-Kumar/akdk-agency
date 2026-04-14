@@ -32,11 +32,11 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white border-b-2 border-gray-300 shadow-lg"
-          : "bg-white/95 backdrop-blur-sm border-b-2 border-gray-200"
-      }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white border-b border-gray-200 shadow-sm"
+            : "bg-white border-b border-gray-200"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex h-20 items-center justify-between">
@@ -102,10 +102,10 @@ export default function Navbar() {
                     transition={{ type: "spring", stiffness: 300 }}
                     className="relative group"
                   >
-                    <Link
-                      className="text-gray-700 hover:text-red-600 transition-colors duration-300 font-bold relative block pb-1 px-3 py-2 border-2 border-transparent hover:border-red-300 hover:bg-red-50 rounded-lg"
-                      href={`/${item.path}`}
-                    >
+                      <Link
+                        className="text-gray-700 hover:text-red-600 transition-colors duration-200 font-semibold relative block py-2 px-1 border-b-2 border-transparent hover:border-red-600"
+                        href={`/${item.path}`}
+                      >
                       {item.name}
                       {/* Underline effect */}
                       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 group-hover:w-full transition-all duration-300"></div>
@@ -123,11 +123,10 @@ export default function Navbar() {
               {/* <ModeToggle /> */}
               <Button
                 size="lg"
-                className="px-6 py-3 text-sm font-bold bg-gradient-to-r from-red-600 to-pink-600 text-white border-2 border-red-600 hover:from-red-700 hover:to-pink-700 hover:border-red-700 transition-all duration-300 hover:shadow-lg hover:scale-105 rounded-xl"
+                  className="px-6 py-3 text-sm font-bold bg-red-600 text-white hover:bg-red-700 transition-colors duration-200 rounded-none border-0"
                 onClick={() => (window.location.href = "/contact-us")}
               >
-                <Zap className="w-4 h-4 mr-2" />
-              Contact Us
+                  Contact Us
               </Button>
             </div>
 
@@ -165,10 +164,10 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
-                  <Link
-                    href={`/${item.path}`}
-                    className="block text-lg font-bold text-gray-700 hover:text-red-600 transition-colors duration-300 py-3 px-4 border-2 border-transparent hover:border-red-300 hover:bg-red-50 rounded-xl"
-                    onClick={() => setOpen(false)}
+                          <Link
+                            href={`/${item.path}`}
+                            className="block text-lg font-semibold text-gray-700 hover:text-red-600 transition-colors duration-200 py-3 px-2 border-b border-transparent hover:border-red-600"
+                            onClick={() => setOpen(false)}
                   >
                     {item.name}
                   </Link>
@@ -182,7 +181,7 @@ export default function Navbar() {
               >
                 <Button
                   size="lg"
-                  className="w-full px-6 py-3 text-base font-bold bg-gradient-to-r from-red-600 to-pink-600 text-white hover:from-red-700 hover:to-pink-700 transition-all duration-300 rounded-xl"
+                          className="w-full px-6 py-3 text-base font-bold bg-red-600 text-white hover:bg-red-700 transition-colors duration-200 rounded-none"
                   onClick={() => {
                     window.location.href = "/contact-us";
                     setOpen(false);

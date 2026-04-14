@@ -18,21 +18,29 @@ export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
 export function AnalyticsTracker() {
   const { trackEvent } = useAnalytics()
 
+  const sanitizeText = (text?: string | null) => {
+    if (!text) return 'unknown'
+    return text.replace(/[<>]/g, '').trim().slice(0, 120) || 'unknown'
+  }
+
   // Auto-track common events
   React.useEffect(() => {
     // Track external link clicks
     const handleExternalLinkClick = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement
-      if (target.tagName === 'A' && target.href && !target.href.includes(window.location.hostname)) {
-        trackEvent('click', 'external_link', target.href, { url: target.href, text: target.textContent })
+      const target = e.target as HTMLElement
+      const link = target.closest('a[href]') as HTMLAnchorElement | null
+      if (link?.href && !link.href.includes(window.location.hostname)) {
+        const linkText = sanitizeText(link.textContent)
+        trackEvent('click', 'external_link', link.href, { url: link.href, text: linkText })
       }
     }
 
     // Track download clicks
     const handleDownloadClick = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement
-      if (target.tagName === 'A' && target.href) {
-        const url = target.href
+      const target = e.target as HTMLElement
+      const link = target.closest('a[href]') as HTMLAnchorElement | null
+      if (link?.href) {
+        const url = link.href
         const fileExtensions = ['.pdf', '.doc', '.docx', '.zip', '.exe', '.dmg', '.apk']
         const isDownload = fileExtensions.some(ext => url.toLowerCase().includes(ext))
         
@@ -48,7 +56,7 @@ export function AnalyticsTracker() {
       const target = e.target as HTMLElement
       if (target.tagName === 'BUTTON' || target.closest('button')) {
         const button = target.tagName === 'BUTTON' ? target : target.closest('button')
-        const buttonText = button?.textContent?.trim() || 'unknown'
+        const buttonText = sanitizeText(button?.textContent)
         const buttonId = button?.id || undefined
         const buttonClass = button?.className || undefined
         

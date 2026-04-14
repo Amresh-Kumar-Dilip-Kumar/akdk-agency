@@ -10,7 +10,7 @@ export default function RootLayout({
   // const isHomePage;
 
   return (
-    <div className="w-screen overflow-hidden relative min-h-screen bg-white antialiased z-0">
+    <div className="w-screen overflow-hidden relative min-h-screen bg-[#FAFAF9] antialiased z-0">
       <Navbar />
         <AnalyticsProvider>
             {children}

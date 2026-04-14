@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AKDK Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Glow animation */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(56,189,248,0.3); }
+      50% { box-shadow: 0 0 40px rgba(56,189,248,0.6); }
+      100% { box-shadow: 0 0 20px rgba(56,189,248,0.3); }
+    }
+  </style>
+</head>
+
+<body class="bg-[#030712] text-gray-200">
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden">
+    
+    <!-- Background Glow -->
+    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-purple-500/10 to-transparent blur-3xl"></div>
+
+    <div class="max-w-6xl mx-auto px-6 pt-28 pb-32 relative">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+          We Build  
+          <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            Modern Digital Experiences
+          </span>
+        </h1>
+
+        <p class="text-gray-400 max-w-xl mx-auto mt-6 text-lg">
+          Websites, e‑commerce, and simple software products — built fast, clean, and with purpose.
+        </p>
+
+        <div class="mt-10 flex justify-center gap-4">
+          <a href="#contact"
+             class="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 shadow-lg hover:opacity-90 transition">
+            Start a Project
+          </a>
+
+          <a href="#services"
+             class="px-8 py-4 rounded-xl border border-gray-700 hover:border-gray-500 transition">
+            View Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Floating Card -->
+      <div class="mt-20 flex justify-center">
+        <div class="w-full max-w-3xl p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 animate-[pulseGlow_4s_ease-in-out_infinite]">
+          <p class="text-center text-gray-300 text-sm">
+            Trusted by small businesses & early‑stage founders looking to build fast and launch confidently.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-6xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold mb-12 text-center">What We Do</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      
+      <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Landing Pages</h3>
+        <p class="text-gray-400 text-sm">
+          Fast, modern pages with login, analytics, and lead capture.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition">
+        <h3 class="text-xl font-semibold mb-3">E‑commerce & Catalog Apps</h3>
+        <p class="text-gray-400 text-sm">
+          Full stores or simple product catalogues for small businesses.
+        </p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition">
+        <h3 class="text-xl font-semibold mb-3">Prototype & MVP Development</h3>
+        <p class="text-gray-400 text-sm">
+          Build and test new ideas quickly with clean, functional prototypes.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="max-w-6xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold mb-12 text-center">Pricing</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/40 transition">
+        <h3 class="text-xl font-semibold">Starter</h3>
+        <p class="text-4xl font-bold mt-3">₹10k+</p>
+        <p class="text-gray-400 text-sm mt-2">Simple landing pages.</p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/40 transition">
+        <h3 class="text-xl font-semibold">Standard</h3>
+        <p class="text-4xl font-bold mt-3">₹20k+</p>
+        <p class="text-gray-400 text-sm mt-2">Most business websites.</p>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-400/40 transition">
+        <h3 class="text-xl font-semibold">Ideal</h3>
+        <p class="text-4xl font-bold mt-3">₹50k+</p>
+        <p class="text-gray-400 text-sm mt-2">2–3 month projects.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-24 text-center">
+    <h2 class="text-3xl font-bold mb-4">Let’s Build Something Useful</h2>
+    <p class="text-gray-400 mb-8">Tell us what you want to create — we’ll help you launch it.</p>
+
+    <a href="mailto:hello@akdk.digital"
+       class="px-10 py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-900 font-semibold shadow-lg hover:opacity-90 transition">
+      Contact Us
+    </a>
+  </section>
+
+  <footer class="text-center py-10 text-gray-600 text-sm">
+    © 2025 AKDK Digital. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -107,7 +107,7 @@ export class AnalyticsCollector {
   static async getGeolocation(ip: string): Promise<Partial<VisitorData>> {
     try {
       // Free IP geolocation service - consider upgrading to a paid service for production
-      const response = await fetch(`http://ip-api.com/json/${ip}?fields=status,country,city,regionName,timezone`);
+      const response = await fetch(`https://ip-api.com/json/${ip}?fields=status,country,city,regionName,timezone`);
       const data = await response.json();
       
       if (data.status === 'success') {
@@ -132,7 +132,15 @@ export const clientAnalytics = {
   getSessionInfo: () => {
     if (typeof window === 'undefined') return null
     const stored = sessionStorage.getItem('analytics-session')
-    return stored ? JSON.parse(stored) : null
+    if (!stored) return null
+
+    try {
+      return JSON.parse(stored)
+    } catch (error) {
+      console.error('Failed to parse analytics session from storage:', error)
+      sessionStorage.removeItem('analytics-session')
+      return null
+    }
   },
 
   setSessionInfo: (visitorId: string, sessionId: string) => {
@@ -160,9 +168,9 @@ export const clientAnalytics = {
       });
       
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Analytics API error:', errorData);
-        throw new Error(`HTTP ${response.status}: ${errorData.error || 'Unknown error'}`);
+        const errorData = await response.text().catch(() => '')
+        console.error('Analytics API error:', errorData || response.statusText)
+        throw new Error(`HTTP ${response.status}: ${errorData || response.statusText || 'Unknown error'}`)
       }
       
       const result = await response.json();
@@ -200,9 +208,9 @@ export const clientAnalytics = {
       });
       
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Event tracking API error:', errorData);
-        throw new Error(`HTTP ${response.status}: ${errorData.error || 'Unknown error'}`);
+        const errorData = await response.text().catch(() => '')
+        console.error('Event tracking API error:', errorData || response.statusText)
+        throw new Error(`HTTP ${response.status}: ${errorData || response.statusText || 'Unknown error'}`)
       }
       
       const result = await response.json();
@@ -268,14 +276,33 @@ export const clientAnalytics = {
       });
       
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Time tracking API error:', errorData);
+        const errorData = await response.text().catch(() => '')
+        console.error('Time tracking API error:', errorData || response.statusText)
         // Don't throw here as this is called during page unload
       }
     } catch (error) {
       console.error('Error tracking time on page:', error);
       // Don't throw here as this is called during page unload
     }
+  },
+
+  // Use Beacon API when possible for better unload reliability.
+  trackTimeOnPageBeacon: (timeSpent: number) => {
+    if (typeof window === 'undefined') return false
+    if (typeof navigator === 'undefined' || typeof navigator.sendBeacon !== 'function') return false
+
+    const sessionInfo = clientAnalytics.getSessionInfo()
+    const payload = {
+      path: window.location.pathname,
+      timeSpent,
+      timestamp: new Date().toISOString(),
+      ...sessionInfo,
+    }
+
+    return navigator.sendBeacon(
+      '/api/analytics/time-on-page',
+      new Blob([JSON.stringify(payload)], { type: 'application/json' })
+    )
   },
 };
 

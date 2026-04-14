@@ -1,26 +1,15 @@
 "use client";
 
 import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  CheckCircle2,
-  ArrowRight,
-  Code2,
-  Sparkles,
-} from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Code2 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Newsletter from "./Newsletter";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-white text-black overflow-hidden">
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-grid-black/5 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
-
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-16">
+    <footer className="bg-white border-t border-gray-200">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Company Info */}
@@ -31,13 +20,8 @@ export default function Footer() {
             className="lg:col-span-1 space-y-6"
           >
             <div className="flex items-center gap-3">
-              <div className="relative w-14 h-14 bg-gradient-to-br from-red-600 via-red-700 to-pink-600 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center border-2 border-red-500/20 group-hover:scale-105">
-                {/* Inner Icon */}
-                <div className="relative">
-                  <Code2 className="w-7 h-7 text-white" />
-                  {/* Sparkle Effect */}
-                  <Sparkles className="w-3 h-3 text-yellow-300 absolute -top-1 -right-1 animate-pulse" />
-                </div>
+              <div className="w-12 h-12 bg-red-600 flex items-center justify-center flex-shrink-0">
+                <Code2 className="w-6 h-6 text-white" />
               </div>
               <div className="flex flex-col">
                 <h1 className="text-2xl font-black tracking-tight leading-none">
@@ -55,18 +39,18 @@ export default function Footer() {
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-700 hover:text-red-500 transition-colors">
-                <Mail className="w-4 h-4 text-red-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-gray-500 hover:text-red-600 transition-colors">
+                <Mail className="w-4 h-4 text-red-600 flex-shrink-0" />
                 <span className="text-sm font-medium">
                   akdkdigital@gmail.com
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-gray-700 hover:text-blue-500 transition-colors">
-                <Phone className="w-4 h-4 text-blue-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-gray-500 hover:text-gray-950 transition-colors">
+                <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <span className="text-sm font-medium">+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center gap-3 text-gray-700 hover:text-green-500 transition-colors">
-                <MapPin className="w-4 h-4 text-green-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-gray-500 hover:text-gray-950 transition-colors">
+                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <span className="text-sm font-medium">
                   Global Digital Agency
                 </span>

@@ -95,24 +95,16 @@ export default function Service2() {
       />
 
       {/* Services Section */}
-      <section className="relative py-24 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-red-100/30 rounded-full blur-2xl -z-10"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-100/20 rounded-full blur-2xl -z-10"></div>
-
+      <section className="py-24 bg-[#FAFAF9]">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-20">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 mr-4"></div>
-              <Zap className="w-8 h-8 text-red-600 mx-2" />
-              <div className="w-12 h-0.5 bg-gradient-to-l from-red-500 to-pink-500 ml-4"></div>
+            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
+              <Zap className="w-4 h-4" />
+              Services
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-900 via-red-700 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-950">
               Our Digital Solutions
             </h2>
 
@@ -137,22 +129,17 @@ export default function Service2() {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-900 via-red-900 to-gray-900 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
-        <div className="absolute top-20 left-20 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
+      <section className="py-24 bg-red-600">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <div className="border border-red-500 p-12 bg-red-600">
             {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mb-8">
-              <CheckCircle2 className="w-8 h-8 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white text-red-600 mb-8">
+              <CheckCircle2 className="w-8 h-8 text-red-600" />
             </div>
 
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
               Ready to Transform Your{" "}
-              <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-white underline decoration-white/60 underline-offset-4">
                 Digital Presence?
               </span>
             </h2>
@@ -167,14 +154,14 @@ export default function Service2() {
               <Button
                 size="lg"
                 onClick={() => setShowQuoteModal(true)}
-                className="px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="px-8 py-4 bg-white text-red-600 font-bold border border-white hover:bg-red-50 transition-colors"
               >
                 Get Free Quote
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Link
                 href="/contact-us"
-                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border border-white text-white font-bold hover:bg-red-500 transition-colors"
               >
                 Contact Us
                 <Zap className="w-5 h-5 ml-2" />
@@ -197,27 +184,18 @@ function EnhancedServiceCard({
   index: number;
 }) {
   return (
-    <div className="group relative h-full">
-      {/* Card Background with Enhanced Effects */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-red-200 group-hover:scale-105`}
-      ></div>
-
-      {/* Hover Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-red-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-      <div className="relative h-full flex flex-col">
+    <div className="group h-full bg-white border border-gray-200">
+      <div className="h-full flex flex-col">
         {/* Image Section */}
-        <div className="relative overflow-hidden rounded-t-3xl">
+        <div className="relative overflow-hidden">
           <Link href={service.link}>
             <Image
               src={service.image}
               alt={service.title}
               width={500}
               height={300}
-              className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-48 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </Link>
         </div>
 
@@ -225,13 +203,13 @@ function EnhancedServiceCard({
         <div className="flex-1 p-6 lg:p-8 flex flex-col">
           {/* Icon */}
           <div
-            className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${service.color} text-white rounded-xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300`}
+            className="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white mb-4"
           >
             {service.icon}
           </div>
 
           {/* Title */}
-          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors duration-300">
+          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
             {service.title}
           </h3>
 
@@ -244,7 +222,7 @@ function EnhancedServiceCard({
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href={service.link}
-              className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all duration-300 hover:shadow-lg"
+              className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-900 text-white font-bold hover:bg-red-600 transition-colors"
             >
               Learn More
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -255,7 +233,7 @@ function EnhancedServiceCard({
                 e.stopPropagation();
                 setShowQuoteModal(true);
               }}
-              className="px-4 py-3 border-2 border-gray-300 text-gray-700 font-bold rounded-xl hover:border-red-300 hover:bg-red-50 hover:text-red-700 transition-all duration-300"
+              className="px-4 py-3 border border-gray-300 text-gray-700 font-bold hover:border-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
             >
               Get Quote
             </Button>

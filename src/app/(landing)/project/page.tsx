@@ -83,24 +83,16 @@ const Project = () => {
       />
 
       {/* Portfolio Section */}
-      <section className="relative py-24 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-red-100/30 rounded-full blur-2xl -z-10"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-100/20 rounded-full blur-2xl -z-10"></div>
-
+      <section className="py-24 bg-[#FAFAF9]">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-20">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-red-500 to-pink-500 mr-4"></div>
-              <Code className="w-8 h-8 text-red-600 mx-2" />
-              <div className="w-12 h-0.5 bg-gradient-to-l from-red-500 to-pink-500 ml-4"></div>
+            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
+              <Code className="w-4 h-4" />
+              Portfolio
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-900 via-red-700 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-950">
               Showcasing Our Projects
             </h2>
 
@@ -114,9 +106,7 @@ const Project = () => {
           <div className="space-y-24">
             {projects.map((project, index) => (
               <div key={index} data-aos="fade-up" className="group relative">
-                {/* Project Card Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-gray-200 group-hover:border-red-200"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-red-50/0 to-red-50/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-white border border-gray-200"></div>
 
                 <div
                   className={`relative p-8 lg:p-12 flex flex-col ${
@@ -126,13 +116,13 @@ const Project = () => {
                   {/* Content Section */}
                   <div className="lg:w-1/2 space-y-6">
                     {/* Project Badge */}
-                    <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-100 to-pink-100 text-red-700 rounded-full text-sm font-bold uppercase tracking-wide">
+                    <div className="inline-flex items-center px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase tracking-wider">
                       <Award className="w-4 h-4 mr-2" />
                       Featured Project
                     </div>
 
                     {/* Project Title */}
-                    <h3 className="text-3xl lg:text-4xl font-black text-gray-900 group-hover:text-red-700 transition-colors duration-300">
+                    <h3 className="text-3xl lg:text-4xl font-black text-gray-900">
                       {project.title}
                     </h3>
 
@@ -158,7 +148,7 @@ const Project = () => {
                         {project.techStack.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 text-sm font-bold rounded-full border border-gray-300 hover:from-red-100 hover:to-pink-100 hover:text-red-700 hover:border-red-300 transition-all duration-300"
+                            className="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-bold border border-gray-300 hover:bg-red-50 hover:text-red-700 hover:border-red-300 transition-colors"
                           >
                             {tech}
                           </span>
@@ -168,7 +158,7 @@ const Project = () => {
 
                     {/* Quote */}
                     {project.quote && (
-                      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-400 p-4 rounded-r-xl">
+                      <div className="bg-gray-50 border-l-4 border-red-600 p-4">
                         <p className="italic text-gray-700 font-medium">
                           {project.quote}
                         </p>
@@ -182,7 +172,7 @@ const Project = () => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
+                        className="inline-flex items-center px-6 py-3 bg-red-600 text-white font-bold hover:bg-red-700 transition-colors"
                       >
                         View Live Project
                         <ExternalLink className="w-4 h-4 ml-2" />
@@ -195,7 +185,7 @@ const Project = () => {
                         href={project.descriptionLink}
                         
                        
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg hover:scale-105"
+                        className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-bold hover:bg-red-600 transition-colors"
                       >
                           Detailed Description
                         <ExternalLink className="w-4 h-4 ml-2" />
@@ -208,8 +198,7 @@ const Project = () => {
                   {/* Image Section */}
                   <div className="lg:w-1/2">
                     <div className="relative group/carousel">
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover/carousel:blur-2xl transition-all duration-500"></div>
-                      <Carousel className="relative shadow-2xl border-2 border-white rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                      <Carousel className="relative border border-gray-200 overflow-hidden">
                         <CarouselContent>
                           {project.image.map((url, imgIndex) => (
                             <CarouselItem key={imgIndex}>
@@ -241,22 +230,17 @@ const Project = () => {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-900 via-red-900 to-gray-900 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]"></div>
-        <div className="absolute top-20 left-20 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center px-6 relative z-10">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
+      <section className="py-24 bg-red-600">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <div className="border border-red-500 p-12 bg-red-600">
             {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mb-8">
-              <Target className="w-8 h-8 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-white text-red-600 mb-8">
+              <Target className="w-8 h-8 text-red-600" />
             </div>
 
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
               Ready to Create Your{" "}
-              <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-white underline decoration-white/60 underline-offset-4">
                 Next Project?
               </span>
             </h2>
@@ -270,14 +254,14 @@ const Project = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact-us"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-white text-red-600 font-bold border border-white hover:bg-red-50 transition-colors"
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/service"
-                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border border-white text-white font-bold hover:bg-red-500 transition-colors"
               >
                 View Our Services
                 <Zap className="w-5 h-5 ml-2" />
