@@ -1,3 +1,20 @@
+Login Process
+
+step :
+
+file server.ts
+
+```bash
+openssl rand -base64 32
+```
+
+make 32 char in bash
+
+```.env
+SECRET="your-generated-secret-key"
+```
+
+```ts
 "use server";
 import "server-only";
 import { cookies } from "next/headers";
@@ -6,6 +23,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { mailer } from "@/lib/mail";
 import { db } from "@/db/prisma";
 
+// dummy users for testing
 const users = [
   {
     username: "utsavsoni619@gmail.com",
@@ -71,27 +89,7 @@ export async function getUser() {
 }
 
 // with check user name and password and set the cookie using next cookies
-export async function login(
-  username: string,
-  password: string,
-  captchaToken: string,
-) {
-
-  // validate captcha token here using google recaptcha api
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  const response = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`,
-    {
-      method: "POST",
-    },
-  
-  );
-  const result = await response.json();
-  if (!result.success) {
-    // throw new Error("Captcha verification failed");
-    return null;
-  }
-
+export async function login(username: string, password: string) {
   const user = users.find(
     (user) => user.username === username && user.password === password,
   );
@@ -111,7 +109,7 @@ export async function login(
     //   : {}),
     // }
     return redirect("/admin");
-    // return user;
+    return user;
   }
   return null;
 }
@@ -205,3 +203,16 @@ export async function deleteJobApplicationAction(id: number) {
     return { success: false, error: "Failed to delete application" };
   }
 }
+```
+
+useage for admin pages server components
+
+
+```tsx
+export default async function AdminPageLayout() {
+  const user = await getUser();
+  return <>
+   {user.name}
+  </>
+}
+```

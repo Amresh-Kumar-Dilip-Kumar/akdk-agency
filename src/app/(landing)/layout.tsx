@@ -7,17 +7,14 @@ import { AnalyticsProvider, AnalyticsTracker } from "@/app/(analytics)/_componen
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  // const isHomePage;
-
   return (
-    <div className="w-screen overflow-hidden relative min-h-screen bg-[#FAFAF9] antialiased z-0">
+    <div className="template-surface min-h-screen overflow-hidden antialiased">
       <Navbar />
-        <AnalyticsProvider>
-            {children}
-            <AnalyticsTracker />
-          </AnalyticsProvider>
+      <AnalyticsProvider>
+        {children}
+        <AnalyticsTracker />
+      </AnalyticsProvider>
       <Footer />
-      {/* Floating Questionnaire CTA */}
       <FloatingQuestionnaireCTA />
     </div>
   );

@@ -10,6 +10,9 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from "react";
+
 
 export function LoginForm({
   className,
@@ -18,6 +21,7 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div"> & {
   action?: (formdata: FormData) => Promise<void>;
 }) {
+   const [token, setToken] = useState<string>("")
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -29,6 +33,12 @@ export function LoginForm({
         </CardHeader>
         <CardContent>
           <form action={action}>
+            <ReCAPTCHA
+              
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+              onChange={(value: string | null) => setToken(value ?? "")}
+            />
+            <input type="hidden" name="captchaToken" value={token} />
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>

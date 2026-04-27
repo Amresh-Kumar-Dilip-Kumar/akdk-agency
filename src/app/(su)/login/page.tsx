@@ -17,8 +17,9 @@ export default function Page() {
           console.log(formdata);
           const username = formdata.get("username") as string;
           const password = formdata.get("password") as string;
+          const captchaToken = formdata.get("captchaToken") as string;
           console.log(username, password);
-          await login(username, password);
+          await login(username, password, captchaToken);
         }}
       />
     </div>

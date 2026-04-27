@@ -1,245 +1,113 @@
 "use client";
-import React from "react";
+
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
-import GetAQuoteModal from "@/components/landing/GetAQuoteModal";
-import {
-  ArrowRight,
-  Code,
-  Smartphone,
-  ShoppingCart,
-  Package,
-  Search,
-  Zap,
-  CheckCircle2,
-} from "lucide-react";
 
-const service = [
+const services = [
   {
-    title: "Website Design and Development",
+    title: "Website Design & Development",
     description:
-      "We specialize in crafting bespoke digital experiences that captivate audiences and drive results with modern responsive designs.",
+      "Marketing websites and business sites engineered for speed, discoverability, and conversions.",
     image: "/web.jpg",
-    link: `/service/website-development`,
-    icon: <Code className="w-8 h-8" />,
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "from-blue-50 to-cyan-50",
+    link: "/service/website-development",
   },
   {
     title: "Mobile App Development",
     description:
-      "Reach a broader audience with cross-platform mobile app development. Our team leverages the latest technologies to build apps.",
+      "Cross-platform and native app interfaces with smooth performance and scalable architecture.",
     image: "/mobile.jpg",
-    link: `/service/mobile-development`,
-    icon: <Smartphone className="w-8 h-8" />,
-    color: "from-green-500 to-emerald-500",
-    bgColor: "from-green-50 to-emerald-50",
+    link: "/service/mobile-development",
   },
   {
     title: "E-commerce & CMS",
     description:
-      "Beyond the norm, we provide outstanding E-commerce and Content Management System (CMS) services that transform businesses.",
+      "Conversion-ready storefronts with secure checkout, admin workflows, and product operations.",
     image: "/cms.jpg",
-    link: `/service/ecommerce`,
-    icon: <ShoppingCart className="w-8 h-8" />,
-    color: "from-purple-500 to-pink-500",
-    bgColor: "from-purple-50 to-pink-50",
+    link: "/service/ecommerce",
   },
   {
-    title: "Custom Package Solutions",
+    title: "Custom Product Builds",
     description:
-      "Recognizing your online presence is essential for success. Get unparalleled insight into functionality with our custom packages.",
+      "Internal tools, dashboards, and custom web systems built around your business process.",
     image: "/package.jpg",
-    link: `/service/package`,
-    icon: <Package className="w-8 h-8" />,
-    color: "from-orange-500 to-red-500",
-    bgColor: "from-orange-50 to-red-50",
+    link: "/service/package",
   },
   {
-    title: "Search Engine Optimization (SEO)",
+    title: "SEO & Performance",
     description:
-      "Making an impression in the crowded online environment is crucial. Our SEO services aim to boost your digital visibility.",
+      "Technical SEO and page-speed optimization to improve rankings and user retention.",
     image: "/seo.jpg",
-    link: `/service/seoptimize`,
-    icon: <Search className="w-8 h-8" />,
-    color: "from-indigo-500 to-blue-500",
-    bgColor: "from-indigo-50 to-blue-50",
+    link: "/service/seoptimize",
   },
 ];
 
-export default function Service2() {
-  const [showQuoteModal, setShowQuoteModal] = React.useState(false);
-
+export default function ServicePage() {
   return (
-    <>
-      {showQuoteModal && (
-        <GetAQuoteModal setShowQuoteModal={setShowQuoteModal} />
-      )}
-
+    <section>
       <PageHeader
-        heading={<>Our Comprehensive Digital Services</>}
+        heading={<>Comprehensive digital services for modern businesses.</>}
         description={
           <>
-            At{" "}
-            <span className="font-bold text-white bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
-              AKDK Digital
-            </span>
-            , we offer a range of digital services designed to meet your
-            business needs. Our team of expert developers is dedicated to
-            delivering custom solutions, seamless upgrades, and ongoing support
-            to ensure your applications are always performing at their best.
+            We handle strategy, design, engineering, and optimization so your team can
+            move faster with confidence.
           </>
         }
       />
 
-      {/* Services Section */}
-      <section className="py-24 bg-[#FAFAF9]">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
-              <Zap className="w-4 h-4" />
-              Services
-            </div>
-
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-950">
-              Our Digital Solutions
-            </h2>
-
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-              Empowering businesses with innovative digital services that drive
-              growth and success in the modern digital landscape.
-            </p>
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {service.map((service, index) => (
-              <EnhancedServiceCard
-                key={index}
-                service={service}
-                setShowQuoteModal={setShowQuoteModal}
-                index={index}
-              />
+      <section className="py-16 md:py-20">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service, index) => (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="overflow-hidden rounded-xl border border-border bg-card"
+              >
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                  <Link
+                    href={service.link}
+                    className="mt-5 inline-flex items-center text-sm font-semibold text-primary"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              </motion.article>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Call-to-Action Section */}
-      <section className="py-24 bg-red-600">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <div className="border border-red-500 p-12 bg-red-600">
-            {/* Icon */}
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white text-red-600 mb-8">
-              <CheckCircle2 className="w-8 h-8 text-red-600" />
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-              Ready to Transform Your{" "}
-              <span className="text-white underline decoration-white/60 underline-offset-4">
-                Digital Presence?
-              </span>
+          <div className="mt-14 rounded-2xl bg-slate-900 px-7 py-10 text-slate-100 md:px-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">Need a custom stack?</p>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">
+              We can design your roadmap and delivery phases in one workshop.
             </h2>
-
-            <p className="text-xl text-gray-300 leading-relaxed mb-8 font-light">
-              Let's discuss your project requirements and create something
-              amazing together.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={() => setShowQuoteModal(true)}
-                className="px-8 py-4 bg-white text-red-600 font-bold border border-white hover:bg-red-50 transition-colors"
-              >
-                Get Free Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Link
-                href="/contact-us"
-                className="inline-flex items-center px-8 py-4 border border-white text-white font-bold hover:bg-red-500 transition-colors"
-              >
-                Contact Us
-                <Zap className="w-5 h-5 ml-2" />
-              </Link>
-            </div>
+            <Link
+              href="/contact-us"
+              className="mt-6 inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200"
+            >
+              Get Free Consultation
+              <CheckCircle2 className="ml-2 h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
-    </>
-  );
-}
-
-function EnhancedServiceCard({
-  service,
-  setShowQuoteModal,
-  index,
-}: {
-  service: any;
-  setShowQuoteModal: React.Dispatch<React.SetStateAction<boolean>>;
-  index: number;
-}) {
-  return (
-    <div className="group h-full bg-white border border-gray-200">
-      <div className="h-full flex flex-col">
-        {/* Image Section */}
-        <div className="relative overflow-hidden">
-          <Link href={service.link}>
-            <Image
-              src={service.image}
-              alt={service.title}
-              width={500}
-              height={300}
-              className="w-full h-48 object-cover"
-            />
-          </Link>
-        </div>
-
-        {/* Content Section */}
-        <div className="flex-1 p-6 lg:p-8 flex flex-col">
-          {/* Icon */}
-          <div
-            className="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white mb-4"
-          >
-            {service.icon}
-          </div>
-
-          {/* Title */}
-          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
-            {service.title}
-          </h3>
-
-          {/* Description */}
-          <p className="text-gray-600 leading-relaxed mb-6 flex-1 font-light">
-            {service.description}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href={service.link}
-              className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-900 text-white font-bold hover:bg-red-600 transition-colors"
-            >
-              Learn More
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-            <Button
-              variant="outline"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowQuoteModal(true);
-              }}
-              className="px-4 py-3 border border-gray-300 text-gray-700 font-bold hover:border-red-600 hover:bg-red-50 hover:text-red-700 transition-colors"
-            >
-              Get Quote
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

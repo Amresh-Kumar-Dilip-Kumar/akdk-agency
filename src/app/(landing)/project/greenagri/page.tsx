@@ -1,163 +1,76 @@
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { PageHeader } from "@/components/landing/page-header2";
 
-export default function Page() {
+const shots = [
+  { src: "/project-detail/greenagri-1.png", title: "Brand and company overview" },
+  { src: "/project-detail/greenagri-2.png", title: "Quote request workflow" },
+  { src: "/project-detail/greenagri-3.png", title: "Admin operations dashboard" },
+  { src: "/project-detail/greenagri-4.png", title: "Analytics and reporting" },
+  { src: "/project-detail/greenagri-5.png", title: "Contact and lead management" },
+];
+
+export default function GreenAgriDetailPage() {
   return (
-    <article className="max-w-4xl mx-auto px-6 py-12 prose prose-lg mt-24 ">
-      {/* Title */}
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Green Agri Corp – Detailed Project Insights
-      </h1>
-
-      {/* Intro */}
-      <p>
-        🌱 <strong>Green Agri Corp</strong> is a professional platform dedicated
-        to the <strong>import and export of premium quality rice</strong>. It
-        serves as a global trade bridge, connecting buyers and suppliers with a
-        strong focus on trust, transparency, and efficiency.
-      </p>
-
-      <Image
-        src="/project-detail/greenagri-1.png"
-        alt="GreenAgri Overview"
-        width={700}
-        height={450}
-        className="mx-auto mt-8 rounded-lg"
+    <section>
+      <PageHeader
+        heading={<>Green Agri Corp: project detail</>}
+        description={
+          <>
+            A digital platform for global rice trade, built to support trust,
+            transparency, quote handling, and operational visibility.
+          </>
+        }
       />
 
-      {/* About Section */}
-      <h2 className="text-2xl font-semibold mt-12">About Green Agri Corp</h2>
-      <p>
-        Green Agri Corp is more than just a trading platform — it represents a
-        commitment to delivering <strong>premium rice varieties</strong> to
-        global markets. By integrating modern digital solutions, it simplifies
-        trade operations and ensures product quality.
-      </p>
+      <div className="mx-auto w-full max-w-5xl px-6 py-16 lg:px-10">
+        <article className="rounded-xl border border-border bg-card p-6 md:p-8">
+          <h2 className="text-2xl font-black text-foreground md:text-3xl">About the solution</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+            Green Agri Corp required a platform that communicates credibility while enabling
+            practical trade workflows. We implemented a structured user journey from discovery
+            to quote requests and paired it with an internal admin system for management.
+          </p>
+          <ul className="mt-5 space-y-2 text-sm text-muted-foreground md:text-base">
+            <li>- Global-focused brand presentation for rice trading</li>
+            <li>- Lead generation through streamlined quote request forms</li>
+            <li>- Admin panel for operations and client data visibility</li>
+            <li>- Analytics layer for traffic and engagement monitoring</li>
+          </ul>
+        </article>
 
-      <ul>
-        <li>Dedicated to global rice trading</li>
-        <li>Emphasis on trust, transparency, and efficiency</li>
-        <li>Supports both buyers and suppliers worldwide</li>
-      </ul>
+        <div className="mt-8 space-y-5">
+          {shots.map((shot) => (
+            <article key={shot.src} className="overflow-hidden rounded-xl border border-border bg-card">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={shot.src}
+                  alt={shot.title}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
+              <div className="border-t border-border px-5 py-3 text-sm text-muted-foreground">
+                {shot.title}
+              </div>
+            </article>
+          ))}
+        </div>
 
-      {/* Quote Section */}
-      <h2 className="text-2xl font-semibold mt-12">Quote Request System</h2>
-      <Image
-        src="/project-detail/greenagri-2.png"
-        alt="GreenAgri Quote System"
-        width={700}
-        height={450}
-        className="mx-auto mt-6 rounded-lg"
-      />
-      <p className="mt-6">
-        The <strong>Request Quote</strong> option in the Green Agri Corp navbar
-        allows customers to send quick trade inquiries for rice imports and
-        exports.
-      </p>
-      <ul>
-        <li>Quick access via the main navigation</li>
-        <li>Personalized trade quotes based on client needs</li>
-        <li>Seamless communication for business inquiries</li>
-      </ul>
-
-      {/* Admin Dashboard Section */}
-      <h2 className="text-2xl font-semibold mt-12">Admin Dashboard</h2>
-      <Image
-        src="/project-detail/greenagri-3.png"
-        alt="GreenAgri Admin Dashboard"
-        width={700}
-        height={450}
-        className="mx-auto mt-6 rounded-lg"
-      />
-      <p className="mt-6">
-        The <strong>Admin Dashboard</strong> is the control center of Green Agri
-        Corp, designed to give administrators a centralized view of all
-        operations. It ensures smooth international rice trade management.
-      </p>
-      <ul>
-        <li>📊 Real-time analytics and trade reports</li>
-        <li>🏬 Storage and inventory tracking</li>
-        <li>📇 Centralized client contact information</li>
-        <li>🔒 Role-based access and data security</li>
-      </ul>
-
-
-      <h2 className="text-2xl font-semibold mt-12">Analytics Page</h2>
-
-
-      <Image
-        src="/project-detail/greenagri-4.png"
-        alt="GreenAgri Admin Dashboard"
-        width={700}
-        height={450}
-        className="mx-auto mt-6 rounded-lg"
-      />
-
-<ul className="max-w-full mx-auto mt-4  text-gray-700">
-  <li className="flex items-start space-x-3 ">
-    <span className="text-2xl">📈</span>
-    <span>
-      <strong>Page Views & Unique Visitors</strong> – Track overall traffic and engagement trends.
-    </span>
-  </li>
-  <li className="flex items-start space-x-3 ">
-    <span className="text-2xl">🌐</span>
-    <span>
-      <strong>Traffic Sources</strong> – Identify whether users come from search engines, social media, referrals, or direct visits.
-    </span>
-  </li>
-  <li className="flex items-start space-x-3  ">
-    <span className="text-2xl">📱</span>
-    <span>
-      <strong>Device & Platform Insights</strong> – Breakdown of desktop, mobile, and tablet usage.
-    </span>
-  </li>
-  <li className="flex items-start space-x-3 ">
-    <span className="text-2xl">📍</span>
-    <span>
-      <strong>Location Analytics</strong> – See where visitors are coming from (country/city wise).
-    </span>
-  </li>
-  <li className="flex items-start space-x-3 ">
-    <span className="text-2xl">⏱️</span>
-    <span>
-      <strong>Engagement Metrics</strong> – Monitor average session duration, bounce rate, and top visited pages.
-    </span>
-  </li>
-</ul>
-
-<h2 className="text-2xl font-semibold mt-12">Contact Page</h2>
-
-
-     <Image
-        src="/project-detail/greenagri-5.png"
-        alt="GreenAgri Admin Dashboard"
-        width={700}
-        height={450}
-        className="mx-auto mt-6 rounded-lg"
-      />
-
-
-
-     <p className="mt-6">
-      View all messages submitted through the <strong>Green Agri contact form</strong>. 
-       Track inquiries, business requests, and customer feedback in one place, with options to search, filter, and manage submissions efficiently.
-     </p>
-
-
-
-
-
-
-      {/* Closing */}
-      <h2 className="text-2xl font-semibold mt-12">Why Green Agri Corp?</h2>
-      <p>
-        With its focus on <strong>premium rice trading</strong>, Green Agri Corp
-        delivers a modern, transparent, and scalable solution for international
-        agriculture. From quote requests to analytics and inventory tracking,
-        every feature is designed to empower smooth and sustainable trade
-        operations.
-      </p>
-    </article>
+        <div className="mt-10 rounded-2xl bg-slate-900 px-7 py-10 text-slate-100 md:px-10">
+          <h3 className="text-2xl font-black md:text-3xl">Planning a domain-specific business platform?</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-300 md:text-base">
+            We can architect the same operational clarity for your industry use case.
+          </p>
+          <Link
+            href="/contact-us"
+            className="mt-6 inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200"
+          >
+            Discuss Requirements
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

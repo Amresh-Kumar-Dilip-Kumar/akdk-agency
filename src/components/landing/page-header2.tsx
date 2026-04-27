@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 export const PageHeader = ({
   heading,
@@ -9,38 +12,60 @@ export const PageHeader = ({
   description: React.ReactNode;
 }) => {
   return (
-    <div className="relative bg-gray-950 text-white overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-red-600 z-20" />
-
-      <div className="absolute inset-0 z-0">
+    <section className="relative overflow-hidden border-b border-border bg-background pt-28 md:pt-32">
+      <div className="absolute inset-0 template-grid opacity-40" />
+      <div className="pointer-events-none absolute inset-0 z-0">
         <Image
           src="/hero.webp"
           alt="AKDK Digital office background"
           fill
-          className="object-cover object-center opacity-10"
+          className="object-cover object-center opacity-[0.08] dark:opacity-[0.05]"
           priority
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 lg:py-32">
-        <div className="grid xl:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-red-500 text-xs font-bold uppercase tracking-[0.25em] mb-6">
+      <div className="pointer-events-none absolute left-1/2 top-6 z-10 h-56 w-[70%] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -left-14 top-20 z-10 h-44 w-44 rounded-full bg-sky-300/10 blur-3xl"
+      />
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -right-12 bottom-10 z-10 h-52 w-52 rounded-full bg-primary/15 blur-3xl"
+      />
+
+      <div className="relative z-20 mx-auto max-w-6xl px-6 pb-16 lg:px-10 lg:pb-20">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+          >
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
               AKDK Digital
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+            <h1 className="text-balance text-4xl font-black leading-tight text-foreground md:text-6xl">
               {heading}
             </h1>
-            <div className="w-16 h-1 bg-red-600 mt-6" />
-          </div>
+          </motion.div>
 
-          <div className="border-l border-white/10 pl-12">
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.45 }}
+            className="rounded-xl border border-border bg-card/80 p-6 backdrop-blur"
+          >
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               {description}
             </p>
-          </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary/90">
+              Strategy • Design • Engineering
+            </p>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

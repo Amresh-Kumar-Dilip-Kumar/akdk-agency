@@ -1,223 +1,115 @@
 "use client";
 
-import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import { Mail, Phone, MapPin, ArrowRight, Code2 } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Newsletter from "./Newsletter";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Footer() {
+  const navLinks = [
+    { name: "About", path: "/about-us" },
+    { name: "Services", path: "/service" },
+    { name: "Projects", path: "/project" },
+    { name: "Career", path: "/career" },
+  ];
+
+  const legalLinks = [
+    { name: "Terms & Conditions", path: "/tmcd" },
+    { name: "Privacy Policy", path: "/privacy" },
+  ];
+
   return (
-    <footer className="bg-white border-t border-gray-200">
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
-          {/* Company Info */}
+    <footer className="border-t border-border bg-card/70">
+      <div className="mx-auto w-full max-w-7xl px-6 pb-10 pt-16 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-1 space-y-6"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="space-y-5"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-red-600 flex items-center justify-center flex-shrink-0">
-                <Code2 className="w-6 h-6 text-white" />
+            <div className="space-y-2">
+              <div className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                AKDK Digital
               </div>
-              <div className="flex flex-col">
-                <h1 className="text-2xl font-black tracking-tight leading-none">
-                  AKDK
-                </h1>
-                <span className="text-sm font-bold text-red-500 uppercase tracking-wider">
-                  Digital
-                </span>
-              </div>
+              <h2 className="max-w-md text-2xl font-bold leading-tight text-foreground md:text-3xl">
+                Websites and products crafted with speed, clarity, and measurable outcomes.
+              </h2>
             </div>
 
-            <p className="text-gray-600 leading-relaxed font-medium">
-              Crafting extraordinary digital experiences that drive real
-              business results. We transform ideas into powerful web solutions.
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+              We build conversion-focused digital experiences for growing teams and early-stage companies.
             </p>
 
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-500 hover:text-red-600 transition-colors">
-                <Mail className="w-4 h-4 text-red-600 flex-shrink-0" />
-                <span className="text-sm font-medium">
-                  akdkdigital@gmail.com
-                </span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-500 hover:text-gray-950 transition-colors">
-                <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-sm font-medium">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-500 hover:text-gray-950 transition-colors">
-                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-sm font-medium">
-                  Global Digital Agency
-                </span>
-              </div>
-            </div>
+            <Link
+              href="mailto:akdkdigital@gmail.com"
+              className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              <Mail className="h-4 w-4" />
+              akdkdigital@gmail.com
+            </Link>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="space-y-6"
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.5 }}
+            className="space-y-4"
           >
-            <h3 className="text-xl font-black text-gray-900">Quick Links</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Navigate
+            </h3>
             <ul className="space-y-2">
-              {[
-                { name: "About Us", path: "/about-us" },
-                { name: "Our Services", path: "/service" },
-                { name: "Portfolio", path: "/project" },
-                { name: "Career", path: "/career" },
-              ].map((link, index) => (
-                <motion.li
-                  key={index}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+              {navLinks.map((link) => (
+                <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="text-gray-600 hover:text-red-500 transition-colors duration-300 flex items-center gap-2 group py-2 font-medium"
+                    className="inline-flex items-center gap-2 text-sm text-foreground/85 transition-colors hover:text-primary"
                   >
-                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
+                    <ArrowUpRight className="h-3.5 w-3.5" />
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="space-y-6"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="space-y-4"
           >
-            <h3 className="text-xl font-black  text-gray-900"> Our Services</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Legal & Theme
+            </h3>
             <div className="space-y-2">
-              {[
-                "Web Development",
-                "Mobile Apps",
-                "E-commerce Solutions",
-                "UI/UX Design",
-                "Digital Marketing",
-                "SEO Optimization",
-              ].map((service, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="text-gray-600 hover:text-red-500 transition-colors duration-300 flex items-center gap-2 group cursor-pointer py-2 font-medium"
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className="block text-sm text-foreground/85 transition-colors hover:text-primary"
                 >
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  {service}
-                </motion.div>
+                  {link.name}
+                </Link>
               ))}
             </div>
-          </motion.div>
-
-          {/* Newsletter & Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="space-y-6"
-          >
-            <Newsletter />
-
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-4">
-                Follow Us
-              </h4>
-              <div className="flex gap-3">
-                {[
-                  {
-                    icon: FaLinkedin,
-                    href: "https://linkedin.com",
-                    color: "blue",
-                  },
-                  {
-                    icon: FaInstagram,
-                    href: "https://www.instagram.com/akdk_agency?igsh=d3d0dGM5cDdlNXo3",
-                    color: "pink",
-                  },
-                  {
-                    icon: FaTwitter,
-                    href: "https://twitter.com",
-                    color: "blue",
-                  },
-                  { icon: FaGithub, href: "https://github.com", color: "gray" },
-                ].map((social, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -2, scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 border-2 border-gray-200 hover:border-red-500 flex items-center justify-center text-gray-500 hover:text-red-500 transition-all duration-300 hover:bg-red-50"
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            <ThemeToggle />
           </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-200 my-8"></div>
-
-        {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+          viewport={{ once: true }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-sm text-muted-foreground md:flex-row md:items-center"
         >
-          <div className="text-gray-500 text-sm font-medium">
-            © 2025 AKDK Digital. All rights reserved. Built with ❤️ for digital
-            innovation.
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <Link
-              href="/tmcd"
-              className="text-gray-500 hover:text-red-500 transition-colors duration-300 font-medium"
-            >
-              Terms & Conditions
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-gray-500 hover:text-red-500 transition-colors duration-300 font-medium"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/contact-us"
-              className="text-gray-500 hover:text-red-500 transition-colors duration-300 font-medium"
-            >
-              Support
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-            <span>Made with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              ❤️
-            </motion.div>
-            <span>in India</span>
-          </div>
+          <div>© 2026 AKDK Digital. All rights reserved.</div>
+          <div className="text-xs uppercase tracking-[0.2em]">Crafted in India</div>
         </motion.div>
       </div>
     </footer>

@@ -1,363 +1,130 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  CheckCircle,
-  Briefcase,
-  Users,
-  Rocket,
-  Smile,
-  MapPin,
-  Clock,
-  ArrowRight,
-  Zap,
-  Target,
-  Send,
-} from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { MapPin, Clock, Rocket, Users, Briefcase } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
 import { ApplyNowModal } from "@/components/careers/apply-now-modal";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+const benefits = [
+  "Build products with modern tools and clear ownership.",
+  "Work in a collaborative team with practical mentorship.",
+  "Flexible working style focused on outcomes over hours.",
+  "Contribute to projects used by real businesses.",
+];
+
+const jobs = [
+  {
+    title: "Frontend Developer",
+    location: "Raipur / Remote",
+    type: "Full-time",
+    status: "Closed",
+    description:
+      "Create polished interfaces with React and modern frontend architecture for production applications.",
+  },
+  {
+    title: "UI/UX Designer",
+    location: "Raipur / Remote",
+    type: "Internship",
+    status: "Open",
+    description:
+      "Design user flows and visual systems that simplify complex tasks and improve conversion outcomes.",
+  },
+  {
+    title: "Backend Developer",
+    location: "Raipur / Remote",
+    type: "Full-time",
+    status: "Open",
+    description:
+      "Develop robust backend services, APIs, and data models that power reliable product experiences.",
+  },
+];
 
 export default function CareerPage() {
   return (
     <section>
       <PageHeader
-        heading={<>Career At AKDK Digital</>}
+        heading={<>Join a team that ships meaningful digital products.</>}
         description={
           <>
-            Join our passionate team in shaping the future of web development
-            and digital innovation. Be part of something{" "}
-            <span className="font-bold text-white bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
-              extraordinary
-            </span>
-            .
+            We are building a culture of ownership, quality, and continuous growth.
+            If that matches your mindset, we would like to hear from you.
           </>
         }
       />
 
-      {/* Why Work With Us Section */}
-      <section className="py-24 bg-[#FAFAF9]">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
-              <Rocket className="w-4 h-4" />
-              Careers
-            </div>
-
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-950">
-              Why Join AKDK?
+      <section className="border-b border-border py-16 md:py-20">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_1fr] lg:items-center lg:px-10">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Why Join</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight md:text-4xl">
+              Build your career with high-impact projects.
             </h2>
-
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-              Experience a workplace that values creativity, growth, and
-              innovation while building the future of digital experiences.
-            </p>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Rocket className="w-8 h-8" />,
-                title: "Innovative Projects",
-                desc: "Work on cutting-edge digital solutions across industries with the latest technologies.",
-                color: "from-blue-500 to-cyan-500",
-                bgColor: "from-blue-50 to-cyan-50",
-              },
-              {
-                icon: <Users className="w-8 h-8" />,
-                title: "Creative Culture",
-                desc: "Collaborate in a friendly, open, and learning-oriented environment that celebrates creativity.",
-                color: "from-green-500 to-emerald-500",
-                bgColor: "from-green-50 to-emerald-50",
-              },
-              {
-                icon: <Briefcase className="w-8 h-8" />,
-                title: "Growth Opportunities",
-                desc: "Advance your career with mentorship, training, and real-world challenges.",
-                color: "from-purple-500 to-pink-500",
-                bgColor: "from-purple-50 to-pink-50",
-              },
-              {
-                icon: <Smile className="w-8 h-8" />,
-                title: "Flexible Work",
-                desc: "Enjoy remote options, flexible timings, and perfect work-life balance.",
-                color: "from-orange-500 to-red-500",
-                bgColor: "from-orange-50 to-red-50",
-              },
-              {
-                icon: <CheckCircle className="w-8 h-8" />,
-                title: "Supportive Team",
-                desc: "Be part of a team that supports, respects, and celebrates every achievement.",
-                color: "from-indigo-500 to-blue-500",
-                bgColor: "from-indigo-50 to-blue-50",
-              },
-            ].map((item, i) => (
-              <div key={i} className="group relative">
-                <div className="bg-white border border-gray-200 p-8 h-full">
-                  <div
-                    className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white mb-6"
-                  >
-                    {item.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed font-light">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Open Positions Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
-              <Briefcase className="w-4 h-4" />
-              Openings
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-950">
-              Open Positions
-            </h2>
-
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Ready to make an impact? Explore our current openings and find
-              your perfect role.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {[
-              {
-                title: "Frontend Developer",
-                location: "Raipur / Remote",
-                type: "Full-time",
-                description:
-                  "Design and build engaging, user-friendly UI components using React, Tailwind, or any other modern technology of your choice—bring your creativity and preferred tools to craft impressive digital experiences.",
-                color: "from-blue-500 to-cyan-500",
-                position: "Close",
-              },
-              {
-                title: "UI/UX Designer",
-                location: "Raipur / Remote",
-                type: "Internship",
-                description:
-                  "Create intuitive, visually appealing experiences tailored to client needs—whether you're skilled in UI/UX design tools, front-end frameworks, or prefer bringing your own creative process, your design thinking is what makes the difference.",
-                color: "from-green-500 to-emerald-500",
-                position: "Open",
-              },
-              {
-                title: "Backend Developer",
-                location: "Raipur / Remote",
-                type: "Full-time",
-                description:
-                  "Build and maintain scalable, efficient backend systems using technologies like Node.js, databases, or any stack you're comfortable with—what matters most is writing clean, secure code that powers great user experiences.",
-                color: "from-purple-500 to-pink-500",
-                position: "Open",
-              },
-            ].map((job, i) => (
-              <div key={i} className="group relative">
-                <div className="bg-white border border-gray-200 p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
-                    <div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors duration-300">
-                        {job.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 text-gray-600">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4" />
-                          <span>{job.location}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
-                          <span>{job.type}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className={`inline-flex items-center px-3 py-1 text-white text-xs font-bold uppercase tracking-wider mt-4 lg:mt-0 ${job.position === "Open" ? "bg-red-600" : "bg-gray-500"}`}
-                    >
-                      {job.position}
-                    </div>
-                  </div>
-
-                  <p className="text-gray-600 leading-relaxed mb-6 font-light text-lg">
-                    {job.description}
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <ApplyNowModal role={job.title} />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Life at AKDK Section */}
-      <section className="py-24 bg-[#FAFAF9]">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-950">
-              Life at AKDK
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              At{" "}
-              <span className="font-bold text-red-600">
-                AKDK Digital
-              </span>
-              , we believe in creativity, collaboration, and celebrating every
-              achievement—big or small.
-            </p>
-          </div>
-
-          <div className="relative group">
-            <img
-              src="/career.jpg"
-              alt="Our Team"
-              className="relative mx-auto border border-gray-200 w-full max-w-4xl"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* General Application Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-black mb-4 text-gray-900">
-              Didn't Find Your Role?
-            </h2>
-            <p className="text-xl text-gray-600 font-light">
-              Send us your resume and we'll reach out when a suitable position
-              opens up.
-            </p>
-          </div>
-
-          <div className="bg-white border border-gray-200 p-8">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full border border-gray-300 focus:border-red-600 p-4 rounded transition-colors"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full border border-gray-300 focus:border-red-600 p-4 rounded transition-colors"
-                />
-                <input
-                  type="url"
-                  placeholder="Google Drive Resume URL"
-                  className="w-full border border-gray-300 focus:border-red-600 p-4 rounded transition-colors"
-                />
-              </div>
-              <textarea
-                placeholder="Tell us about yourself and what role interests you..."
-                className="w-full border border-gray-300 focus:border-red-600 p-4 rounded h-32 transition-colors"
-              ></textarea>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-red-600 text-white font-bold py-4 hover:bg-red-700 transition-colors"
-              >
-                Submit Application
-                <Send className="w-5 h-5 ml-2" />
-              </Button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-[#FAFAF9]">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 border border-gray-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-600 mb-6">
-              <Target className="w-4 h-4" />
-              FAQ
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-950">
-              Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="bg-white border border-gray-200 p-8">
-            <Accordion
-              type="single"
-              collapsible
-              className="w-full"
-              defaultValue="item-1"
-            >
-              {[
-                {
-                  question: "Can I apply as a fresher or intern?",
-                  answer:
-                    "Absolutely! We welcome freshers, interns, and students with a passion for learning and building.",
-                },
-                {
-                  question: "What does the hiring process look like?",
-                  answer:
-                    "Our process typically involves an application review, a short interview or task round, and a final discussion with our core team.",
-                },
-                {
-                  question: "What should I include in my application?",
-                  answer:
-                    "Share your resume, portfolio or GitHub (if available), and a short note about why you want to join AKDK.",
-                },
-                {
-                  question: "What technologies do you use at AKDK?",
-                  answer:
-                    "We primarily work with React, Tailwind CSS, Astro, Node.js, Prisma, and modern design tools like Figma.",
-                },
-                {
-                  question: "What's the culture like at AKDK?",
-                  answer:
-                    "We're a small, passionate, and fast-moving team. We value transparency, creativity, and mutual respect.",
-                },
-                {
-                  question: "How long do internships last?",
-                  answer:
-                    "Most internships last 6 to 8 months, with the option to extend based on performance and interest.",
-                },
-                {
-                  question: "Are there growth or mentorship opportunities?",
-                  answer:
-                    "Yes! We actively mentor junior team members, offer learning resources, and encourage upskilling across roles.",
-                },
-              ].map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index + 1}`}
-                  className="border-gray-200"
-                >
-                  <AccordionTrigger className="text-lg font-bold text-gray-900 hover:text-red-700 transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 font-light text-base leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+            <ul className="mt-6 space-y-3">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+                  {benefit}
+                </li>
               ))}
-            </Accordion>
+            </ul>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border"
+          >
+            <Image src="/career.jpg" alt="AKDK team culture" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 40vw" />
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+          <div className="mb-8 flex items-center gap-3">
+            <Briefcase className="h-5 w-5 text-primary" />
+            <h2 className="text-3xl font-black md:text-4xl">Open Positions</h2>
+          </div>
+
+          <div className="space-y-4">
+            {jobs.map((job, index) => (
+              <motion.article
+                key={job.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                className="rounded-xl border border-border bg-card p-6"
+              >
+                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground">{job.title}</h3>
+                    <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
+                      <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4" />{job.location}</span>
+                      <span className="inline-flex items-center gap-1.5"><Clock className="h-4 w-4" />{job.type}</span>
+                      <span className="inline-flex items-center gap-1.5"><Users className="h-4 w-4" />{job.status}</span>
+                    </div>
+                  </div>
+                  <ApplyNowModal role={job.title} />
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{job.description}</p>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-2xl bg-slate-900 px-7 py-10 text-slate-100 md:px-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">General Application</p>
+            <h3 className="mt-2 text-3xl font-black leading-tight md:text-4xl">
+              Do not see your role? We still want to know your strengths.
+            </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 md:text-base">
+              Send your profile with projects and we will reach out when there is a fit.
+            </p>
+            <div className="mt-6 inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900">
+              <Rocket className="mr-2 h-4 w-4" />
+              careers@akdkdigital.com
+            </div>
           </div>
         </div>
       </section>
