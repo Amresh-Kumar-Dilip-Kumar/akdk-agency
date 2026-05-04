@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useAnalytics } from "@/app/(analytics)/_hooks/use-analytics";
 import { ExternalLink } from "lucide-react";
 import {
   ArrowRight,
@@ -215,23 +216,50 @@ const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.3, delayChildren: 0.2 },
   },
 };
 
+const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.75, ease: smoothEase },
+  },
+};
+
+const revealMotion = (
+  direction: "up" | "down" | "left" | "right" = "up",
+  delay = 0,
+  distance = 42,
+) => {
+  const axisMap = {
+    up: { x: 0, y: distance },
+    down: { x: 0, y: -distance },
+    left: { x: distance, y: 0 },
+    right: { x: -distance, y: 0 },
+  };
+
+  return {
+    initial: { opacity: 0, ...axisMap[direction] },
+    whileInView: { opacity: 1, x: 0, y: 0 },
+    viewport: { once: true, amount: 0.15 },
+    transition: { duration: 1.7, delay, ease: smoothEase },
+  };
 };
 
 export default function LandingPageV2() {
   const { scrollYProgress } = useScroll();
+  const { trackEvent } = useAnalytics();
   const heroY = useTransform(scrollYProgress, [0, 0.12], [0, -40]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="overflow-x-hidden pt-20 text-foreground">
+    <main className="overflow-x-hidden pb-24 pt-20 text-foreground md:pb-0">
       <section className="relative border-b border-border pb-20 pt-14 md:pb-24 md:pt-20">
         <div className="absolute inset-0 template-grid opacity-40" />
         <div className="absolute left-1/2 top-8 h-44 w-[70%] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
@@ -249,33 +277,51 @@ export default function LandingPageV2() {
               variants={fadeUp}
               className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary"
             >
-              Digital Products Built To Perform
+              Trusted by founders. 50+ launches. Fast delivery.
             </motion.span>
             <motion.h1 variants={fadeUp} className="mt-6 text-balance text-4xl font-black leading-[1.03] md:text-6xl">
-              Web Experiences
+              Build Conversion-Ready
               <br />
-              Crafted For Growth
+              Websites and Apps
             </motion.h1>
             <motion.p variants={fadeUp} className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              We design and build conversion-focused websites, apps, and dashboards
-              with performance-first architecture and clear business intent.
+              AKDK Digital designs and ships fast, scalable digital products for startups
+              and growth-stage businesses with clear business outcomes.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact-us"
+                onClick={() =>
+                  trackEvent("click", "hero_cta_click", "Book a Free Strategy Call", {
+                    page: "/",
+                    section: "hero",
+                    ctaText: "Book a Free Strategy Call",
+                  })
+                }
                 className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
-                Book Discovery Call
+                Book a Free Strategy Call
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link
                 href="/project"
+                onClick={() =>
+                  trackEvent("click", "hero_cta_click", "See Our Case Studies", {
+                    page: "/",
+                    section: "hero",
+                    ctaText: "See Our Case Studies",
+                  })
+                }
                 className="inline-flex items-center rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
               >
-                View Case Studies
+                See Our Case Studies
               </Link>
             </motion.div>
+
+            <motion.p variants={fadeUp} className="mt-3 text-xs font-medium text-muted-foreground">
+              We respond within 24 hours.
+            </motion.p>
 
             <motion.div variants={fadeUp} className="mt-7 flex flex-wrap gap-5 text-sm text-muted-foreground">
               {[
@@ -292,9 +338,9 @@ export default function LandingPageV2() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            initial={{ opacity: 0, x: 42, y: 14, scale: 0.97 }}
+            animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+            transition={{ delay: 0.38, duration: 1.95, ease: smoothEase }}
             className="relative lg:pl-6"
             style={{ y: heroY }}
           >
@@ -358,9 +404,7 @@ export default function LandingPageV2() {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...revealMotion("left")}
             className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end"
           >
             <div>
@@ -381,16 +425,20 @@ export default function LandingPageV2() {
 
           {/* Filter Tabs */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            {...revealMotion("down", 0.12)}
             className="mt-8 flex flex-wrap gap-2"
           >
             {portfolioFilters.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => {
+                  setActiveFilter(filter);
+                  trackEvent("interaction", "project_filter_change", filter, {
+                    page: "/",
+                    section: "portfolio",
+                    selectedFilter: filter,
+                  });
+                }}
                 className={`relative rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                   activeFilter === filter
                     ? "bg-primary text-primary-foreground shadow-md shadow-primary/30"
@@ -426,14 +474,25 @@ export default function LandingPageV2() {
               return (
                 <motion.div
                   key={activeFilter}
-                  initial={{ opacity: 0, y: 14 }}
+                  initial={{ opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.35 }}
+                  exit={{ opacity: 0, y: -18 }}
+                  transition={{ duration: 1.35, ease: smoothEase }}
                   className={`mt-8 grid gap-5 ${rest.length > 0 ? "lg:grid-cols-2" : ""}`}
                 >
                   {/* Featured card */}
-                  <Link href={featured.detail} className="group relative overflow-hidden rounded-2xl border border-border bg-card">
+                  <Link
+                    href={featured.detail}
+                    onClick={() =>
+                      trackEvent("click", "case_study_click", featured.title, {
+                        page: "/",
+                        section: "portfolio",
+                        projectTitle: featured.title,
+                        projectCategory: featured.category,
+                      })
+                    }
+                    className="group relative overflow-hidden rounded-2xl border border-border bg-card"
+                  >
                     <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[400px]">
                       <Image
                         src={featured.image}
@@ -474,7 +533,15 @@ export default function LandingPageV2() {
                               href={featured.link}
                               target="_blank"
                               rel="noreferrer"
-                              onClick={(e) => e.stopPropagation()}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                trackEvent("click", "project_live_site_click", featured.title, {
+                                  page: "/",
+                                  section: "portfolio",
+                                  projectTitle: featured.title,
+                                  outboundUrl: featured.link,
+                                });
+                              }}
                               className="inline-flex items-center gap-1.5 rounded-md border border-white/40 px-4 py-2 text-xs font-semibold text-white hover:bg-white/10"
                             >
                               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -494,6 +561,14 @@ export default function LandingPageV2() {
                         <Link
                           key={project.title}
                           href={project.detail}
+                          onClick={() =>
+                            trackEvent("click", "case_study_click", project.title, {
+                              page: "/",
+                              section: "portfolio",
+                              projectTitle: project.title,
+                              projectCategory: project.category,
+                            })
+                          }
                           className="group relative flex-1 overflow-hidden rounded-2xl border border-border bg-card"
                         >
                           <div className="relative aspect-[16/7] w-full">
@@ -535,7 +610,15 @@ export default function LandingPageV2() {
                                     href={project.link}
                                     target="_blank"
                                     rel="noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      trackEvent("click", "project_live_site_click", project.title, {
+                                        page: "/",
+                                        section: "portfolio",
+                                        projectTitle: project.title,
+                                        outboundUrl: project.link,
+                                      });
+                                    }}
                                     className="inline-flex items-center gap-1 rounded-md border border-white/40 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/10"
                                   >
                                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -570,10 +653,10 @@ export default function LandingPageV2() {
             {services.map((service, index) => (
               <motion.div
                 key={service}
-                initial={{ opacity: 0, x: 12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.35 }}
+                initial={index % 2 === 0 ? { opacity: 0, x: -28 } : { opacity: 0, y: -28 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.18, duration: 1.55, ease: smoothEase }}
                 className="rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium text-foreground"
               >
                 {service}
@@ -589,9 +672,7 @@ export default function LandingPageV2() {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...revealMotion("down")}
             className="text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Our Team</p>
@@ -606,10 +687,16 @@ export default function LandingPageV2() {
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12, duration: 0.45 }}
+                initial={
+                  index % 3 === 0
+                    ? { opacity: 0, x: -34 }
+                    : index % 3 === 1
+                    ? { opacity: 0, y: -30 }
+                    : { opacity: 0, x: 34 }
+                }
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.2, duration: 1.6, ease: smoothEase }}
                 className="group relative flex w-[220px] flex-col items-center"
               >
                 {/* Photo with hover ring */}
@@ -660,10 +747,7 @@ export default function LandingPageV2() {
 
           {/* Soft CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.25 }}
+            {...revealMotion("up", 0.22)}
             className="mt-14 text-center"
           >
             <p className="text-sm text-muted-foreground">
@@ -680,9 +764,7 @@ export default function LandingPageV2() {
       <section className="border-b border-border bg-card/40 py-16 md:py-24">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...revealMotion("right")}
             className="text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Our Pricing Plans</p>
@@ -696,10 +778,10 @@ export default function LandingPageV2() {
             {pricingPlans.map((plan, index) => (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.45 }}
+                initial={index % 2 === 0 ? { opacity: 0, x: -30 } : { opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.2, duration: 1.6, ease: smoothEase }}
                 className={`relative flex flex-col rounded-2xl border p-6 ${
                   plan.highlighted
                     ? "border-primary bg-primary text-primary-foreground shadow-xl shadow-primary/25"
@@ -738,6 +820,14 @@ export default function LandingPageV2() {
                 {/* CTA */}
                 <Link
                   href="/contact-us"
+                  onClick={() =>
+                    trackEvent("click", "pricing_plan_select", plan.name, {
+                      page: "/",
+                      section: "pricing",
+                      planName: plan.name,
+                      ctaText: plan.cta,
+                    })
+                  }
                   className={`mt-5 inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-bold transition-all ${
                     plan.highlighted
                       ? "bg-white text-primary hover:bg-white/90"
@@ -773,7 +863,7 @@ export default function LandingPageV2() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.65, duration: 1.6, ease: smoothEase }}
             className="mt-8 text-center text-xs text-muted-foreground"
           >
             All prices are indicative. Final scope and cost confirmed after a free discovery call.{" "}
@@ -790,9 +880,7 @@ export default function LandingPageV2() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
             {/* Left */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              {...revealMotion("left")}
               className="lg:sticky lg:top-24"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">FAQ</p>
@@ -813,22 +901,30 @@ export default function LandingPageV2() {
 
             {/* Right — accordion */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              {...revealMotion("right", 0.1)}
               className="space-y-3"
             >
               {faqs.map((faq, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: index * 0.14, duration: 1.45, ease: smoothEase }}
                   className="overflow-hidden rounded-xl border border-border bg-card"
                 >
                   <button
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    onClick={() => {
+                      const nextOpen = openFaq === index ? null : index;
+                      setOpenFaq(nextOpen);
+                      if (nextOpen !== null) {
+                        trackEvent("interaction", "faq_expand", faq.q, {
+                          page: "/",
+                          section: "faq",
+                          question: faq.q,
+                        });
+                      }
+                    }}
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-bold text-foreground transition-colors hover:text-primary"
                   >
                     <span>{faq.q}</span>
@@ -842,7 +938,7 @@ export default function LandingPageV2() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: "easeInOut" }}
+                        transition={{ duration: 0.82, ease: smoothEase }}
                       >
                         <p className="border-t border-border px-5 py-4 text-sm leading-relaxed text-muted-foreground">
                           {faq.a}
@@ -861,9 +957,7 @@ export default function LandingPageV2() {
       <section className="border-b border-border bg-card/40 py-16 md:py-24">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...revealMotion("down")}
             className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end"
           >
             <div>
@@ -886,10 +980,16 @@ export default function LandingPageV2() {
             {insights.map((post, index) => (
               <motion.article
                 key={post.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.45 }}
+                initial={
+                  index % 3 === 0
+                    ? { opacity: 0, x: -30 }
+                    : index % 3 === 1
+                    ? { opacity: 0, y: -28 }
+                    : { opacity: 0, x: 30 }
+                }
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.2, duration: 1.55, ease: smoothEase }}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow hover:shadow-lg hover:shadow-black/5"
               >
                 {/* Image */}
@@ -931,9 +1031,7 @@ export default function LandingPageV2() {
       <section className="py-20">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...revealMotion("up")}
             className="relative overflow-hidden rounded-2xl bg-slate-900 px-7 py-10 text-slate-100 md:px-12 md:py-12"
           >
             <div className="pointer-events-none absolute -bottom-14 -right-8 h-40 w-40 rounded-full bg-sky-300/10 blur-2xl" />
@@ -944,12 +1042,26 @@ export default function LandingPageV2() {
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact-us"
+                onClick={() =>
+                  trackEvent("click", "schedule_call_click", "Book A Discovery Call", {
+                    page: "/",
+                    section: "final_cta",
+                    ctaText: "Book A Discovery Call",
+                  })
+                }
                 className="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200"
               >
                 Book A Discovery Call
               </Link>
               <Link
                 href="/service"
+                onClick={() =>
+                  trackEvent("click", "services_cta_click", "View Services", {
+                    page: "/",
+                    section: "final_cta",
+                    ctaText: "View Services",
+                  })
+                }
                 className="inline-flex items-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white"
               >
                 View Services
@@ -958,6 +1070,22 @@ export default function LandingPageV2() {
           </motion.div>
         </div>
       </section>
+
+      <div className="fixed inset-x-0 bottom-4 z-40 px-4 md:hidden">
+        <Link
+          href="/contact-us"
+          onClick={() =>
+            trackEvent("click", "sticky_mobile_cta_click", "Book Free Strategy Call", {
+              page: "/",
+              section: "sticky_mobile_cta",
+              ctaText: "Book Free Strategy Call",
+            })
+          }
+          className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-primary/30"
+        >
+          Book Free Strategy Call
+        </Link>
+      </div>
     </main>
   );
 }

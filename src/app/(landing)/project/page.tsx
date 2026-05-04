@@ -6,6 +6,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
+import { useAnalytics } from "@/app/(analytics)/_hooks/use-analytics";
 
 const projects = [
   {
@@ -46,6 +47,7 @@ const projects = [
 const filters = ["All", "E-commerce", "Operations", "B2B Platform"];
 
 export default function ProjectPage() {
+  const { trackEvent } = useAnalytics();
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filtered =
@@ -78,7 +80,14 @@ export default function ProjectPage() {
           {filters.map((f) => (
             <button
               key={f}
-              onClick={() => setActiveFilter(f)}
+              onClick={() => {
+                setActiveFilter(f);
+                trackEvent("interaction", "project_filter_change", f, {
+                  page: "/project",
+                  section: "filter_bar",
+                  selectedFilter: f,
+                });
+              }}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                 activeFilter === f
                   ? "bg-primary text-primary-foreground shadow-md shadow-primary/30"
@@ -165,6 +174,14 @@ export default function ProjectPage() {
                           href={featured.link}
                           target="_blank"
                           rel="noreferrer"
+                          onClick={() =>
+                            trackEvent("click", "project_live_site_click", featured.title, {
+                              page: "/project",
+                              section: "featured_project",
+                              projectTitle: featured.title,
+                              outboundUrl: featured.link,
+                            })
+                          }
                           className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                         >
                           Live Project
@@ -172,6 +189,13 @@ export default function ProjectPage() {
                         </a>
                         <Link
                           href={featured.detail}
+                          onClick={() =>
+                            trackEvent("click", "case_study_click", featured.title, {
+                              page: "/project",
+                              section: "featured_project",
+                              projectTitle: featured.title,
+                            })
+                          }
                           className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
                         >
                           Case Study
@@ -190,6 +214,14 @@ export default function ProjectPage() {
                     <Link
                       key={project.title}
                       href={project.detail}
+                      onClick={() =>
+                        trackEvent("click", "case_study_click", project.title, {
+                          page: "/project",
+                          section: "project_grid",
+                          projectTitle: project.title,
+                          projectCategory: project.category,
+                        })
+                      }
                       className="group relative overflow-hidden rounded-2xl border border-border bg-card"
                     >
                       <div className="relative aspect-[16/10]">
@@ -234,7 +266,15 @@ export default function ProjectPage() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noreferrer"
-                                onClick={(e) => e.stopPropagation()}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  trackEvent("click", "project_live_site_click", project.title, {
+                                    page: "/project",
+                                    section: "project_grid",
+                                    projectTitle: project.title,
+                                    outboundUrl: project.link,
+                                  });
+                                }}
                                 className="inline-flex items-center gap-1.5 rounded-md border border-white/40 px-3 py-2 text-xs font-semibold text-white hover:bg-white/10"
                               >
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -259,6 +299,22 @@ export default function ProjectPage() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+
+      <div className="fixed inset-x-0 bottom-4 z-40 px-4 md:hidden">
+        <Link
+          href="/contact-us"
+          onClick={() =>
+            trackEvent("click", "sticky_mobile_cta_click", "Start Your Project", {
+              page: "/project",
+              section: "sticky_mobile_cta",
+              ctaText: "Start Your Project",
+            })
+          }
+          className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-primary/30"
+        >
+          Start Your Project
+        </Link>
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
+import { useAnalytics } from "@/app/(analytics)/_hooks/use-analytics";
 
 const services = [
   {
@@ -45,6 +46,8 @@ const services = [
 ];
 
 export default function ServicePage() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section>
       <PageHeader
@@ -83,6 +86,13 @@ export default function ServicePage() {
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
                   <Link
                     href={service.link}
+                    onClick={() =>
+                      trackEvent("click", "services_card_click", service.title, {
+                        page: "/service",
+                        section: "services_grid",
+                        serviceName: service.title,
+                      })
+                    }
                     className="mt-5 inline-flex items-center text-sm font-semibold text-primary"
                   >
                     Learn More
@@ -100,6 +110,13 @@ export default function ServicePage() {
             </h2>
             <Link
               href="/contact-us"
+              onClick={() =>
+                trackEvent("click", "services_cta_click", "Get Free Consultation", {
+                  page: "/service",
+                  section: "bottom_cta",
+                  ctaText: "Get Free Consultation",
+                })
+              }
               className="mt-6 inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200"
             >
               Get Free Consultation
@@ -108,6 +125,22 @@ export default function ServicePage() {
           </div>
         </div>
       </section>
+
+      <div className="fixed inset-x-0 bottom-4 z-40 px-4 md:hidden">
+        <Link
+          href="/contact-us"
+          onClick={() =>
+            trackEvent("click", "sticky_mobile_cta_click", "Get Free Consultation", {
+              page: "/service",
+              section: "sticky_mobile_cta",
+              ctaText: "Get Free Consultation",
+            })
+          }
+          className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-xl shadow-primary/30"
+        >
+          Get Free Consultation
+        </Link>
+      </div>
     </section>
   );
 }

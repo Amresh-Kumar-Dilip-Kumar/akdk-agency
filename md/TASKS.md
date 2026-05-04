@@ -89,3 +89,13 @@
 🔴 **High Priority** - Critical fixes and security issues
 🟡 **Medium Priority** - UI improvements and performance
 🟢 **Low Priority** - Nice-to-have features and enhancements
+
+## 🌐 Website Growth Execution (New)
+- [ ] Review and adopt md/ENGAGEMENT_GROWTH_PLAYBOOK.md as source of truth
+- [ ] Update Home page hero copy and CTA hierarchy as defined in the playbook
+- [ ] Add trust strip and response-time promise to top conversion sections
+- [ ] Implement full /project/shopsite case study with measurable outcomes
+- [ ] Upgrade /contact-us to multi-step form with lower first-step friction
+- [ ] Add analytics events: hero_cta_click, contact_form_start, contact_form_submit
+- [ ] Decide fate of /services-details (dynamic implementation or redirect to /service)
+- [ ] Publish first high-intent article from playbook topic list

@@ -1,11 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { PageHeader } from "@/components/landing/page-header2";
+import { useAnalytics } from "@/app/(analytics)/_hooks/use-analytics";
 import { contactformdetail } from "./serveraction";
 
 export default function ContactPage() {
+  const { trackEvent, trackFormSubmission } = useAnalytics();
+  const hasTrackedStart = useRef(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,6 +17,15 @@ export default function ContactPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+
+  const trackContactFormStart = () => {
+    if (hasTrackedStart.current) return;
+    hasTrackedStart.current = true;
+    trackEvent("form", "contact_form_start", "contact-us", {
+      page: "/contact-us",
+      section: "project_inquiry_form",
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,6 +42,16 @@ export default function ContactPage() {
     setSubmitting(true);
     setSuccessMessage("");
 
+    trackFormSubmission("contact_us_inquiry", {
+      page: "/contact-us",
+      hasMessage: Boolean(formData.message.trim()),
+      acceptedTerms: formData.terms,
+    });
+    trackEvent("form", "contact_form_submit", "contact-us", {
+      page: "/contact-us",
+      section: "project_inquiry_form",
+    });
+
     const requestData = new FormData();
     requestData.append("name", formData.name);
     requestData.append("email", formData.email);
@@ -38,9 +60,16 @@ export default function ContactPage() {
 
     try {
       await contactformdetail(requestData);
+      trackEvent("form", "contact_form_submit_success", "contact-us", {
+        page: "/contact-us",
+      });
       setSuccessMessage("Thanks for reaching out. We will contact you shortly.");
       setFormData({ name: "", email: "", message: "", terms: false });
+      hasTrackedStart.current = false;
     } catch (error) {
+      trackEvent("form", "contact_form_submit_error", "contact-us", {
+        page: "/contact-us",
+      });
       console.error(error);
     } finally {
       setSubmitting(false);
@@ -70,7 +99,7 @@ export default function ContactPage() {
             <article className="rounded-xl border border-border bg-card p-5">
               <Phone className="h-5 w-5 text-primary" />
               <h2 className="mt-3 text-lg font-bold text-foreground">Call</h2>
-              <p className="mt-1 text-sm text-muted-foreground">+91 XXX XXX XXXX</p>
+              <p className="mt-1 text-sm text-muted-foreground">Call support available after inquiry confirmation.</p>
             </article>
             <article className="rounded-xl border border-border bg-card p-5">
               <Mail className="h-5 w-5 text-primary" />
@@ -109,6 +138,7 @@ export default function ContactPage() {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
+                onFocus={trackContactFormStart}
                 required
                 className="w-full rounded-md border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
@@ -119,6 +149,7 @@ export default function ContactPage() {
                 placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
+                onFocus={trackContactFormStart}
                 required
                 className="w-full rounded-md border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
@@ -128,6 +159,7 @@ export default function ContactPage() {
                 placeholder="Tell us what you need"
                 value={formData.message}
                 onChange={handleChange}
+                onFocus={trackContactFormStart}
                 required
                 className="h-36 w-full resize-none rounded-md border border-input bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
@@ -139,6 +171,7 @@ export default function ContactPage() {
                   name="terms"
                   checked={formData.terms}
                   onChange={handleChange}
+                  onFocus={trackContactFormStart}
                   required
                   className="mt-0.5 h-4 w-4 rounded border-border"
                 />
